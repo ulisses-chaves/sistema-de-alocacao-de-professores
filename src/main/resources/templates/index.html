@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tabela Dinamica</title>
+    <link rel="stylesheet" type="text/css" href="/css/estilo.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="/js/professor.js" >
+    </script>
+    <script type="text/javascript" src="/js/script.js">
+    </script>
+</head>
+
+<body>
+    <table class="tabelaEditavel" id="tabela">
+        <thead>
+            <tr>
+                <th id="codigo" >Código</th>
+                <th id="nome" >Nome</th>
+                <th id="email" >E-mail</th>
+                <th id="telefone" >Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        addProfessor(new Professor(1,"João Carlos","joca@email.com","(21) 9999-8888"));
+        addProfessor(new Professor(2,"Maria Silva","mariasilva@mail.com","(81) 8787-8686"));
+        addProfessor(new Professor(3,"José Pedro","zepedro@meuemail.com","(84) 3232-3232"));
+        ordenar(2);
+    </script>
+</body>
+
+</html>
