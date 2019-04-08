@@ -1,39 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tabela Dinamica</title>
-    <link rel="stylesheet" type="text/css" href="/css/estilo.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-    </script>
-    <script type="text/javascript" src="/js/professor.js" >
-    </script>
-    <script type="text/javascript" src="/js/script.js">
-    </script>
-</head>
-
-<body>
-    <table class="tabelaEditavel" id="tabela">
-        <thead>
-            <tr>
-                <th id="codigo" >Código</th>
-                <th id="nome" >Nome</th>
-                <th id="email" >E-mail</th>
-                <th id="telefone" >Telefone</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-    <script>
-        addProfessor(new Professor(1,"João Carlos","joca@email.com","(21) 9999-8888"));
-        addProfessor(new Professor(2,"Maria Silva","mariasilva@mail.com","(81) 8787-8686"));
-        addProfessor(new Professor(3,"José Pedro","zepedro@meuemail.com","(84) 3232-3232"));
-        ordenar(2);
-    </script>
-</body>
-
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>SAP - UFRPE</title>
+        <link rel="stylesheet" href="../static/css/normalize.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet"> 
+    </head>
+    <body>
+        <div class="header">
+            <div class="linha">
+                <header>
+                    <div class="coluna col3">
+                        <img src="../static/img/ufrpe-logo.png" alt="" class="logo">
+                    </div>
+                    <div class="coluna col9">
+                        <nav class="menu">
+                            <ul class="inline sem-marcador">
+                                <li><a href="">UFRPE</a></li>
+                                <li><a href="">Home</a></li>
+                                <li><a href="">Sobre</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div class="degrade">
+            <br>
+        </div>
+        <div class="section">
+            <div class="linha section">
+                <section>
+                    <div class="coluna col12 login">
+                        <h1>Sistema de Alocação de Professores</h1>
+                        <br>
+                        <form action="" method="GET">
+                            <label for="login">Login: </label>
+                            <input type="text" name="login">
+                            <br>
+                            <br>
+                            <br>    
+                            <label for="senha">Senha: </label>
+                            <input type="text" name="senha">
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
 </html>

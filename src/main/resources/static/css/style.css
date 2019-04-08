@@ -1,0 +1,81 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    color: #333; 
+}
+.header{
+    background-image: linear-gradient(to bottom, #ffffff, #ebebeb);
+}
+.degrade{
+        background-repeat: no-repeat;
+        display: block;
+        padding-bottom: 22px;
+    
+}
+ul.inline li{
+    display: inline;
+    margin: 15px;
+}
+.menu{
+    margin-top: 40px;
+    text-align: right;
+}
+.inline{
+    list-style-type: none;
+}
+.logo{
+    max-width: 35%;
+    height: auto;
+}
+.login{
+    text-align: center;
+}
+/*.section{
+    background-image: linear-gradient(to bottom, #ebebeb, #ffffff);
+}
+/* GRID */
+.linha{
+    width: 960px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 5px 0px;
+}
+.coluna{
+    padding: 0 10px;
+    float: left;
+}
+.col1{
+    width: 60px;
+}
+.col2{
+    width: 140px;
+}
+.col3{
+    width: 220px;
+}
+.col4{
+    width: 300px;
+}
+.col5{
+    width: 380px;
+}
+.col6{
+    width: 460px;
+}
+.col7{
+    width: 540px;
+}
+.col8{
+    width: 620px;
+}
+.col9{
+    width: 700px;
+}
+.col10{
+    width: 780px;
+}
+.col11{
+    width: 860px;
+}
+.col12{
+    width: 940px;
+}
