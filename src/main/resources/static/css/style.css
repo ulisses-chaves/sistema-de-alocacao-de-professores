@@ -3,12 +3,14 @@ body{
     color: #333; 
 }
 .header{
-    background-image: linear-gradient(to bottom, #ffffff, #ebebeb);
+    background-image: linear-gradient(to top, #ffffff, #ebebeb);
 }
 .degrade{
+        height: 1px;
         background-repeat: no-repeat;
         display: block;
-        padding-bottom: 22px;
+        padding-bottom: 5px;
+        background-image: linear-gradient(to bottom, #000000, #ebebeb);
     
 }
 ul.inline li{
@@ -16,7 +18,7 @@ ul.inline li{
     margin: 15px;
 }
 .menu{
-    margin-top: 40px;
+    margin-top: 80px;
     text-align: right;
 }
 .inline{

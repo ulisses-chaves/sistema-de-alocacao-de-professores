@@ -1,6 +1,9 @@
 {
     "elements": {},
     "attributes": {
+        "integrity": {
+            "context": "link"
+        },
         "th:src": {
             "context": "script"
         }
