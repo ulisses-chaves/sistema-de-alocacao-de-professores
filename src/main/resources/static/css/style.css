@@ -1,7 +1,7 @@
 body{
     font-family: 'Roboto', sans-serif;
     color: #ebe9e9;
-    height: 100%; height: 100%;         /* rodape - È necess·rio definir o height 100% no html, body ou qualquer elemento que estiver entre o body e o .container */
+    height: 100%; height: 100%;         /* rodape - √© necess√°rio definir o height 100% no html, body ou qualquer elemento que estiver entre o body e o .container */
 }
 
 /* header */
@@ -40,12 +40,12 @@ header nav ul li:first-child{
     padding: 0 15px 0 0;
 }
 
-/* section */
+/* section index*/
 section{                    /*codigo pra por o rodape embaixo*/
-    position: relative;     /* estudar sobre como colocar no rodapÈ :) */
+    position: relative;     /* estudar sobre como colocar no rodap√© :) */
     min-height: 100%;       /* define a altura minima*/
 }
-section img{
+.logoDescricao{
     width: 70%;
     height: auto;
     margin: 90px 0 0 40px;
@@ -99,6 +99,28 @@ footer img{
     height: auto;
     width: 5%;
     margin-right: 20px;
+}
+
+/* section sobre */
+.sobre{
+    text-align: center;
+}
+.sobre h2{
+    font-size: 20px;
+    color: #343a40;
+    padding-top: 30px;
+    font-weight: 700;
+}
+.sobre hr{
+    color: #343a40;
+    background-color: #343a40;
+    padding: 2px 0; 
+    margin: 0 350px;
+    border-radius: 5px;
+}
+.sobre p{
+    color: #343a40;
+    padding-top: 40px;
 }
 
 /* GRID */
