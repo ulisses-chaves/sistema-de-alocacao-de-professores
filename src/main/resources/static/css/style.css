@@ -1,39 +1,106 @@
 body{
     font-family: 'Roboto', sans-serif;
-    color: #333; 
+    color: #ebe9e9;
+    height: 100%; height: 100%;         /* rodape - é necessário definir o height 100% no html, body ou qualquer elemento que estiver entre o body e o .container */
 }
+
+/* header */
 .header{
-    background-image: linear-gradient(to top, #ffffff, #ebebeb);
-}
-.degrade{
-        height: 1px;
-        background-repeat: no-repeat;
-        display: block;
-        padding-bottom: 5px;
-        background-image: linear-gradient(to bottom, #000000, #ebebeb);
-    
-}
-ul.inline li{
-    display: inline;
-    margin: 15px;
-}
-.menu{
-    margin-top: 80px;
+    background: #343a40;
     text-align: right;
 }
-.inline{
-    list-style-type: none;
+.logoSAP{
+    width: 60px;
+    margin-right: 20px; 
 }
-.logo{
-    max-width: 35%;
+.logoUFRPE{
+    width: 55px;
+}
+header nav{
+    margin-left: 100px; 
+    text-align: center;
+    display: inline;
+}
+
+header nav ul{
+    text-align: left;
+}
+header nav ul a, .links a{
+    color: #ebe9e9;
+}
+header nav ul a:hover, .links a:hover{
+    color: #ffffff;
+}
+header nav ul li{
+    display: inline-block;
+    padding-left: 25px;
+    padding-top: 4px;
+}
+header nav ul li:first-child{
+    padding: 0 15px 0 0;
+}
+
+/* section */
+section{                    /*codigo pra por o rodape embaixo*/
+    position: relative;     /* estudar sobre como colocar no rodapé :) */
+    min-height: 100%;       /* define a altura minima*/
+}
+section img{
+    width: 70%;
     height: auto;
+    margin: 90px 0 0 40px;
 }
 .login{
-    text-align: center;
+    width: 350px;
+    height: 235px;
+    margin-top: 50px;
+    background: #343a40;
+    border-radius: 8px;
+    font-size: 15px;
 }
-/*.section{
-    background-image: linear-gradient(to bottom, #ebebeb, #ffffff);
+.login label{
+    display: block;
+    padding: 18px 0 0 15px; 
 }
+.login input{
+    display: block;
+    margin-left: 15px;
+    width: 92%;
+    height: 25px; 
+}
+.links{
+    width: 200px;
+    float: left;
+}
+.login a{
+    display: block;
+    padding-top: 20px;
+    margin-bottom: -12px; 
+    margin-left: 20px;
+    font-size: 12px;
+}
+.login button{
+    margin: 30px 40px 0 0;
+    float: right;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+/* footer */
+.footer{
+    background: #343a40;
+    text-align:center;
+    position: absolute;     /* rodape */
+    left: 0;
+    bottom: 0;
+    width: 100%;            /* rodape */
+}
+footer img{
+    height: auto;
+    width: 5%;
+    margin-right: 20px;
+}
+
 /* GRID */
 .linha{
     width: 960px;
