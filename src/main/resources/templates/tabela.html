@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html   lang="pt-br"
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta charset="UTF-8">
@@ -19,21 +21,17 @@
     <table class="tabelaEditavel" id="tabela">
         <thead>
             <tr>
-                <th id="codigo" >Código</th>
                 <th id="nome" >Nome</th>
-                <th id="email" >E-mail</th>
-                <th id="telefone" >Telefone</th>
+                <th id="disciplina" >disciplina</th>
             </tr>
         </thead>
         <tbody>
+            <tr th:each="professor : ${professores}">
+                <td><span th:text="${professor.nome}"></span></td>
+                <td><span th:text="${professor.disciplina}"></span></td>
+            </tr>
         </tbody>
     </table>
-    <script>
-        addProfessor(new Professor(1,"João Carlos","joca@email.com","(21) 9999-8888"));
-        addProfessor(new Professor(2,"Maria Silva","mariasilva@mail.com","(81) 8787-8686"));
-        addProfessor(new Professor(3,"José Pedro","zepedro@meuemail.com","(84) 3232-3232"));
-        ordenar(2);
-    </script>
 </body>
 
 </html>

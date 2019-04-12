@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <script type="text/javascript" src="/js/index-script.js"></script>
         <link rel="shortcut icon" href="/img/SAP-preto.png" >
     </head>
     <body>
@@ -16,57 +17,57 @@
             <div class="linha">
                 <header>
                     <div class="coluna col6">
-                      <a href="/">
-                        <img src="/img/SAP-branco.png" class="logoSAP" alt="Logo do Site" title="SAP">
-                      </a>
-                      <a href="http://www.ufrpe.br/" target="_blank">
-                        <img src="/img/ufrpe-logo-semfundo.png" alt="Site da Instituição" class="logoUFRPE" title="UFRPE">
-                      </a>
+                        <a href="/">
+                            <img src="/img/SAP-branco.png" class="logoSAP" alt="Logo do Site" title="SAP">
+                        </a>
+                        <a href="http://www.ufrpe.br/" target="_blank">
+                            <img src="/img/ufrpe-logo-semfundo.png" alt="Site da Instituição" class="logoUFRPE" title="UFRPE">
+                        </a>
                     </div>
                     <div class="coluna col6">
-                      <nav>
-                        <ul>
-                          <li><a href="/">Home</a></li>
-                          <li><a href="sobre.html">Sobre</a></li>
-                        </ul>
-                      </nav>
+                        <nav>
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="sobre.html">Sobre</a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </header>
             </div>
         </div>
         <div class="linha">
-          <section>
-            <div class="coluna col6">
-              <img src="/img/sistema-preto.png" class="logoDescricao" alt="logoSAP" title="Sistema de Alocação de Professores">
-            </div>
-            <div class="coluna col6">
-              <div class="login">
-                <form action="" method="GET">
-                  <label for="login">Login:</label>
-                  <input type="text" name="login" id="login">
-                  <label for="senha">Senha:</label>
-                  <input type="password" name="senha" id="senha">
-                </form>
-                <div class="links">
-                  <a href="cadastro.html">Cadastro</a>
-                  <a href="recuperar.html">Esqueceu a senha?</a>
-                </div> 
-                  <button type="button" class="btn btn-outline-light">Entrar</button>
-              </div>
-            </div>
-          </section>
+            <section>
+                <div class="coluna col6">
+                    <img src="/img/sistema-preto.png" class="logoDescricao" alt="logoSAP" title="Sistema de Alocação de Professores">
+                </div>
+                <div class="coluna col6">
+                    <div class="login">
+                        <form name="login" action="/" method="POST">
+                            <label for="login">Login:</label>
+                            <input type="text" name="login" id="login">
+                            <label for="senha">Senha:</label>
+                            <input type="password" name="senha" id="senha">
+                        </form>
+                        <div class="links">
+                            <a href="cadastro.html">Cadastro</a>
+                            <a href="recuperar.html">Esqueceu a senha?</a>
+                        </div> 
+                        <button type="button" onclick="logar()" class="btn btn-outline-light">Entrar</button>
+                    </div>
+                </div>
+            </section>
         </div>
         <div class="footer">
-          <div class="linha">
-            <footer>
-              <div class="coluna col12">
-                <a href="https://fabricahirukar.wixsite.com/fabrica" target="_blank">
-                  <img src="/img/hirukar-logo.png" alt="">
-                </a>
-                <span>&copy; Desenvolvido pela fábrica Hirukar</span>
-              </div>
-            </footer>
-          </div>
+            <div class="linha">
+                <footer>
+                    <div class="coluna col12">
+                        <a href="https://fabricahirukar.wixsite.com/fabrica" target="_blank">
+                            <img src="/img/hirukar-logo.png" alt="">
+                        </a>
+                        <span>&copy; Desenvolvido pela fábrica Hirukar</span>
+                    </div>
+                </footer>
+            </div>
         </div>
     </body>
 </html>

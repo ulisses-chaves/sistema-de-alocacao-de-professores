@@ -5,8 +5,11 @@
  */
 package com.Hirukar.Project.Controller;
 
+import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
+import com.Hirukar.Project.Models.Beans.Professor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -18,4 +21,5 @@ public class TabelaController {
     public String tabela(){
         return "tabela";
     }
+    
 }
