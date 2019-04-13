@@ -11,7 +11,10 @@ import com.Hirukar.Project.Models.Beans.Professor;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,19 +32,14 @@ public class IndexController {
     }
 
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String formLogin(String login,String senha){
+    @RequestMapping(value = "/logar", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public ResponseEntity<String> formLogin(String login,String senha) throws SQLException{
         LoginDAO dao = new LoginDAO();
+        ResponseEntity<String> re = null;
         System.out.println("login:"+login+";  senha:"+senha);
-        try {
-            if(dao.logar(login, senha))
-                System.out.println("logado");
-            else
-                System.out.println("senha errada");
-        } catch (SQLException ex) {
-            Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return "index";
+        if(dao.logar(login, senha))
+            return new ResponseEntity<String>("logado",HttpStatus.OK);
+        return new ResponseEntity<String>("errou",HttpStatus.BAD_REQUEST);
     }
     
     @RequestMapping("/professores")
@@ -52,5 +50,8 @@ public class IndexController {
         mv.addObject("professores",professores);
         return mv;
     }
-    
+        @RequestMapping("index_testes")
+    public String index_testes(){
+        return "index_testes";
+    }
 }

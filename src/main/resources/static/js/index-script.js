@@ -1,17 +1,22 @@
-$(function(){
-    
-        $('#formLogin').submit(function (){
-           alert("b");
+var naoLogado = true;
+$(function () {
+    $('#formLogin').submit(function () {
+        if(naoLogado){
+            var dados = $(this).serialize();
             $.ajax({
                 type: 'POST',
-                url: '/api/ajaxrest/index_testes',
-                success: function (result){
-                    $('#resposta').html(result);
+                url: '/logar',
+                data: dados,
+                success: function (result) {
+                    naoLogado=false;
+                    document.formLogin.submit();
                 },
                 error: function (xhr, status, error) {
-                    alert(xhr.responseText);
+                    alert('ERROR>>' + xhr.responseText);
                 }
-            }); 
-        });
-    
+            });
+
+            return false;
+        }
+    });
 });
