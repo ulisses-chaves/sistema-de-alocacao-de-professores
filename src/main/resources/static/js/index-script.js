@@ -1,9 +1,17 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-function logar(){
-    document.login.submit();
-}
+$(function(){
+    
+        $('#formLogin').submit(function (){
+           alert("b");
+            $.ajax({
+                type: 'POST',
+                url: '/api/ajaxrest/index_testes',
+                success: function (result){
+                    $('#resposta').html(result);
+                },
+                error: function (xhr, status, error) {
+                    alert(xhr.responseText);
+                }
+            }); 
+        });
+    
+});

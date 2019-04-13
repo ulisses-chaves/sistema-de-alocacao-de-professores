@@ -19,18 +19,17 @@ public final class DatabaseConnection {
 
     public DatabaseConnection() {}
     
-    public Connection conect() throws ClassNotFoundException, SQLException {
+    public Connection get() throws ClassNotFoundException, SQLException {
         Class.forName(DRIVER);
         return DriverManager.getConnection(URL, USER, PASS);
     }
-    private Connection get() throws ClassNotFoundException, SQLException {
-        Class.forName(DRIVER);
-        return DriverManager.getConnection(URL, USER, PASS);
+    private void conect() throws ClassNotFoundException, SQLException {
+        CON = get();
     }
-    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+        public static Connection getConnection() throws ClassNotFoundException, SQLException {
         if(CON == null){
             DatabaseConnection gambiarra = new DatabaseConnection();
-            CON = gambiarra.get();
+            gambiarra.conect();
         }
         return CON;
     }

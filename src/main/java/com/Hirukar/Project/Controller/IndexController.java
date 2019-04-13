@@ -28,9 +28,9 @@ public class IndexController {
         return "index";
     }
 
+
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String formLogin(String login,String senha){
-        System.out.println("a3");
         LoginDAO dao = new LoginDAO();
         System.out.println("login:"+login+";  senha:"+senha);
         try {
@@ -50,7 +50,6 @@ public class IndexController {
         ModelAndView mv = new ModelAndView("tabela");
         Iterable<Professor> professores = dao.listarProfessores();
         mv.addObject("professores",professores);
-        System.out.println("aaaaaaaaaa");
         return mv;
     }
     
