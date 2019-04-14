@@ -1,3 +1,4 @@
+var y=0;
 $(function () {
     $.fn.troca = function (other) {
         if($(other).attr('class') == 'disciplina')
@@ -17,6 +18,15 @@ $(function () {
             $(other).append(a);
         }
     }
+    $(document).ready(function (){
+        $('#venha').children().each(function (){
+            var x=0;
+            $(this).children().each(function () {
+                $(this).attr('id','x'+ x++ + 'y' +y);
+            })
+            $(this).attr('id','div' + y++);
+        });
+    });
 });
 var origin = "";
 

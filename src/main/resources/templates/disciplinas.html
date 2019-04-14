@@ -5,12 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Sistema de Alocação de Professores</title>
-        <link rel="stylesheet" href="/css/normalize">
+        <link rel="stylesheet" href="/css/normalize.cs">
+        <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/disciplinas.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
         <link rel="shortcut icon" href="/img/SAP-thumb.png" >
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
         <script type="text/javascript" src="/js/disciplinas-script.js"></script>
     </head>
     <body>
@@ -39,14 +40,16 @@
         <div class="linha">
           <section>
             <div class="view-disciplina">
-                <div th:each="periodo : ${periodos}" class="container-horarios">
-                    <div class="horario"><span th:text="${periodo.intervalo}"></span></div>
+                <div class="container-horarios">
+                    -<div th:each="quadro : ${quadros}" class="horario">
+                        <span th:text="${quadro.horario}"></span>
+                    </div>
                 </div>
-                <div class="container-disciplinas">
-                    <div th:each="horario : ${horarios}" class="linha-disciplina" >
-                        <div th:each="dia : ${horario.dias}" id="div1" class="espaco-disciplina" ondrop="drop(event)" ondragover="allowDrop(event)">
-                            <div class="disciplina" th:style="background-color:${dia.cor};" id="a1" draggable="true" ondragstart="drag(event)">
-                                <span th:text="${dia.codigo}"></span>
+                <div class="container-disciplinas" id="venha">
+                    <div th:each="quadro : ${quadros}" id="a"class="linha-disciplina" >
+                        <div  th:each="disciplina : ${quadro.disciplinas}" id="div1" class="espaco-disciplina" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <div class="disciplina" style="background-color:black;" th:id="${disciplina.codigo}" draggable="true" ondragstart="drag(event)">
+                                codigo:<span th:text="${disciplina.codigo}"></span>
                             </div>
                         </div>      
                     </div>   

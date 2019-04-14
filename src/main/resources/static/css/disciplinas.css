@@ -3,22 +3,22 @@
     display: table;
 }
 .container-horarios{
-    width: 100px;
-    height: 950px;
+    width: 120px;
+    height: 800px;
     background-color: red;
     float: left;
 }
 .horario{
-    width: 80px;
+    width: 120px;
     height: 69px;
 }
 .container-disciplinas{
-    width: 760px;
+    width: 840px;
     height: 800px;
     background-color: blue;
 }
 .linha-disciplina{
-    width: 760px;
+    width: 840px;
     height: 90px;
     background-color: purple;
 }
