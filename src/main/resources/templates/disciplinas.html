@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sistema de Alocação de Professores</title>
+        <link rel="stylesheet" href="/css/normalize">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/disciplinas.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="shortcut icon" href="/img/SAP-thumb.png" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/disciplinas-script.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="linha">
+                <header>
+                    <div class="coluna col6">
+                      <a href="/">
+                        <img src="img/SAP-branco.png" class="logoSAP" alt="">
+                      </a>
+                      <a href="http://www.ufrpe.br/" target="_blank">
+                        <img src="img/ufrpe-logo-semfundo.png" alt="UFRPE" class="logoUFRPE" title="Site da Instituição">
+                      </a>
+                    </div>
+                    <div class="coluna col6">
+                      <nav>
+                        <ul>
+                          <li><a href="/">Home</a></li>
+                          <li><a href="/sobre">Sobre</a></li>
+                        </ul>
+                      </nav>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <div class="linha">
+          <section>
+            <div class="view-disciplina">
+                <div th:each="periodo : ${periodos}" class="container-horarios">
+                    <div class="horario"><span th:text="${periodo.intervalo}"></span></div>
+                </div>
+                <div class="container-disciplinas">
+                    <div th:each="horario : ${horarios}" class="linha-disciplina" >
+                        <div th:each="dia : ${horario.dias}" id="div1" class="espaco-disciplina" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <div class="disciplina" th:style="background-color:${dia.cor};" id="a1" draggable="true" ondragstart="drag(event)">
+                                <span th:text="${dia.codigo}"></span>
+                            </div>
+                        </div>      
+                    </div>   
+                </div>
+            </div>
+        </section>
+        </div>
+        <div class="footer">
+          <div class="linha">
+            <footer>
+              <div class="coluna col12">
+                <a href="https://fabricahirukar.wixsite.com/fabrica" target="_blank">
+                  <img src="img/hirukar-logo.png" alt="">
+                </a>
+                <span>&copy; Desenvolvido pela fábrica Hirukar</span>
+              </div>
+            </footer>
+          </div>
+        </div>
+    </body>
+</html>
