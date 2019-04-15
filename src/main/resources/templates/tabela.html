@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html   lang="pt-br"
+        xmlns:th="http://thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tabela Dinamica</title>
+    <link rel="stylesheet" type="text/css" href="/css/tabela-style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="/js/professor.js" >
+    </script>
+    <script type="text/javascript" src="/js/tabela-script.js">
+    </script>
+</head>
+
+<body>
+    <table class="tabelaEditavel" id="tabela">
+        <thead>
+            <tr>
+                <th id="nome" >Nome</th>
+                <th id="disciplina" >disciplina</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="professor : ${professores}">
+                <td><span th:text="${professor.nome}"></span></td>
+                <td><span th:text="${professor.disciplina}"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

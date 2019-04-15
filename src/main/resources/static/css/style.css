@@ -1,0 +1,175 @@
+﻿body{
+    font-family: 'Roboto', sans-serif;
+    color: #ebe9e9;
+    height: 100%; height: 100%;         /* rodape - é necessário definir o height 100% no html, body ou qualquer elemento que estiver entre o body e o .container */
+}
+
+/* header */
+.header{
+    background: #343a40;
+    text-align: right;
+}
+.logoSAP{
+    width: 60px;
+    margin-right: 20px; 
+}
+.logoUFRPE{
+    width: 55px;
+}
+header nav{
+    margin-left: 100px; 
+    text-align: center;
+    display: inline;
+}
+
+header nav ul{
+    text-align: left;
+}
+header nav ul a, .links a{
+    color: #ebe9e9;
+}
+header nav ul a:hover, .links a:hover{
+    color: #ffffff;
+}
+header nav ul li{
+    display: inline-block;
+    padding-left: 25px;
+    padding-top: 4px;
+}
+header nav ul li:first-child{
+    padding: 0 15px 0 0;
+}
+
+/* section index*/
+section{                    /*codigo pra por o rodape embaixo*/
+    position: relative;     /* estudar sobre como colocar no rodapé :) */
+    min-height: 100%;       /* define a altura minima*/
+}
+.logoDescricao{
+    width: 70%;
+    height: auto;
+    margin: 90px 0 0 40px;
+}
+.login{
+    width: 350px;
+    height: 235px;
+    margin-top: 50px;
+    background: #343a40;
+    border-radius: 8px;
+    font-size: 15px;
+}
+.login label{
+    display: block;
+    padding: 18px 0 0 15px; 
+}
+.login input{
+    display: block;
+    margin-left: 15px;
+    width: 92%;
+    height: 25px; 
+}
+.links{
+    width: 200px;
+    float: left;
+    margin: auto;
+    padding-right: 45px;
+}
+.login a{
+    display: block;
+    margin: 15px;
+    margin-left: 20px;
+    padding-top: 5px;
+    margin-bottom: -10px;
+    font-size: 12px;
+}
+.login button{
+    margin: 30px 40px 0 0;
+    float: right;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+/* footer */
+.footer{
+    background: #343a40;
+    text-align:center;
+    position: absolute;     /* rodape */
+    left: 0;
+    bottom: 0;
+    width: 100%;            /* rodape */
+}
+footer img{
+    height: auto;
+    width: 5%;
+    margin-right: 20px;
+}
+
+/* section sobre */
+.sobre{
+    text-align: center;
+}
+.sobre h2{
+    font-size: 20px;
+    color: #343a40;
+    padding-top: 30px;
+    font-weight: 700;
+}
+.sobre hr{
+    color: #343a40;
+    background-color: #343a40;
+    padding: 2px 0; 
+    margin: 0 350px;
+    border-radius: 5px;
+}
+.sobre p{
+    color: #343a40;
+    padding-top: 40px;
+}
+
+/* GRID */
+.linha{
+    width: 960px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 5px 0px;
+}
+.coluna{
+    padding: 0 10px;
+    float: left;
+}
+.col1{
+    width: 60px;
+}
+.col2{
+    width: 140px;
+}
+.col3{
+    width: 220px;
+}
+.col4{
+    width: 300px;
+}
+.col5{
+    width: 380px;
+}
+.col6{
+    width: 460px;
+}
+.col7{
+    width: 540px;
+}
+.col8{
+    width: 620px;
+}
+.col9{
+    width: 700px;
+}
+.col10{
+    width: 780px;
+}
+.col11{
+    width: 860px;
+}
+.col12{
+    width: 940px;
+}

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Hirukar.Project;
+package com.Hirukar.Project.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author RODEMARCK
  */
 @Controller
-public class IndexController {
-    @RequestMapping("/")
-    public String index(){
-        return "index";
+public class SobreController {
+    @RequestMapping("/sobre")
+    public String sobre(){
+        return "sobre";
     }
 }
