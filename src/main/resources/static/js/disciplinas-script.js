@@ -18,6 +18,23 @@ $(function () {
             $(other).append(a);
         }
     }
+    $('#form-troca').submit(function () {
+        var dados = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: '/logar',
+            data: dados,
+            success: function (result) {
+                naoLogado=false;
+                document.formLogin.submit();
+            },
+            error: function (xhr, status, error) {
+                alert('ERROR>>' + xhr.responseText);
+            }
+        });
+
+        return false;
+    });
     $(document).ready(function (){
         $('#venha').children().each(function (){
             var x=0;

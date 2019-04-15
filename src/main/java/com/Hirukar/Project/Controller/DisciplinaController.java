@@ -6,6 +6,7 @@
 package com.Hirukar.Project.Controller;
 
 import com.Hirukar.Project.Models.Beans.Disciplina;
+import com.Hirukar.Project.Models.Beans.GradeDeHorarios;
 import com.Hirukar.Project.Models.Beans.QuadroDeHorarios;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,18 +19,17 @@ import org.springframework.web.servlet.ModelAndView;
  * @author RODEMARCK
  */
 @Controller
-public class DisciplinaController {
+public class  DisciplinaController {
     
     @RequestMapping("/disciplinas")
     public ModelAndView disciplinas(){
         ModelAndView mv = new ModelAndView("disciplinas");
-        List<QuadroDeHorarios> quadros = new ArrayList<>();
-        quadros.add(new QuadroDeHorarios());
-        quadros.add(new QuadroDeHorarios());
-        
+        GradeDeHorarios grade = new GradeDeHorarios();
+        List<QuadroDeHorarios> quadros = grade.getQuadros();
         mv.addObject("quadros", quadros);
         return mv;
     }
+
     
 }
 ;

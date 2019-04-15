@@ -15,7 +15,7 @@ import java.util.List;
 public class QuadroDeHorarios {
     private String horario;
     private List<Disciplina> disciplinas;
-    public static int tempo = 8;
+    public static int tempo = 7;
     public QuadroDeHorarios(String horario,List<Disciplina> disciplinas) {
         this.horario = horario;
         this.disciplinas = disciplinas;
@@ -29,8 +29,11 @@ public class QuadroDeHorarios {
         disciplinas.add(new Disciplina("003"+tempo,"bc4","purple"));
         disciplinas.add(new Disciplina("004"+tempo,"bc4","green"));
         disciplinas.add(new Disciplina("005"+tempo,"bc4","yellow"));
-        tempo += 2;
+        tempo += 1;
         
+    }
+    public static void reset(){
+        tempo = 7;
     }
 
     public String getHorario() {

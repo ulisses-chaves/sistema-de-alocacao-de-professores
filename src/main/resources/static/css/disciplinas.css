@@ -4,8 +4,7 @@
 }
 .container-horarios{
     width: 120px;
-    height: 800px;
-    background-color: red;
+    /**background-color: red;*/
     float: left;
 }
 .horario{
@@ -14,17 +13,16 @@
 }
 .container-disciplinas{
     width: 840px;
-    height: 800px;
-    background-color: blue;
+    /**background-color: blue;*/
 }
 .linha-disciplina{
     width: 840px;
     height: 90px;
-    background-color: purple;
+    /**background-color: purple;*/
 }
 .espaco-disciplina {
-    width: 126px;
-    height: 69px;
+    width: 132px;
+    height: 76px;
     padding: 2px;
     border: 1px solid #aaaaaa;
     float: left;
