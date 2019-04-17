@@ -8,8 +8,11 @@ package com.Hirukar.Project.Controller;
 import com.Hirukar.Project.Connection.DAO.LoginDAO;
 import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
+import com.Hirukar.Project.Models.Beans.GradeDeHorarios;
+import com.Hirukar.Project.Models.Beans.Horario;
 import com.Hirukar.Project.Models.Beans.Professor;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.http.HttpStatus;
@@ -32,14 +35,20 @@ public class IndexController {
     }
 
 
-    @RequestMapping(value = "/logar", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    @RequestMapping(value = "fazerLogin", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> formLogin(String login,String senha) throws SQLException{
         LoginDAO dao = new LoginDAO();
         ResponseEntity<String> re = null;
         System.out.println("login:"+login+";  senha:"+senha);
         if(dao.logar(login, senha))
-            return new ResponseEntity<String>("logado",HttpStatus.OK);
-        return new ResponseEntity<String>("login ou senha invalidos",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<String>(login,HttpStatus.OK);
+        return new ResponseEntity<String>("login ou senha invalidos",HttpStatus.NOT_ACCEPTABLE);
+    }
+    
+    @RequestMapping(value = "logar", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public ModelAndView disciplinas(String request){    
+         
+        return new ModelAndView("logado");
     }
     
     @RequestMapping("/professores")

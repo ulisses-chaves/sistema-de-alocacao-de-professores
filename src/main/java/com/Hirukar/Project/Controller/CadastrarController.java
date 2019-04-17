@@ -41,14 +41,18 @@ public class CadastrarController {
         }
     }
     @RequestMapping(value = "/fazerCadastroDisciplina", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public ResponseEntity<String> fazerCadastroDisciplina(String disciplina,String codigo,String curso,String area,String obr,String opt){
+    public ResponseEntity<String> fazerCadastroDisciplina(Object dados){
         LoginDAO dao = new LoginDAO();
+        String s = (String)dados;
+        System.out.println("recive{\n" + s + "\n}");
         ResponseEntity<String> re = null;
-        try{
+        /*try{
+            
             dao.cadastrarDisciplina(disciplina,codigo,curso,area,obr,opt);
             return new ResponseEntity<String>("Cadastro realizado com sucesso!",HttpStatus.OK);
         }catch(SQLException e){
             return new ResponseEntity<String>(e.getMessage(),HttpStatus.OK);
-        }
+        }*/
+        return new ResponseEntity<String>("só aceite",HttpStatus.OK);
     }
 }
