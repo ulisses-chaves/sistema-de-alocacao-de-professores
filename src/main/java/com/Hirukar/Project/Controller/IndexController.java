@@ -7,6 +7,7 @@ package com.Hirukar.Project.Controller;
 
 import com.Hirukar.Project.Connection.DAO.LoginDAO;
 import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
+import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Professor;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -27,7 +28,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndexController {
     @RequestMapping("/")
     public String index(){
-        System.out.println("a1");
         return "index";
     }
 
@@ -39,7 +39,7 @@ public class IndexController {
         System.out.println("login:"+login+";  senha:"+senha);
         if(dao.logar(login, senha))
             return new ResponseEntity<String>("logado",HttpStatus.OK);
-        return new ResponseEntity<String>("errou",HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<String>("login ou senha invalidos",HttpStatus.BAD_REQUEST);
     }
     
     @RequestMapping("/professores")
@@ -50,7 +50,8 @@ public class IndexController {
         mv.addObject("professores",professores);
         return mv;
     }
-        @RequestMapping("index_testes")
+    
+    @RequestMapping("index_testes")
     public String index_testes(){
         return "index_testes";
     }

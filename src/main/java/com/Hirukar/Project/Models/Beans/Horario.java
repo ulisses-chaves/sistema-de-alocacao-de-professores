@@ -12,16 +12,16 @@ import java.util.List;
  *
  * @author RODEMARCK
  */
-public class QuadroDeHorarios {
+public class Horario {
     private String horario;
     private List<Disciplina> disciplinas;
     public static int tempo = 7;
-    public QuadroDeHorarios(String horario,List<Disciplina> disciplinas) {
+    public Horario(String horario,List<Disciplina> disciplinas) {
         this.horario = horario;
         this.disciplinas = disciplinas;
     }
 
-    public QuadroDeHorarios() {
+    public Horario() {
         horario = String.format("%d:00 - %d:00", tempo,tempo+2);
         disciplinas = new ArrayList<>();
         disciplinas.add(new Disciplina("001"+tempo,"bc4","black"));
