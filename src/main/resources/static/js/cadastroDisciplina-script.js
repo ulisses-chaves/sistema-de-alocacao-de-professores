@@ -17,11 +17,12 @@ function efetuarCadastro(){
             obr: obr.value,
             opt: opt.value
         };
-        fetch('https://reqres.in/api/users', {       //dentro das '' botar o endereço da requisição. Esse link é uma requisição fake apenas para testar o código
+        fetch('/fazerCadastroDisciplina', {       //dentro das '' botar o endereço da requisição. Esse link é uma requisição fake apenas para testar o código
             method: 'POST',
             body: JSON.stringify(dados)
         })
         .then(function(response) {
+            console.log(response);
             if(!response.ok) throw Error(response.statusText);
             else return response.json();
         })
@@ -29,6 +30,6 @@ function efetuarCadastro(){
             alert("Cadastro realizado com sucesso!");
             window.history.back();
         })
-        .catch(e => alert('Cadastro não realizado!'))
+        .catch(e => alert(e.toString()))
     })
 }
