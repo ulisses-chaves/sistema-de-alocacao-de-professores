@@ -5,10 +5,11 @@
  */
 package com.Hirukar.Project.Controller;
 
-import com.Hirukar.Project.Connection.DAO.LoginDAO;
+import com.Hirukar.Project.Connection.DAO.UserDAO;
 import com.Hirukar.Project.Models.Beans.Disciplina;
 import com.Hirukar.Project.Models.Beans.GradeDeHorarios;
 import com.Hirukar.Project.Models.Beans.Horario;
+import com.Hirukar.Project.Models.Beans.Horarios__;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,20 +29,19 @@ import org.springframework.web.servlet.ModelAndView;
 public class  DisciplinaController {
     
     @RequestMapping("/disciplinas")
-    public ModelAndView disciplinas(){
+    public ModelAndView disciplinas() throws IllegalAccessException{
         ModelAndView mv = new ModelAndView("disciplinas");
-        GradeDeHorarios grade = new GradeDeHorarios();
-        List<Horario> quadros = grade.getQuadros();
-        mv.addObject("quadros", quadros);
+        Horarios__ h = new Horarios__(5);
+        mv.addObject("h", h);
         return mv;
     }
 
     @RequestMapping(value = "/horarios", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> formLogin(String login,String senha) throws SQLException{
-        LoginDAO dao = new LoginDAO();
+        UserDAO dao = new UserDAO();
         ResponseEntity<String> re = null;
         System.out.println("login:"+login+";  senha:"+senha);
-        if(dao.logar(login, senha))
+        if(dao.logar(login, senha) != null)
             return new ResponseEntity<String>("logado",HttpStatus.OK);
         return new ResponseEntity<String>("login ou senha invalidos",HttpStatus.BAD_REQUEST);
     }

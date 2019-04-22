@@ -9,22 +9,22 @@ package com.Hirukar.Project.Models.Beans.Enums;
  *
  * @author RODEMARCK
  */
-public enum Cursos {
-    BCC(0),LC(1),BSI(2);
+public enum Area {
+    ARC(0),ENCISO(1),FC(2);
     
     private final int value;
     public int getValue(){
         return value;
     }
-    public static Cursos getCurso(int v) throws IllegalAccessException{
-        switch(v){
-            case 0: return Cursos.BCC;
-            case 1: return Cursos.LC;
-            case 2: return Cursos.BSI;
-        }
-        throw new IllegalAccessException("Curso não registrado!");
+    public static Area getArea(int n) throws IllegalAccessException{
+       switch(n){
+            case 0: return Area.ARC;
+            case 1: return Area.ENCISO;
+            case 2: return Area.FC;
+       }
+       throw new IllegalAccessException("Area não registrada!");
     }
-    private Cursos(int n){
+    private Area(int n){
         value = n;
     }
 }

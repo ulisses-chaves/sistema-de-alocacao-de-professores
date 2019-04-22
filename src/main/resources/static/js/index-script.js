@@ -1,4 +1,4 @@
-var naoLogado = true;
+/*var naoLogado = true;
 var result = "";
 $(function () {
     $('#formLogin').submit(function () {
@@ -34,4 +34,4 @@ $(function () {
                 });
             }
     });
-});
+});*/

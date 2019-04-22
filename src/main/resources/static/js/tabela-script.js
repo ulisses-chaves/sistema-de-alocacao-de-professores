@@ -74,6 +74,19 @@ function getData(id) {
 }
 
 $(function () {
+    $('#btn').click(function (){
+        console.log('clickado');
+        $.ajax({
+            type: 'GET',
+            url: '/',
+            succes: function (msg) {
+                alert(msg);
+            },
+            error: function (xhr, status, error) {
+                alert('>>'+xhr.responseText);
+            }
+        });
+    });
     $("td").dblclick(function () {
         var conteudoOriginal = $(this).text();
         var meuNome = $(this).attr('id');

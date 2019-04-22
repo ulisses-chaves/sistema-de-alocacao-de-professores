@@ -5,6 +5,10 @@
  */
 package com.Hirukar.Project.Models.Beans;
 
+import com.Hirukar.Project.Models.Beans.Enums.Area;
+import com.Hirukar.Project.Models.Beans.Enums.Cursos;
+import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
+
 /**
  *
  * @author RODEMARCK
@@ -20,6 +24,10 @@ public class Disciplina {
         this.codigo = codigo;
         this.turma = turma;
         this.cor = cor;
+    }
+
+    public Disciplina(String disciplina, String codigo, Cursos curso, Area area, TipoDisciplina tipoDisciplina) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getCodigo() {

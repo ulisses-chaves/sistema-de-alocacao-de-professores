@@ -46,11 +46,11 @@
                     </div>
                 </div>
                 <div class="container-disciplinas" id="venha">
-                    <div th:each="quadro : ${quadros}" id="a"class="linha-disciplina" >
-                        <div  th:each="disciplina : ${quadro.disciplinas}" id="div1" class="espaco-disciplina" ondrop="drop(event)" ondragover="allowDrop(event)">
-                            <div class="disciplina" th:style="'background-color:'+${disciplina.cor}+';'" th:id="${disciplina.codigo}" draggable="true" ondragstart="drag(event)">
-                                codigo:<span th:text="${disciplina.codigo}"></span><br>
-                                turma:<span th:text="${disciplina.turma}"></span>
+                    <div th:each="slots,slotsIndex : ${h.slot.slots}" th:if="${slots.usado}" th:id="'y'+${slotsIndex.index}" class="linha-disciplina" >
+                        <div  th:each="i,iIndex : ${slots.dias}" th:id="'divx'+${iIndex.index}+'y'+${slotsIndex.index}" class="espaco-disciplina" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <div class="disciplina" th:style="'background-color:'+${h.get(i).cor}+';'" th:id="'x'+${iIndex.index}+'y'+${slotsIndex.index}" draggable="true" ondragstart="drag(event)">
+                                codigo:<span th:text="${h.get(i).codigo}"></span><br>
+                                turma:<span th:text="${h.get(i).turma}"></span>
                             </div>
                         </div>      
                     </div>   
@@ -58,10 +58,6 @@
             </div>
           </section>
         </div>
-        <form id="form-troca" style="display:none;">
-            <input type="text" name="disciplina-codigo" value="">
-            <input type="text" name="disciplina-turma" value="">
-        </form>
         <div class="footer">
           <div class="linha">
             <footer>

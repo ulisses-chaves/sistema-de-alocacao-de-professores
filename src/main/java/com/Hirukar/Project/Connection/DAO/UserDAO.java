@@ -6,6 +6,8 @@
 package com.Hirukar.Project.Connection.DAO;
 
 import com.Hirukar.Project.Connection.ConnectionFactory.DatabaseConnection;
+import com.Hirukar.Project.Models.Beans.Professor;
+import com.Hirukar.Project.Models.Beans.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,12 +19,12 @@ import java.util.logging.Logger;
  *
  * @author RODEMARCK
  */
-public final class LoginDAO {
+public final class UserDAO {
     private Connection con;
     
-    public LoginDAO(){}
+    public UserDAO(){}
     
-    public boolean logar(String login,String senha) throws SQLException {
+    public User logar(String login,String senha) throws SQLException {
         boolean check = false;
         ResultSet rs=null;
         PreparedStatement stmt=null;
@@ -31,17 +33,16 @@ public final class LoginDAO {
             stmt.setString(1, login);
             stmt.setString(2, senha);
             rs = stmt.executeQuery();
-            check = rs.next();
+            return new User(rs);
         }catch(ClassNotFoundException | SQLException e){
             throw new SQLException(e.getMessage());
         }finally{
             DatabaseConnection.closeConnection(rs, stmt);
         }
         
-        return check;
     }
 
-    public void cadastrarProfessor(String name, String login, String senha, String email, String codigo, String area)  throws SQLException {
+    /*public void cadastrarProfessor(String name, String login, String senha, String email, String codigo, String area)  throws SQLException {
         PreparedStatement stmt = null;
         try{
             stmt = DatabaseConnection.getConnection().prepareStatement("INSERT INTO Professor (name,login,senha,email,codigo,area) VALUES (?,?,?,?,?,?)");
@@ -57,25 +58,13 @@ public final class LoginDAO {
         }finally{
             DatabaseConnection.closeConnection(stmt);
         }
+    }*/
+
+    public void cadastrarProfessor(Professor professor) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void cadastrarDisciplina(String disciplina, String codigo, String curso, String area, String obr, String opt)throws SQLException {
-        PreparedStatement stmt = null;
-        try{
-            stmt = DatabaseConnection.getConnection().prepareStatement("INSERT INTO Disciplina (disciplina,codigo,curso,area,obr,opt) VALUES (?,?,?,?,?,?)");
-            stmt.setString(1, disciplina);
-            stmt.setString(2, codigo);
-            stmt.setString(3, curso);
-            stmt.setString(4, area);
-            stmt.setString(5, obr);
-            stmt.setString(6, opt);
-            stmt.executeUpdate();
-        }catch(ClassNotFoundException | SQLException e){
-            throw new SQLException(e.getMessage());
-        }finally{
-            DatabaseConnection.closeConnection(stmt);
-        }
-    }
+    
     
     
 }

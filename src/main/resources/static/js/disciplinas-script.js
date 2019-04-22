@@ -35,15 +35,6 @@ $(function () {
 
         return false;
     });
-    $(document).ready(function (){
-        $('#venha').children().each(function (){
-            var x=0;
-            $(this).children().each(function () {
-                $(this).attr('id','x'+ x++ + 'y' +y);
-            })
-            $(this).attr('id','div' + y++);
-        });
-    });
 });
 var origin = "";
 

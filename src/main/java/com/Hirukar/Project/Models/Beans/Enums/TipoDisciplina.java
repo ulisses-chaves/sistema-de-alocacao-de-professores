@@ -10,5 +10,21 @@ package com.Hirukar.Project.Models.Beans.Enums;
  * @author RODEMARCK
  */
 public enum TipoDisciplina {
-    OBRIGATORIA,OPTATIVA,ELETIVA,EXTERNA;
+    OBRIGATORIA(0),OPTATIVA(1),EXTERNA(2),ELETIVA(3);
+    private final int value;
+    public int getValue(){
+        return value;
+    }
+    public static TipoDisciplina getTipoDisciplina(int n) throws IllegalAccessException{
+        switch(n){
+            case 0: return TipoDisciplina.OBRIGATORIA;
+            case 1: return TipoDisciplina.OPTATIVA;
+            case 2: return TipoDisciplina.EXTERNA;
+            case 3: return TipoDisciplina.ELETIVA;
+        }
+        throw new IllegalAccessException("Tipo de disciplina não registrada!");
+    }
+    private TipoDisciplina(int n){
+        value = n;
+    }
 }
