@@ -38,17 +38,16 @@
             </div>
         </div>
         <div class="linha">
-          <section>
-            <div class="view-disciplina">
+            <div class="view-disciplina" id="disciplinas">
                 <div class="container-horarios">
-                    <div th:each="quadro : ${quadros}" class="horario">
-                        <span th:text="${quadro.horario}"></span>
+                    <div th:each="slots,slotsIndex : ${h.slot.slots}" th:if="${slots.usado}" class="horario">
+                        <span th:text="${slots.hora}"></span>
                     </div>
                 </div>
-                <div class="container-disciplinas" id="venha">
+                <div class="container-disciplinas">
                     <div th:each="slots,slotsIndex : ${h.slot.slots}" th:if="${slots.usado}" th:id="'y'+${slotsIndex.index}" class="linha-disciplina" >
                         <div  th:each="i,iIndex : ${slots.dias}" th:id="'divx'+${iIndex.index}+'y'+${slotsIndex.index}" class="espaco-disciplina" ondrop="drop(event)" ondragover="allowDrop(event)">
-                            <div class="disciplina" th:style="'background-color:'+${h.get(i).cor}+';'" th:id="'x'+${iIndex.index}+'y'+${slotsIndex.index}" draggable="true" ondragstart="drag(event)">
+                            <div class="disciplina" th:style="'background-color:'+${h.get(i).cor}+';'" th:id="'x'+${iIndex.index}+'y'+${slotsIndex.index}" th:attr="data-slot=${i}" draggable="true" ondragstart="drag(event)">
                                 codigo:<span th:text="${h.get(i).codigo}"></span><br>
                                 turma:<span th:text="${h.get(i).turma}"></span>
                             </div>
@@ -56,7 +55,6 @@
                     </div>   
                 </div>
             </div>
-          </section>
         </div>
         <div class="footer">
           <div class="linha">

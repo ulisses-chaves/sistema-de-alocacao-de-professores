@@ -16,13 +16,13 @@ public enum Cursos {
     public int getValue(){
         return value;
     }
-    public static Cursos getCurso(int v) throws IllegalAccessException{
+    public static Cursos getCurso(int v){
         switch(v){
             case 0: return Cursos.BCC;
             case 1: return Cursos.LC;
             case 2: return Cursos.BSI;
         }
-        throw new IllegalAccessException("Curso não registrado!");
+        return null;
     }
     private Cursos(int n){
         value = n;

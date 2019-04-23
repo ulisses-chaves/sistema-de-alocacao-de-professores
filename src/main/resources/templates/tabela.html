@@ -18,8 +18,11 @@
     </head>
 
     <body>
-       
-       <div th:each="slots : ${h.slot.slots}">
+        <button type="button" id="btn"> aaaa</button>
+        <div id="teste"></div>
+        
+      
+       <!--<div th:each="slots : ${h.slot.slots}">
             <th:block th:if="${slots.usado}" th:each="i : ${slots.dias}">
                 <span th:text="${h.get(i).nome}"></span>
             </th:block>

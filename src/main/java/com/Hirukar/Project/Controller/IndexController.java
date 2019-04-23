@@ -51,6 +51,10 @@ public class IndexController {
             return new ModelAndView ("sobre");
         return  new ModelAndView ("index");
     }
+    @RequestMapping(value = "fazerLogin", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public ModelAndView indexS() throws SQLException{
+        return new ModelAndView ("index");
+    }
 
     
     @RequestMapping(value = "logar", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})

@@ -28,7 +28,7 @@ public class Disciplina__ {
 
    
 
-    public Disciplina__ (String disciplina, String codigo,String cor, Cursos curso, Area area, TipoDisciplina tipoDisciplina,Disciplina__ ... preRequisito)  throws IllegalAccessException{
+    public Disciplina__ (String disciplina, String codigo,String cor, Cursos curso, Area area, TipoDisciplina tipoDisciplina,Disciplina__ ... preRequisito){
         this.nome = disciplina;
         this.codigo = codigo;
         this.turma = "BC3";
@@ -40,7 +40,7 @@ public class Disciplina__ {
         this.cor = cor;
     }
 
-    public Disciplina__() throws IllegalAccessException {
+    public Disciplina__(){
         this.nome = "--";
         this.codigo = "";
         this.turma = "";

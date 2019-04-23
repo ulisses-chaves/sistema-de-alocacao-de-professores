@@ -1,42 +1,27 @@
-var y=0;
 $(function () {
     $.fn.troca = function (other) {
         if($(other).attr('class') == 'disciplina')
             other = $(other).parent();
         if($(other).attr('class') == 'espaco-disciplina'){
-            console.log("TROCA");
-            console.log("this:" + $(this).attr('id'));
-            console.log("outra:" + $(other).attr('id'));
-
-            var a = $(this).children();
-            $(this).children().remove();
-
-            var b = $(other).children();
-            $(other).children().remove();
-
-            $(this).append(b);
-            $(other).append(a);
+            var a = $(this).children().attr('data-slot');
+            var b = $(other).children().attr('data-slot');
+            var dados={n1:a,n2:b};
+            console.log('trocando');
+            $.post('/alterarSlots',dados)
+             .done(function(){
+                 console.log('enviado');
+                $.get('/atualizarSlots',function(fragment){
+                    console.log('recebendo');
+                    $('#disciplinas').replaceWith(fragment);
+                    console.log('recebido');
+                });
+            });
+            console.log('feito');
         }
-    }
-    $('#form-troca').submit(function () {
-        var dados = $(this).serialize();
-        $.ajax({
-            type: 'POST',
-            url: '/logar',
-            data: dados,
-            success: function (result) {
-                naoLogado=false;
-                document.formLogin.submit();
-            },
-            error: function (xhr, status, error) {
-                alert('ERROR>>' + xhr.responseText);
-            }
-        });
-
-        return false;
-    });
+    };
 });
 var origin = "";
+
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -62,3 +47,4 @@ function drop(ev) {
         console.log('a');
     }
 }
+

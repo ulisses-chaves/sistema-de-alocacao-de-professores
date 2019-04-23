@@ -16,6 +16,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,13 +28,27 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class  DisciplinaController {
-    
+    static Horarios__ h = new Horarios__(5);
     @RequestMapping("/disciplinas")
     public ModelAndView disciplinas() throws IllegalAccessException{
         ModelAndView mv = new ModelAndView("disciplinas");
-        Horarios__ h = new Horarios__(5);
         mv.addObject("h", h);
         return mv;
+    }
+    
+    @RequestMapping(value="/atualizarSlots", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public String atualizarSlots(ModelMap map) throws IllegalAccessException{
+        map.addAttribute("h", h);
+        return "disciplinas :: #disciplinas";
+    }
+    
+    @RequestMapping(value = "/alterarSlots", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public ResponseEntity<String> alterarSlots(int n1,int n2) throws SQLException{
+        System.out.println("\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.{\nn1:"+n1+"\nn2:"+n2+"\n}");
+        if(h.troca(n1, n2))
+            return new ResponseEntity<>("OK",HttpStatus.OK);
+        else
+            return new ResponseEntity<>("troca não realizada",HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(value = "/horarios", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})

@@ -8,6 +8,7 @@ package com.Hirukar.Project.Connection.DAO;
 import com.Hirukar.Project.Connection.ConnectionFactory.DatabaseConnection;
 import com.Hirukar.Project.Models.Beans.Disciplina;
 import com.Hirukar.Project.Models.Beans.Disciplina__;
+import com.Hirukar.Project.Models.Beans.Slots;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -19,6 +20,10 @@ public class DisciplinasDAO {
 
     public void cadastrar(Disciplina__ disciplina) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean atualizar(Slots aThis) {
+        return true;
     }
 
     

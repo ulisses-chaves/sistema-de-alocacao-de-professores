@@ -16,13 +16,13 @@ public enum Area {
     public int getValue(){
         return value;
     }
-    public static Area getArea(int n) throws IllegalAccessException{
+    public static Area getArea(int n){
        switch(n){
             case 0: return Area.ARC;
             case 1: return Area.ENCISO;
             case 2: return Area.FC;
        }
-       throw new IllegalAccessException("Area não registrada!");
+            return null;
     }
     private Area(int n){
         value = n;

@@ -15,14 +15,14 @@ public enum TipoDisciplina {
     public int getValue(){
         return value;
     }
-    public static TipoDisciplina getTipoDisciplina(int n) throws IllegalAccessException{
+    public static TipoDisciplina getTipoDisciplina(int n){
         switch(n){
             case 0: return TipoDisciplina.OBRIGATORIA;
             case 1: return TipoDisciplina.OPTATIVA;
             case 2: return TipoDisciplina.EXTERNA;
             case 3: return TipoDisciplina.ELETIVA;
         }
-        throw new IllegalAccessException("Tipo de disciplina não registrada!");
+        return null;
     }
     private TipoDisciplina(int n){
         value = n;
