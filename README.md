@@ -1,14 +1,20 @@
 # Sistema de Alocacao de Professores
 
 **Número do Projeto**
+
 1
 
+
 **Tipo do Projeto** 
+
 Interno
 
+
 **Descrição**
+
 Finalidade do Projeto: 
 Implantar um sistema de alocação de professores por área de ensino. 
+
 
 Objetivo(s) do Projeto: 
 - Criar um sistema para alocar professores por área de ensino; 
@@ -32,14 +38,17 @@ A princípio, os professores só poderão se inscrever nas disciplinas as quais 
 
 Projeto universitário
 
+
 **Prioridade**
 
 5
+
 
 **Justificativa**
 
 O Departamento de Computação demanda, atualmente, muito tempo para alocar os professores, uma vez que a maior parte do é feito em uma planilha Excel. O modo como é feito essa alocação tem gerado muitos prejuízos ao departamento, que precisa lidar não somente com alocação, mas também com a organização das disciplinas por semestre. 
 Acreditamos que a implantação de um sistema de alocação de professores é a melhor solução nesse caso, pois ele irá suprir tarefas que hoje são feitas manualmente, possibilitando, desse modo, uma otimização no processo de alocação.
+
 
 **Premissas**
 
@@ -47,10 +56,12 @@ Acreditamos que a implantação de um sistema de alocação de professores é a 
 - A primeira entrega do projeto tem prazo programado para o segundo quadrimestre de 2019; 
 - A segunda entrega do projeto tem prazo programado para o segundo quadrimestre de 2019.
 
+
 **Restrições**
 
 - Não poderá se ausentar o gerente do projeto durante o desenvolvimento da aplicação; 
 - A equipe de desenvolvimento não dará suporte posterior à aplicação.
+
 
 **Últimas informações**
 
@@ -61,7 +72,9 @@ Stakeholders do Projeto:
 - Coordenador de Departamento 
 - Diretor 
 
+
 # Entregas do Projeto: 
+
 - Levantamento de Requesitos 
 - Ciclo de Vida do Projeto 
 - BPMN 
