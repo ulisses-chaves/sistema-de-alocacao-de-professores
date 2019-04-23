@@ -73,7 +73,7 @@ Stakeholders do Projeto:
 - Diretor 
 
 
-# Entregas do Projeto: 
+**Entregas do Projeto:**
 
 - Levantamento de Requesitos 
 - Ciclo de Vida do Projeto 
