@@ -1,15 +1,12 @@
 # Sistema de Alocacao de Professores
 
 **Número do Projeto**
-
 1
 
 **Tipo do Projeto** 
-
 Interno
 
 **Descrição**
-
 Finalidade do Projeto: 
 Implantar um sistema de alocação de professores por área de ensino. 
 
