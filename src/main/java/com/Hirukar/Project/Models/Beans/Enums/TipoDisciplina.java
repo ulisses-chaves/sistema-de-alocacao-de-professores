@@ -22,7 +22,7 @@ public enum TipoDisciplina {
             case 2: return TipoDisciplina.EXTERNA;
             case 3: return TipoDisciplina.ELETIVA;
         }
-        return null;
+       return TipoDisciplina.OBRIGATORIA;
     }
     private TipoDisciplina(int n){
         value = n;

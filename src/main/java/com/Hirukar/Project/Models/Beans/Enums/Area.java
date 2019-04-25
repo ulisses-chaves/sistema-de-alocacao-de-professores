@@ -22,7 +22,7 @@ public enum Area {
             case 1: return Area.ENCISO;
             case 2: return Area.FC;
        }
-            return null;
+            return Area.ARC;
     }
     private Area(int n){
         value = n;

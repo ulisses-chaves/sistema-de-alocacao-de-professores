@@ -22,7 +22,7 @@ public enum Cursos {
             case 1: return Cursos.LC;
             case 2: return Cursos.BSI;
         }
-        return null;
+        return Cursos.BCC;
     }
     private Cursos(int n){
         value = n;

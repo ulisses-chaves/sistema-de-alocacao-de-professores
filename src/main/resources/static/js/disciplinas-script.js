@@ -1,3 +1,4 @@
+var slots="";
 $(function () {
     $.fn.troca = function (other) {
         if($(other).attr('class') == 'disciplina')
@@ -19,6 +20,19 @@ $(function () {
             console.log('feito');
         }
     };
+    $('.dsc').dblclick(function() {
+        slots = $(this).data('slot');
+        $('#exampleModal').modal('show');
+    });
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        console.log('aaaaa');
+
+        // Se necessário, você pode iniciar uma requisição AJAX aqui e, então, fazer a atualização em um callback.
+        // Atualiza o conteúdo do modal. Nós vamos usar jQuery, aqui. No entanto, você poderia usar uma biblioteca de data binding ou outros métodos.
+        var modal = $(this)
+        modal.find('.modal-title').text('informações da disciplina');
+        modal.find('.modal-body #message-text').val('slot:' + slots)
+    })
 });
 var origin = "";
 
