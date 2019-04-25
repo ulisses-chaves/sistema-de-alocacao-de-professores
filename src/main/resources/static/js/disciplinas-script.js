@@ -1,3 +1,4 @@
+var origin = "";
 var slots="";
 $(function () {
     $.fn.troca = function (other) {
@@ -7,20 +8,18 @@ $(function () {
             var a = $(this).children().attr('data-slot');
             var b = $(other).children().attr('data-slot');
             var dados={n1:a,n2:b};
-            console.log('trocando');
             $.post('/alterarSlots',dados)
-             .done(function(){
-                 console.log('enviado');
+             .done(function(){  
                 $.get('/atualizarSlots',function(fragment){
-                    console.log('recebendo');
                     $('#disciplinas').replaceWith(fragment);
                     console.log('recebido');
-                });
-            });
-            console.log('feito');
+                })
+             });
         }
+        else
+            console.log('other class is:'+$(other).attr('class'));
     };
-    $('.dsc').dblclick(function() {
+    $('.disciplina').dblclick(function() {
         slots = $(this).data('slot');
         $('#exampleModal').modal('show');
     });
@@ -34,7 +33,7 @@ $(function () {
         modal.find('.modal-body #message-text').val('slot:' + slots)
     })
 });
-var origin = "";
+
 
 
 function allowDrop(ev) {
@@ -44,21 +43,12 @@ function allowDrop(ev) {
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
     origin = $('#' + ev.target.id).parent().attr('id');
-    console.log("origin:" + origin);
-
 }
 
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    console.log('target:' + ev.target.id);
     if (origin != undefined && origin !== ev.target.id) {
-        console.log('hm..');
         $('#' + origin).troca('#' + ev.target.id);
     }
-    else{
-        ev.target.appendChild(document.getElementById(data));
-        console.log('a');
-    }
 }
-

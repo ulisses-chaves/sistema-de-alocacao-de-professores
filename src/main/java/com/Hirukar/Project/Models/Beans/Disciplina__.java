@@ -23,7 +23,7 @@ public class Disciplina__ {
     private TipoDisciplina tipo;
     private Area area;
     private Cursos curso;
-    private int periodo;
+    private int periodo ;
     List<Disciplina__> preRequisito;
 
    
