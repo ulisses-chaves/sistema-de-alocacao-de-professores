@@ -13,14 +13,25 @@ import java.sql.SQLException;
  * @author RODEMARCK
  */
 public class User {
-    private boolean b;
+    private String login;
+    private String senha;
+    private User usuario;
     public User(ResultSet rs) throws SQLException {
-        b = rs.next();
+        
+        if(!rs.next())
+            throw new SQLException("critical error @User:Constructor");
+        switch(rs.getInt("User.tipo")){
+            case 0:usuario = new Professor(login, login);
+            case 1:
+            case 2:
+        }
+        throw new UnsupportedOperationException();
     }
 
-    public boolean isB() {
-        return b;
-    }
+   public User(String login,String senha){
+       this.login = login;
+       this.senha = senha;
+   }
     
     
 }

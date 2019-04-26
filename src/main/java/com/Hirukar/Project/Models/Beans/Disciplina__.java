@@ -8,6 +8,7 @@ package com.Hirukar.Project.Models.Beans;
 import com.Hirukar.Project.Models.Beans.Enums.Area;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
+import java.sql.ResultSet;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,6 +51,10 @@ public class Disciplina__ {
         this.periodo = -1;
         this.preRequisito = Arrays.asList();
         this.cor = "white";
+    }
+
+    Disciplina__(ResultSet rs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

@@ -5,9 +5,14 @@
  */
 package com.Hirukar.Project.Models.Beans;
 
+import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
 import com.Hirukar.Project.Models.Beans.Enums.Area;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -15,10 +20,13 @@ import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
  * @author RODEMARCK
  */
 public class Horarios__ {
+    private final int id;
+    private int periodo;
     private Slots slot;
     private Disciplina__[] disciplinas = new Disciplina__[6];
     
-    public Horarios__(int id){
+    public Horarios__(){
+        this.id = 0;
         slot = new Slots();
         disciplinas[0] = new Disciplina__();
         disciplinas[1] = new Disciplina__("prog", "0001", "red", Cursos.BCC, Area.ENCISO, TipoDisciplina.OBRIGATORIA);
@@ -26,6 +34,27 @@ public class Horarios__ {
         disciplinas[3] = new Disciplina__("calc", "0004", "green", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA);
         disciplinas[4] = new Disciplina__("icc", "0005", "pink", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA);
         disciplinas[5] = new Disciplina__("disc", "0006", "yellow", Cursos.BCC, Area.FC, TipoDisciplina.OBRIGATORIA);
+    }
+    
+    public Horarios__(int id) throws SQLException, ClassNotFoundException{
+        DisciplinasDAO dao = new DisciplinasDAO();
+        ResultSet rs = null;
+        try {
+            dao.criaConexao();
+            rs = dao.getHorario(id);
+            if(!rs.next())
+                throw new SQLException("Critical error");
+            this.id = rs.getInt("Horario.id");
+            this.slot = new Slots(dao.getSlots(rs.getInt("Horario.slots")));
+            rs = dao.getDisciplina(rs.getInt("Horario.aulas"));
+            for(Disciplina__ d : this.disciplinas)
+                d = new Disciplina__(rs);
+        }catch(SQLException | ClassNotFoundException e){
+            throw e;
+        }finally{
+            dao.fechaConexao();
+        }
+        
     }
     
     public Disciplina__ get(Object index){

@@ -28,7 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class  DisciplinaController {
-    static Horarios__ h = new Horarios__(5);
+    static Horarios__ h = new Horarios__();
     @RequestMapping("/disciplinas")
     public ModelAndView disciplinas() throws IllegalAccessException{
         ModelAndView mv = new ModelAndView("disciplinas");

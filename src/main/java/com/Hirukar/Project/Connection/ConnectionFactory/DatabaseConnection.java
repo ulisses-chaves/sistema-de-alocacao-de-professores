@@ -14,57 +14,30 @@ public final class DatabaseConnection {
     private final static String URL = "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE+"?useSSL=false";
     private final static String USER = "CNV7omG8PV";
     private final static String PASS = "ema3gCwtYr";
-    private static Connection CON;
     
 
     public DatabaseConnection() {}
     
-    public Connection get() throws ClassNotFoundException, SQLException {
+    public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName(DRIVER);
         return DriverManager.getConnection(URL, USER, PASS);
     }
-    private void conect() throws ClassNotFoundException, SQLException {
-        CON = get();
-    }
-        public static Connection getConnection() throws ClassNotFoundException, SQLException {
-        if(CON == null){
-            DatabaseConnection gambiarra = new DatabaseConnection();
-            gambiarra.conect();
-        }
-        return CON;
-    }
-    private void close() throws SQLException {
-        if (CON != null) {
+
+    public void close(Connection CON) throws SQLException {
+        if (CON != null) 
             CON.close();
-        }
-        CON = null;
     }
 
-    private void close(PreparedStatement stmt) throws SQLException {
-        if (stmt != null) {
+    public void close(Connection CON,PreparedStatement stmt) throws SQLException {
+        if (stmt != null)
             stmt.close();
-        }
+        close(CON);
     }
 
-    private void close(ResultSet rs, PreparedStatement stmt) throws SQLException {
-        if (rs != null) {
+    public void close(Connection CON,ResultSet rs, PreparedStatement stmt) throws SQLException {
+        if (rs != null)
             rs.close();
-        }
-        close(stmt);
-    }
-    
-    public static void closeConnection() throws SQLException {
-        DatabaseConnection gambiarra = new DatabaseConnection();
-        gambiarra.close();
+        close(CON,stmt);
     }
 
-    public static void closeConnection(PreparedStatement stmt) throws SQLException {
-        DatabaseConnection gambiarra = new DatabaseConnection();
-        gambiarra.close(stmt);
-    }
-
-    public static void closeConnection(ResultSet rs, PreparedStatement stmt) throws SQLException {
-        DatabaseConnection gambiarra = new DatabaseConnection();
-        gambiarra.close(rs,stmt);
-    }
 }

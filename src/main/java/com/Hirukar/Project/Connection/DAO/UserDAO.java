@@ -29,7 +29,8 @@ public final class UserDAO {
         ResultSet rs=null;
         PreparedStatement stmt=null;
         try {
-            stmt = DatabaseConnection.getConnection().prepareStatement("SELECT * FROM Login WHERE Login.login=? AND Login.senha=?");
+            con = new DatabaseConnection().getConnection();
+            stmt = con.prepareStatement("SELECT * FROM Login WHERE Login.login=? AND Login.senha=?");
             stmt.setString(1, login);
             stmt.setString(2, senha);
             rs = stmt.executeQuery();
@@ -37,28 +38,12 @@ public final class UserDAO {
         }catch(ClassNotFoundException | SQLException e){
             throw new SQLException(e.getMessage());
         }finally{
-            DatabaseConnection.closeConnection(rs, stmt);
+            new DatabaseConnection().close(con,rs, stmt);
         }
         
     }
 
-    /*public void cadastrarProfessor(String name, String login, String senha, String email, String codigo, String area)  throws SQLException {
-        PreparedStatement stmt = null;
-        try{
-            stmt = DatabaseConnection.getConnection().prepareStatement("INSERT INTO Professor (name,login,senha,email,codigo,area) VALUES (?,?,?,?,?,?)");
-            stmt.setString(1, name);
-            stmt.setString(2, login);
-            stmt.setString(3, senha);
-            stmt.setString(4, email);
-            stmt.setString(5, codigo);
-            stmt.setString(6, area);
-            stmt.executeUpdate();
-        }catch(ClassNotFoundException | SQLException e){
-            throw new SQLException(e.getMessage());
-        }finally{
-            DatabaseConnection.closeConnection(stmt);
-        }
-    }*/
+    
 
     public void cadastrarProfessor(Professor professor) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
