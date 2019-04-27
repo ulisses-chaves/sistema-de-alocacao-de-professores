@@ -43,9 +43,9 @@ public class CadastrarController {
         System.out.println("aaaa");
         try{
             dao.cadastrarProfessor(new Professor(name,login,senha,email,codigo,Area.getArea(area)));
-            return new ResponseEntity<String>("Cadastro realizado com sucesso!",HttpStatus.OK);
+            return new ResponseEntity<>("Cadastro realizado com sucesso!",HttpStatus.OK);
         }catch(Exception e){
-            return new ResponseEntity<String>(e.getMessage(),HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_ACCEPTABLE);
         }
     }
     

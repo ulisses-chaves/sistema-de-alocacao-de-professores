@@ -41,15 +41,17 @@ public class IndexController {
 
 
     @RequestMapping(value = "fazerLogin", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public ModelAndView formLogin(String login,String senha,Model model) throws SQLException{
-        UserDAO dao = new UserDAO();
-        ResponseEntity<String> re = null;
-        boolean check = !dao.logar(login, senha).isB();
-        System.out.println("login:"+login+";  senha:"+senha);
-        model.addAttribute("loginError", check);
-        if(check)
+    public ModelAndView formLogin(String login,String senha,Model model){
+        try {
+            UserDAO dao = new UserDAO();
+            ResponseEntity<String> re = null;
+            dao.logar(login, senha);
+            System.out.println("login:"+login+";  senha:"+senha);
             return new ModelAndView ("sobre");
-        return  new ModelAndView ("index");
+        } catch (SQLException ex) {
+            model.addAttribute("loginError", true);
+            return  new ModelAndView ("index");
+        }
     }
     @RequestMapping(value = "fazerLogin", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ModelAndView indexS() throws SQLException{

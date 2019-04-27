@@ -34,7 +34,7 @@ public final class UserDAO {
             stmt.setString(1, login);
             stmt.setString(2, senha);
             rs = stmt.executeQuery();
-            return new User(rs);
+            return User.logar(rs);
         }catch(ClassNotFoundException | SQLException e){
             throw new SQLException(e.getMessage());
         }finally{

@@ -29,17 +29,30 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class  DisciplinaController {
     static Horarios__ h = new Horarios__();
+    static boolean esq = true,dir = true;
+    
+    public Horarios__[] init(){
+        Horarios__ horarios[] = new Horarios__[5];
+        for(Horarios__ h : horarios)
+            h = new Horarios__();
+        
+        return horarios;
+    }
     @RequestMapping("/disciplinas")
     public ModelAndView disciplinas() throws IllegalAccessException{
         ModelAndView mv = new ModelAndView("disciplinas");
         mv.addObject("h", h);
+        mv.addObject("esq", esq);
+        mv.addObject("dir", dir);
         return mv;
     }
     
     @RequestMapping(value="/atualizarSlots", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public String atualizarSlots(ModelMap map) throws IllegalAccessException{
         map.addAttribute("h", h);
-        return "disciplinas :: #disciplinas";
+        /*map.addAttribute("esq", esq);
+        map.addAttribute("dir", dir);*/
+        return "ResponseServer :: #disciplinas";
     }
     
     @RequestMapping(value = "/alterarSlots", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
@@ -56,9 +69,9 @@ public class  DisciplinaController {
         UserDAO dao = new UserDAO();
         ResponseEntity<String> re = null;
         System.out.println("login:"+login+";  senha:"+senha);
-        if(dao.logar(login, senha) != null)
-            return new ResponseEntity<String>("logado",HttpStatus.OK);
-        return new ResponseEntity<String>("login ou senha invalidos",HttpStatus.BAD_REQUEST);
+        if(dao.logar(login, senha) != null) 
+            return new ResponseEntity<>("logado",HttpStatus.OK);
+        return new ResponseEntity<>("login ou senha invalidos",HttpStatus.BAD_REQUEST);
     }
 }
 ;

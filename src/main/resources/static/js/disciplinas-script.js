@@ -11,9 +11,9 @@ $(function () {
             $.post('/alterarSlots',dados)
              .done(function(){  
                 $.get('/atualizarSlots',function(fragment){
-                    $('#disciplinas').replaceWith(fragment);
+                    $('#conteudo').replaceWith(fragment);
                     console.log('recebido');
-                })
+                });
              });
         }
         else
@@ -28,10 +28,19 @@ $(function () {
 
         // Se necessário, você pode iniciar uma requisição AJAX aqui e, então, fazer a atualização em um callback.
         // Atualiza o conteúdo do modal. Nós vamos usar jQuery, aqui. No entanto, você poderia usar uma biblioteca de data binding ou outros métodos.
-        var modal = $(this)
+        var modal = $(this);
         modal.find('.modal-title').text('informações da disciplina');
-        modal.find('.modal-body #message-text').val('slot:' + slots)
-    })
+        modal.find('.modal-body #message-text').val('slot:' + slots);
+    });
+    $(document).ready(function(){
+        var dados={n1:0,n2:0};
+        $.post('/alterarSlots',dados)
+            .done(function(){  
+                $.get('/atualizarSlots',function(fragment){
+                    $('#conteudo').replaceWith(fragment);
+                });
+            });
+    });
 });
 
 

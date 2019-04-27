@@ -5,6 +5,7 @@
  */
 package com.Hirukar.Project.Models.Beans;
 
+import com.Hirukar.Project.Models.Beans.Enums.TipoUsuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -14,24 +15,29 @@ import java.sql.SQLException;
  */
 public class User {
     private String login;
+    private String email;
+    private String matricula;
     private String senha;
-    private User usuario;
-    public User(ResultSet rs) throws SQLException {
-        
+    private TipoUsuario tipo;
+    
+    public static User logar(ResultSet rs) throws SQLException{
         if(!rs.next())
-            throw new SQLException("critical error @User:Constructor");
+            throw new SQLException("critical error @logar:constructor");
         switch(rs.getInt("User.tipo")){
-            case 0:usuario = new Professor(login, login);
-            case 1:
-            case 2:
+            default: return new Professor(rs);
         }
-        throw new UnsupportedOperationException();
     }
 
-   public User(String login,String senha){
+   public User(String login,String senha,String email,String matricula){
        this.login = login;
+       this.matricula = matricula;
        this.senha = senha;
+       this.email = email;
    }
+
+    public boolean isB() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

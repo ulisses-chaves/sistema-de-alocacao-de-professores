@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html   lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Response Server</title>
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/index-script.js"></script>
+        <link rel="shortcut icon" href="/img/SAP-thumb.png">
+    </head>
+    <body>
+        <!--tabela editavel (arrasta e sota) refente a discplinas-->
+        <div class="view-disciplina" id="disciplinas">
+            <div id="navegacao-disciplina">
+                <img th:if="${esq}" style="float: left;" src="/img/seta-esquerda.png" width="50" height="50" alt="">
+                <img th:if="${dir}" style="float: right;" src="/img/seta-direita.png" width="50" height="50" alt="">
+            </div>
+            <div class="container-horarios">
+                <div th:each="slots,slotsIndex : ${h.slot.slots}" th:if="${slots.usado}" class="horario">
+                <span th:text="${slots.hora}"></span>
+            </div>
+            </div>
+            <div class="container-disciplinas">
+                <div th:each="slots,slotsIndex : ${h.slot.slots}" th:if="${slots.usado}" th:id="'y'+${slotsIndex.index}" class="linha-disciplina" >
+                    <div  th:each="i,iIndex : ${slots.dias}" th:id="'divx'+${iIndex.index}+'y'+${slotsIndex.index}" class="espaco-disciplina" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="disciplina" th:style="'background-color:'+${h.get(i).cor}+';'" th:id="'x'+${iIndex.index}+'y'+${slotsIndex.index}" th:attr="data-slot=${i},data-codigo=${h.get(i).codigo},data-turma=${h.get(i).turma},data-tipo=${h.get(i).tipo},data-area=${h.get(i).area},data-curso=${h.get(i).curso},data-periodo=${h.get(i).periodo}" draggable="true" ondragstart="drag(event)">
+                            <label>codigo:</label><span th:text="${h.get(i).codigo}"></span><br>
+                            <label>turma:</label><span th:text="${h.get(i).turma}"></span>
+                        </div>
+                    </div>      
+                </div>   
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        <!--Escolha de cursos-->
+        <div ></div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- modal dsicplina-->
+        <div class="modal fade" id="modal-disciplina" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Destinatário:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Mensagem:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </body>
+</html>
