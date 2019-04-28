@@ -1,7 +1,7 @@
-Ôªøbody{
+body{
     font-family: 'Roboto', sans-serif;
     color: #ebe9e9;
-    height: 100%; height: 100%;         /* rodape - √© necess√°rio definir o height 100% no html, body ou qualquer elemento que estiver entre o body e o .container */
+    height: 100%; height: 100%;         /* rodape - È necess·rio definir o height 100% no html, body ou qualquer elemento que estiver entre o body e o .container */
 }
 
 /* header */
@@ -42,7 +42,7 @@ header nav ul li:first-child{
 
 /* section index*/
 section{                    /*codigo pra por o rodape embaixo*/
-    position: relative;     /* estudar sobre como colocar no rodap√© :) */
+    position: relative;     /* estudar sobre como colocar no rodapÈ :) */
     min-height: 100%;       /* define a altura minima*/
 }
 .logoDescricao{
@@ -52,7 +52,7 @@ section{                    /*codigo pra por o rodape embaixo*/
 }
 .login{
     width: 350px;
-    height: 235px;
+    height: 255px;
     margin-top: 50px;
     background: #343a40;
     border-radius: 8px;
@@ -88,7 +88,16 @@ section{                    /*codigo pra por o rodape embaixo*/
     padding: 3px 10px;
     border-radius: 5px;
 }
-
+.login .error {
+	margin: 10px 50px 0 15px;
+	padding-left: 10px;
+}
+.login .error p{
+	padding: 0;
+	margin: 0;
+	color: red;
+	font-size: 12px;
+}
 /* footer */
 .footer{
     background: #343a40;
