@@ -50,8 +50,15 @@ $(function () {
     });
 });
 
-function showDisciplinaModal(event) {
+function dblclickDisicplina(event){
     let a = $('#' + event.target.id);
+    showDisciplinaModal(a);
+}
+function dblclickDisicplinaText(event){
+    let a = $('#' + event.target.id);
+    showDisciplinaModal($(a).parent());
+}
+function showDisciplinaModal(a) {
     console.log('dbl');
     info[0] = $(a).data('nome');
     info[1] = $(a).data('codigo');
