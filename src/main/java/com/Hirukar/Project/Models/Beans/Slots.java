@@ -62,8 +62,17 @@ public class Slots {
     }
 
     public boolean troca(int n1, int n2) {
+        System.out.println("de:");
         for(int x=0;x<15;x++)
-            slots[x].troca(n1,n2);
+            if(slots[x].isUsado())
+                slots[x].print();
+        for(int x=0;x<15;x++)
+            if(slots[x].isUsado())
+                slots[x].troca(n1,n2);
+        System.out.println("vai para:");
+        for(int x=0;x<15;x++)
+            if(slots[x].isUsado())
+                slots[x].print();
         return true;
     }
     public class Slot{
@@ -84,6 +93,11 @@ public class Slots {
         }
         
         public Slot(){
+        }
+        public void print(){
+            for(int x=0;x<5;x++)
+                System.out.print(dias[x]);
+            System.out.println("");
         }
         public Slot(int ... v){
             this.dias = v;
@@ -113,7 +127,6 @@ public class Slots {
         }
 
         private void troca(int n1, int n2) {
-            System.out.println("vector:"+dias.length);
             for(int x=0 ;x<5 ;x++){
                 if(dias[x] == n1){
                     dias[x] = n2;

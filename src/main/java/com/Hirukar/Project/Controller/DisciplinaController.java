@@ -50,14 +50,19 @@ public class  DisciplinaController {
     @RequestMapping(value="/atualizarSlots", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public String atualizarSlots(ModelMap map) throws IllegalAccessException{
         map.addAttribute("h", h);
-        /*map.addAttribute("esq", esq);
-        map.addAttribute("dir", dir);*/
-        return "ResponseServer :: #disciplinas";
+        map.addAttribute("esq", esq);
+        map.addAttribute("dir", dir);
+        return "ResponseServer :: #div-disciplinas";
+    }
+    
+    @RequestMapping(value="/getModalDisciplina", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public String modalDisciplinas() throws IllegalAccessException{
+        return "ResponseServer :: #modal-disciplina";
     }
     
     @RequestMapping(value = "/alterarSlots", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> alterarSlots(int n1,int n2) throws SQLException{
-        System.out.println("\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.{\nn1:"+n1+"\nn2:"+n2+"\n}");
+        System.out.println("\n.\n.{\nn1:"+n1+"\nn2:"+n2+"\n}");
         if(h.troca(n1, n2))
             return new ResponseEntity<>("OK",HttpStatus.OK);
         else

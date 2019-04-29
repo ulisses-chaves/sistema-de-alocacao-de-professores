@@ -1,47 +1,69 @@
 var origin = "";
-var slots="";
+var info = new Array(8);
 $(function () {
+
     $.fn.troca = function (other) {
-        if($(other).attr('class') == 'disciplina')
+        if ($(other).attr('class') == 'disciplina')
             other = $(other).parent();
-        if($(other).attr('class') == 'espaco-disciplina'){
+        if ($(other).attr('class') == 'text')
+            other = $(other).parent().parent();
+        if ($(other).attr('class') == 'espaco-disciplina') {
             var a = $(this).children().attr('data-slot');
             var b = $(other).children().attr('data-slot');
-            var dados={n1:a,n2:b};
-            $.post('/alterarSlots',dados)
-             .done(function(){  
-                $.get('/atualizarSlots',function(fragment){
-                    $('#conteudo').replaceWith(fragment);
-                    console.log('recebido');
-                });
-             });
-        }
-        else
-            console.log('other class is:'+$(other).attr('class'));
+            var dados = {n1: a, n2: b};
+            $.post('/alterarSlots', dados)
+                    .done(function () {
+                        $.get('/atualizarSlots', function (fragment) {
+                            $('#div-disciplinas').replaceWith(fragment);
+                            console.log(fragment);
+                        }).fail(function (erros) {
+                            alert('troca get ' + erros);
+                        });
+                    }).fail(function (erros) {
+                alert('troca post ' + erros);
+            });
+        } else
+            console.log('other class is:' + $(other).attr('class'));
     };
-    $('.disciplina').dblclick(function() {
-        slots = $(this).data('slot');
-        $('#exampleModal').modal('show');
-    });
-    $('#exampleModal').on('show.bs.modal', function (event) {
-        console.log('aaaaa');
 
-        // Se necessário, você pode iniciar uma requisição AJAX aqui e, então, fazer a atualização em um callback.
-        // Atualiza o conteúdo do modal. Nós vamos usar jQuery, aqui. No entanto, você poderia usar uma biblioteca de data binding ou outros métodos.
+    $('#modal-disciplina').on('show.bs.modal', function (event) {
+        console.log('printando');
         var modal = $(this);
         modal.find('.modal-title').text('informações da disciplina');
-        modal.find('.modal-body #message-text').val('slot:' + slots);
+        modal.find('.modal-body #modal-nome').val(info[0]);
+        modal.find('.modal-body #modal-codigo').val(info[1]);
+        modal.find('.modal-body #modal-turma').val(info[2]);
+        modal.find('.modal-body #modal-cor').val(info[3]);
+        modal.find('.modal-body #modal-tipo').val(info[4]);
+        modal.find('.modal-body #recipient-area').val(info[5]);
+        modal.find('.modal-body #modal-curso').val(info[6]);
+        modal.find('.modal-body #modal-periodo').val(info[7]);
     });
-    $(document).ready(function(){
-        var dados={n1:0,n2:0};
-        $.post('/alterarSlots',dados)
-            .done(function(){  
-                $.get('/atualizarSlots',function(fragment){
-                    $('#conteudo').replaceWith(fragment);
-                });
-            });
+
+    $(document).ready(function () {
+        $.get('/atualizarSlots', function (fragment) {
+            $('#conteudo').replaceWith(fragment);
+        }).fail(function (erros) {
+            alert('atualiza ' + erros);
+        });
+
     });
 });
+
+function showDisciplinaModal(event) {
+    let a = $('#' + event.target.id);
+    console.log('dbl');
+    info[0] = $(a).data('nome');
+    info[1] = $(a).data('codigo');
+    info[2] = $(a).data('turma');
+    info[3] = $(a).data('cor');
+    info[4] = $(a).data('tipo');
+    info[5] = $(a).data('area');
+    info[6] = $(a).data('curso');
+    info[7] = $(a).data('periodo');
+    console.log('puxando modal');
+    $('#modal-disciplina').modal('show');
+}
 
 
 
