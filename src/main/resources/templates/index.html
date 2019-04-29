@@ -45,10 +45,10 @@
                     <div class="login">
                         <form name="formLogin" id="formLogin" th:action="@{fazerLogin}" method="POST">
                             <label for="login">Login:</label>
-                            <input type="text" name="login" id="login">
+                            <input type="text" name="login" id="login" required>
                             <label for="senha">Senha:</label>
-                            <input type="password" name="senha" id="senha">
-                            <div th:if="${loginError}" class="error">senha errada</div>
+                            <input type="password" name="senha" id="senha" required>
+                            <div th:if="${loginError}" class="error"><p>Nome de usuário ou senha inválida!</p></div>
                             <button type="submit" id="btn-logar"  class="btn btn-outline-light" value="Entrar">Entrar</button>
                         </form>
                         <div class="links">
