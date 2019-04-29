@@ -38,7 +38,8 @@ span{
     float: left;
     margin: 5px;
 }
-.disciplina {
+.disciplina,.btn-navegacao {
     width: 126px;
     height: 69px;
 }
+

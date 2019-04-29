@@ -60,6 +60,11 @@ public class  DisciplinaController {
         return "ResponseServer :: #modal-disciplina";
     }
     
+    @RequestMapping(value="/getBotaoNavegacaoDisciplina", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public String botaoNavegacaoDisciplina() throws IllegalAccessException{
+        return "ResponseServer :: #navegaca-disciplina";
+    }
+    
     @RequestMapping(value = "/alterarSlots", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> alterarSlots(int n1,int n2) throws SQLException{
         System.out.println("\n.\n.{\nn1:"+n1+"\nn2:"+n2+"\n}");
