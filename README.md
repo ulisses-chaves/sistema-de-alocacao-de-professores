@@ -29,7 +29,7 @@ O projeto de Alocação de Professores será realizado como atividade avaliativa
 - Otimizar o sistema de alocação por meio de uma inteligência artificial. 
 
 Descrição do Produto: 
-O sistema de alocação de professores é um projeto para apoiar a alocação de professores por área de ensino, que consiste em três: Arquitetura e Redes de Computadores, Engenharia de Sistemas de Software e Fundamentos da Computação. O sistema será online e , portanto, disponibilizará uma plataforma no qual haverá três tipos de usuários: professor, supervisor de departamento e coordenador de curso. 
+O sistema de alocação de professores é um projeto para apoiar a alocação de professores por área de ensino, que consiste em três: Arquitetura e Redes de Computadores, Engenharia de Sistemas de Software e Fundamentos da Computação. O sistema será online e, portanto, disponibilizará uma plataforma no qual haverá três tipos de usuários: professor, supervisor de departamento e coordenador de curso. 
 
 A princípio, os professores só poderão se inscrever nas disciplinas as quais querem lecionar. O supervisor, irá alocar o professor para determinada disciplina e também decidirá os horários do mesmo e o coordenador irá definir o horário das disciplinas obrigatórias. 
 
@@ -46,7 +46,7 @@ Projeto universitário
 
 **Justificativa**
 
-O Departamento de Computação demanda, atualmente, muito tempo para alocar os professores, uma vez que a maior parte do é feito em uma planilha Excel. O modo como é feito essa alocação tem gerado muitos prejuízos ao departamento, que precisa lidar não somente com alocação, mas também com a organização das disciplinas por semestre. 
+O Departamento de Computação demanda, atualmente, muito tempo para alocar os professores, uma vez que a maior parte desse processo é feita em uma planilha Excel. O modo como é realizada essa alocação tem gerado muitos prejuízos ao departamento, que precisa lidar não somente com alocação, mas também com a organização das disciplinas por semestre. 
 Acreditamos que a implantação de um sistema de alocação de professores é a melhor solução nesse caso, pois ele irá suprir tarefas que hoje são feitas manualmente, possibilitando, desse modo, uma otimização no processo de alocação.
 
 
