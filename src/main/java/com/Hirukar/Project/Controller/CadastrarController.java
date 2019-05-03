@@ -7,12 +7,11 @@ package com.Hirukar.Project.Controller;
 
 import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
 import com.Hirukar.Project.Connection.DAO.UserDAO;
-import com.Hirukar.Project.Models.Beans.Disciplina;
 import com.Hirukar.Project.Models.Beans.Disciplina__;
 import com.Hirukar.Project.Models.Beans.Enums.Area;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
-import com.Hirukar.Project.Models.Beans.Professor;
+import com.Hirukar.Project.Models.Beans.Users.Professor;
 import java.sql.SQLException;
 import java.util.concurrent.ExecutionException;
 import org.springframework.http.HttpStatus;
@@ -42,7 +41,7 @@ public class CadastrarController {
         UserDAO dao = new UserDAO();
         System.out.println("aaaa");
         try{
-            dao.cadastrarProfessor(new Professor(name,login,senha,email,codigo,Area.getArea(area)));
+            //dao.cadastrarProfessor(new Professor(name,login,senha,email,codigo,Area.getArea(area)));
             return new ResponseEntity<>("Cadastro realizado com sucesso!",HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_ACCEPTABLE);

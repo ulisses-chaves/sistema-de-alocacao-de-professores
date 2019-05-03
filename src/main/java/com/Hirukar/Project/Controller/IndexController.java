@@ -8,11 +8,10 @@ package com.Hirukar.Project.Controller;
 import com.Hirukar.Project.Connection.DAO.UserDAO;
 import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
-import com.Hirukar.Project.Models.Beans.GradeDeHorarios;
-import com.Hirukar.Project.Models.Beans.Horario;
 import com.Hirukar.Project.Models.Beans.Horarios__;
-import com.Hirukar.Project.Models.Beans.Professor;
+import com.Hirukar.Project.Models.Beans.Users.Professor;
 import com.Hirukar.Project.Models.Beans.Slots;
+import com.Hirukar.Project.Models.Beans.Users.User;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -33,10 +32,10 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @RestController
 public class IndexController {
-    @RequestMapping("/")
-    public ModelAndView index(){
+    @RequestMapping(path = "/index", method = RequestMethod.GET)
+    public String index(){
         System.out.println("index");
-        return new ModelAndView ("index");
+        return ("index");
     }
 
 
@@ -45,9 +44,11 @@ public class IndexController {
         try {
             UserDAO dao = new UserDAO();
             ResponseEntity<String> re = null;
-            dao.logar(login, senha);
+            User c = dao.logar(login, senha);
+            ModelAndView mv = new ModelAndView ("sobre");
+            
             System.out.println("login:"+login+";  senha:"+senha);
-            return new ModelAndView ("sobre");
+            return  mv;
         } catch (SQLException ex) {
             model.addAttribute("loginError", true);
             return  new ModelAndView ("index");

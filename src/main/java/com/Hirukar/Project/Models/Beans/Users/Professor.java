@@ -1,6 +1,7 @@
-package com.Hirukar.Project.Models.Beans;
+package com.Hirukar.Project.Models.Beans.Users;
 
 import com.Hirukar.Project.Models.Beans.Enums.Area;
+import com.Hirukar.Project.Models.Beans.Enums.TipoUsuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -10,17 +11,15 @@ public class Professor extends User{
     private String disciplina;
     private Area area;
 
+    public Professor(ResultSet rs) throws SQLException {
+        super(rs.getString("User.login"), rs.getString("User.email"), rs.getString("User.matricula"), rs.getString("User.senha"), rs.getInt("User.tipo"), rs.getInt("User.id"));
+    }
+
 
 
     
-    Professor(ResultSet rs) throws SQLException {
-        super(rs.getString("User.login"),rs.getString("User.senha"),rs.getString("User.email"),rs.getString("User.matricula"));
-        this.area = Area.getArea(rs.getInt("User.area"));
-    }
 
-    public Professor(String name, String login, String senha, String email, String codigo, Area area) {
-        super(login,senha,email,codigo);
-    }
+
     
     public String getNome() {
         return nome;

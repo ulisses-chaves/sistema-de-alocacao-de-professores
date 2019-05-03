@@ -5,7 +5,7 @@
  */
 package com.Hirukar.Project.Models.Servidor;
 
-import com.Hirukar.Project.Models.Beans.User;
+import com.Hirukar.Project.Models.Beans.Users.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

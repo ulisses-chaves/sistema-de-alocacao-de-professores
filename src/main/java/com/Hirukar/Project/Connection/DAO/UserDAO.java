@@ -6,8 +6,8 @@
 package com.Hirukar.Project.Connection.DAO;
 
 import com.Hirukar.Project.Connection.ConnectionFactory.DatabaseConnection;
-import com.Hirukar.Project.Models.Beans.Professor;
-import com.Hirukar.Project.Models.Beans.User;
+import com.Hirukar.Project.Models.Beans.Users.Professor;
+import com.Hirukar.Project.Models.Beans.Users.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

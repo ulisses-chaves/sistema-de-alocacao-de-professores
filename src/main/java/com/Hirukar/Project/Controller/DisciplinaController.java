@@ -6,9 +6,6 @@
 package com.Hirukar.Project.Controller;
 
 import com.Hirukar.Project.Connection.DAO.UserDAO;
-import com.Hirukar.Project.Models.Beans.Disciplina;
-import com.Hirukar.Project.Models.Beans.GradeDeHorarios;
-import com.Hirukar.Project.Models.Beans.Horario;
 import com.Hirukar.Project.Models.Beans.Horarios__;
 import java.sql.SQLException;
 import java.util.ArrayList;

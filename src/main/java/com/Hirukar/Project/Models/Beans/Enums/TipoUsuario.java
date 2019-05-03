@@ -10,17 +10,17 @@ package com.Hirukar.Project.Models.Beans.Enums;
  * @author RODEMARCK
  */
 public enum TipoUsuario {
-    PROFESSOR(0),COORDENADOR(1),DIRETOR(2);
+    PROFESSOR(0),COORDENADOR(1),SUPERVISOR(2);
     
     private final int value;
     
-    public TipoUsuario getTipoUsuario(int n){
+    public static TipoUsuario getTipoUsuario(int n){
         switch(n){
-            case 0: return TipoUsuario.PROFESSOR;
-            case 1: return TipoUsuario.COORDENADOR;
-            case 2: return TipoUsuario.DIRETOR;
+            case 0: return PROFESSOR;
+            case 1: return COORDENADOR;
+            case 2: return SUPERVISOR;
+            default: return PROFESSOR;
         }
-        return TipoUsuario.PROFESSOR;
     }
     
     public int getValue(){
