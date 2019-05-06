@@ -65,7 +65,7 @@ Acreditamos que a implantação de um sistema de alocação de professores é a 
 
 **Últimas informações**
 
-Stakeholders do Projeto: 
+**Stakeholders do Projeto:**
 - Professorxs; 
 - Universidade 
 - Supervisor de Área 
