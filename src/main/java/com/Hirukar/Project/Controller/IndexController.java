@@ -32,10 +32,10 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @RestController
 public class IndexController {
-    @RequestMapping(path = "/index", method = RequestMethod.GET)
-    public String index(){
+    @RequestMapping(value = "/", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public ModelAndView index(){
         System.out.println("index");
-        return ("index");
+        return new ModelAndView("index");
     }
 
 

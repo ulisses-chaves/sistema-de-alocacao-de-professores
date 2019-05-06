@@ -15,19 +15,29 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  */
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
-
+    private static final String[] ARTEFATOS  =  {
+            "/css/**",
+            "/img/**",
+            "/fonts/**",
+            "/js/**",
+        };
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        
         http
             .authorizeRequests()
+                .antMatchers(ARTEFATOS).permitAll()
+                .antMatchers("/cadastroProfessor").hasAnyRole("SUPERVISOR","COORDENADOR")
+                .antMatchers("/cadastroDisciplina").hasAnyRole("SUPERVISOR","COORDENADOR")
                 .anyRequest()
                 .authenticated()
             .and()
             .formLogin()
-                /*.loginPage("/index")
-                .permitAll()*/;
-               
-        
+                .loginPage("/")
+                .permitAll()
+            .and()
+            .logout()
+                .permitAll();
     }
     
 }
