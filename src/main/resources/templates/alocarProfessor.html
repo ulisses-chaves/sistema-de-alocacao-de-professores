@@ -8,9 +8,10 @@
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/alocar-professor.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
         <script type="text/javascript" src="/js/jquery.min.js"></script>
-        <script type="text/javascript" src="/js/index-script.js"></script>
+        <script type="text/javascript" src="/js/alocar-professor.js"></script>
         <link rel="shortcut icon" href="/img/SAP-thumb.png">
     </head>
     <body>
@@ -36,35 +37,21 @@
                 </header>
             </div>
         </div>
-        <div class="linha">
-            <section>
-                <div class="coluna col6">
-                    <img src="/img/sistema-preto.png" class="logoDescricao" alt="logoSAP" title="Sistema de Alocação de Professores">
-                </div>
-                <div class="coluna col6">
-                    <div class="login">
-                        <form action="/" method="post">
-                            <div class="form-group">
-                                <label for="login">Login:</label>
-                                <input type="text" name="username" class="form-control" id="login" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="senha">Senha:</label>
-                                <input type="password" name="password" class="form-control" id="senha" required>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" id="btn-logar"  class="btn btn-outline-light" value="Entrar">Entrar</button>
-                            </div>
-                            <!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/> -->
-                        </form>
-                        <div class="links">
-                            <a href="/cadastroProfessor">Cadastro</a>
-                            <a href="recuperar">Esqueceu a senha?</a>
-                        </div> 
-                        <div id="resposta"></div>
+                <!--   Alocação de professores   -->
+                
+                <div id="view-alocacao">
+                    <div id="conteiner-professor">
+                        <div th:each="prof,profIndex : ${professores}" class="professor"  onclick="atualizarAulas()">
+                            <span th:text="'nome:'+${prof.nome}"></span><br>
+                            <span th:text="'area:'+${prof.area}"></span><br>
+                        </div>
+                    </div>
+                    <div id="aulinhas">
+                        <div th:each="aula,aulaIndex : ${aulas}" class="aula">
+                            <span th:text="${aula.nome}"
+                        </div>
                     </div>
                 </div>
-            </section>
         </div>
         <div class="footer">
             <div class="linha">

@@ -31,12 +31,8 @@ public class Horarios__ {
         slot = new Slots();
         periodo = 3;
         curso = Cursos.BCC;
-        disciplinas[0] = new Disciplina__();
-        disciplinas[1] = new Disciplina__("prog", "0001", "#373a07", Cursos.BCC, Area.ENCISO, TipoDisciplina.OBRIGATORIA);
-        disciplinas[2] = new Disciplina__("alg", "0002", "#700202", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA);
-        disciplinas[3] = new Disciplina__("calc", "0004", "#144b03", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA);
-        disciplinas[4] = new Disciplina__("icc", "0005", "#9e6105", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA);
-        disciplinas[5] = new Disciplina__("disc", "0006", "#140458", Cursos.BCC, Area.FC, TipoDisciplina.OBRIGATORIA);
+        for(int i=0; i<6;i++)
+            disciplinas[i] = Disciplina__.todasDisciplinas.get(i);
     }
 
     public int getId() {

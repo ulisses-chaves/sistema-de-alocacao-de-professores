@@ -10,7 +10,7 @@ $(function () {
         if ($(other).attr('class') == 'espaco-disciplina') {
             var a = $(this).children().attr('data-slot');
             var b = $(other).children().attr('data-slot');
-            var dados = {n1: a, n2: b};
+            
             $.post('/alterarSlots', dados)
                     .done(function () {
                         $.get('/atualizarSlots', function (fragment) {
