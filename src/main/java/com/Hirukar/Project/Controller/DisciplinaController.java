@@ -39,8 +39,6 @@ public class  DisciplinaController {
     public ModelAndView disciplinas() throws IllegalAccessException{
         ModelAndView mv = new ModelAndView("disciplinas");
         mv.addObject("h", h);
-        mv.addObject("esq", esq);
-        mv.addObject("dir", dir);
         return mv;
     }
     

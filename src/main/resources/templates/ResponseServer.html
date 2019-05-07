@@ -17,8 +17,12 @@
         <!--tabela editavel (arrasta e sota) refente a discplinas-->
         <div class="view-disciplina" id="div-disciplinas">
             <div id="navegacao-disciplina">
-                <img th:if="${esq}" style="float: left;" src="/img/seta-esquerda.png" width="50" height="50" alt="">
-                <img th:if="${dir}" style="float: right;" src="/img/seta-direita.png" width="50" height="50" alt="">
+                <img  style="float: left;" src="/img/seta-esquerda.png" width="50" height="50" alt=""><!--th:if="${h.periodo}>0"-->
+                <center>
+                    <!--<span th:text="'Curso:'+${h.curso}"></span>
+                    <span th:text="$'Periodo:'+{h.periodo}"></span>-->
+                </center>
+                    <img  style="float: right;" src="/img/seta-direita.png" width="50" height="50" alt=""><!--th:if="${h.periodo}<9"-->
             </div>
             <div class="container-horarios">
                 <div th:each="slots,slotsIndex : ${h.slot.slots}" th:if="${slots.usado}" class="horario">

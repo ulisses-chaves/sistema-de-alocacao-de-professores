@@ -23,17 +23,32 @@ public class Horarios__ {
     private final int id;
     private int periodo;
     private Slots slot;
+    private Cursos curso;
     private Disciplina__[] disciplinas = new Disciplina__[6];
     
-    public Horarios__(){
+    public Horarios__(){    
         this.id = 0;
         slot = new Slots();
+        periodo = 3;
+        curso = Cursos.BCC;
         disciplinas[0] = new Disciplina__();
         disciplinas[1] = new Disciplina__("prog", "0001", "red", Cursos.BCC, Area.ENCISO, TipoDisciplina.OBRIGATORIA);
         disciplinas[2] = new Disciplina__("alg", "0002", "blue", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA);
         disciplinas[3] = new Disciplina__("calc", "0004", "green", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA);
         disciplinas[4] = new Disciplina__("icc", "0005", "pink", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA);
         disciplinas[5] = new Disciplina__("disc", "0006", "yellow", Cursos.BCC, Area.FC, TipoDisciplina.OBRIGATORIA);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
     }
     
     public Horarios__(int id) throws SQLException, ClassNotFoundException{

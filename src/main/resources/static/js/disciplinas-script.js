@@ -14,7 +14,7 @@ $(function () {
             $.post('/alterarSlots', dados)
                     .done(function () {
                         $.get('/atualizarSlots', function (fragment) {
-                            $('#conteudo').replaceWith(fragment);
+                            $('#div-disciplinas').replaceWith(fragment);
                             console.log(fragment);
                         }).fail(function (erros) {
                             alert('troca get ' + erros);
@@ -43,17 +43,13 @@ $(function () {
     $(document).ready(function () {
         $.get('/getBotaoNavegacaoDisciplina',function (fragment) {
             $('#conteudo').replaceWith(fragment);
-        }).done(function() {
-            $('#navegaca-disciplina').attr('id','conteudo');
         });
     });
 });
 
 function irParaDisciplinas() {
     $.get('/atualizarSlots', function (fragment) {
-        $('#conteudo').replaceWith(fragment);
-    }).done(function () {
-        $('#div-disciplinas').attr('id', 'conteudo');
+        $('#navegaca-disciplina').replaceWith(fragment);
     }).fail(function (erros) {
         alert('atualiza ' + erros);
     });
