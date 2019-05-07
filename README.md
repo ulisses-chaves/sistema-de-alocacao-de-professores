@@ -15,7 +15,6 @@ Interno
 Finalidade do Projeto: 
 Implantar um sistema de alocação de professores por área de ensino. 
 
-
 Objetivo(s) do Projeto: 
 - Criar um sistema para alocar professores por área de ensino; 
 - Possibilitar uma melhor organização na distribuição de carga horária das disciplinas; 
@@ -26,7 +25,7 @@ Descrição do Projeto:
 O projeto de Alocação de Professores será realizado como atividade avaliativa da disciplina Engenharia de Software, Banco de Dados e Inteligência Artificial que será apresentado no primeiro semestre letivo de 2019. O projeto consiste em: 
 - Fazer toda documentação do projeto para entregar as competências responsáveis; 
 - Implantar um banco de dados para o desenvolvimento do sistema; 
-- Otimizar o sistema de alocação por meio de uma inteligência artificial. 
+- Otimizar o sistema de alocação por meio de uma otimização combinatória. 
 
 Descrição do Produto: 
 O sistema de alocação de professores é um projeto para apoiar a alocação de professores por área de ensino, que consiste em três: Arquitetura e Redes de Computadores, Engenharia de Sistemas de Software e Fundamentos da Computação. O sistema será online e, portanto, disponibilizará uma plataforma no qual haverá três tipos de usuários: professor, supervisor de departamento e coordenador de curso. 
@@ -38,11 +37,9 @@ A princípio, os professores só poderão se inscrever nas disciplinas as quais 
 
 Projeto universitário
 
-
 **Prioridade**
 
 5
-
 
 **Justificativa**
 
@@ -65,7 +62,7 @@ Acreditamos que a implantação de um sistema de alocação de professores é a 
 
 **Últimas informações**
 
-Stakeholders do Projeto: 
+**Stakeholders do Projeto:**
 - Professorxs; 
 - Universidade 
 - Supervisor de Área 
