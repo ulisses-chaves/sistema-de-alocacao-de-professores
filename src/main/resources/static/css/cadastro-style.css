@@ -85,10 +85,18 @@ section .formulario .botoes{
 
 /* PROFESSOR */
 #iNome{
-    width: 629px;
+    width: 718px;
+    margin-left: 28px;
+}
+#iLogin{
+    margin-left: 32px;
+}
+#iSenha {
+    margin-left: 38px;
 }
 #iEmail{
-    width: 715px;
+    width: 718px;
+    margin-left: 31px;
 }
 #iCodigo{
     margin-left: 20px; 
@@ -110,24 +118,55 @@ section .formulario .botoes{
     font-size: 18px;
 }
 .formularioDisciplina input{
-    font-size: 13px;
+    width: 715px;
+    height: 25px;
+    border-radius: 3px;
+}
+.formularioDisciplina #iDisciplina {
+    margin-left: 35px;
+    width: 680px;
+}
+.formularioDisciplina #iCodigo {
+    margin-left: 56px;
+    width: 680px;
+}
+.formularioDisciplina #iCurso{
+    margin-left: 66px;
     border-radius: 3px;
 } 
-.formularioDisciplina #iCurso{
-    margin-left: 9px;
-} 
+.formularioDisciplina #iAreaLabel {
+    margin-left: 130px;
+}
 .formularioDisciplina #iArea{
-    margin-left: 38px;
+    margin-left: 70px;
 }
 .formularioDisciplina p{
     display: inline-block;
     width: 100;
 }
+.formularioDisciplina #tipo-div {
+    height: 37px;
+    width: 700px;
+    margin: 35px auto 25px auto;
+    padding: 3px;
+    border: 2px solid;
+    border-color: #ebe9e9;
+    border-radius: 3px;
+    text-align: center;
+}
+.formularioDisciplina #iTipo {
+    margin: 0 0 0 -10px;
+    padding: 0;
+}
 .formularioDisciplina #iObr{
-    margin-left: 20px;
+    width: 0;
+    height: 0;
+    margin-left: 110px;
 }
 .formularioDisciplina #iOpt{
-    margin-left: 50px;
+    width: 0;
+    height: 0;
+    margin-left: 40px;
 }
 .formularioDisciplina .botoes{
     text-align: center;
