@@ -15,6 +15,10 @@ public class Professor extends User{
     private String matricula;
     private Area area;
 
+    public static List<Professor> getTodosProfessores() {
+        return todosProfessores;
+    }
+
     public String getMatricula() {
         return matricula;
     }

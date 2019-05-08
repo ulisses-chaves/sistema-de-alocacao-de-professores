@@ -32,15 +32,11 @@ public class AlocarProfessorController {
     }
     
     @RequestMapping(value="/atualizarAulas", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public String requisicao(ModelMap map,int area){
+    public String requisicao(ModelMap map,Area area){
         List<Disciplina__> v = new ArrayList<>();
-        System.out.println("init");
         Disciplina__.inicializar().forEach((t) -> {
-            System.out.println(t.getArea());
-            if(t.getArea().getValue() == area){
+            if(t.getArea() == area || t.getArea() == Area.FLUTUANTE)
                 v.add(t);
-                System.out.println("add");
-            }
         });
         map.addAttribute("aulas", v);
         return "alocarProfessor :: #aulinhas";

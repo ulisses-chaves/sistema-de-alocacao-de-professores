@@ -5,17 +5,16 @@ $(function () {
     $.fn.troca = function (other) {
         if ($(other).attr('class') == 'disciplina')
             other = $(other).parent();
-        if ($(other).attr('class') == 'text')
+        if ($(other).attr('class').includes('text'))
             other = $(other).parent().parent();
         if ($(other).attr('class') == 'espaco-disciplina') {
             var a = $(this).children().attr('data-slot');
             var b = $(other).children().attr('data-slot');
-            
+            var dados= {n1:a,n2:b}
             $.post('/alterarSlots', dados)
                     .done(function () {
                         $.get('/atualizarSlots', function (fragment) {
                             $('#div-disciplinas').replaceWith(fragment);
-                            console.log(fragment);
                         }).fail(function (erros) {
                             alert('troca get ' + erros);
                         });
@@ -41,7 +40,7 @@ $(function () {
     });
 
     $(document).ready(function () {
-        $.get('/getBotaoNavegacaoDisciplina',function (fragment) {
+        $.get('/atualizarSlots',function (fragment) {
             $('#conteudo').replaceWith(fragment);
         });
     });

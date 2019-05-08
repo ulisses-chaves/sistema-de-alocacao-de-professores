@@ -79,6 +79,14 @@ public class Horarios__ {
     public void setSlot(Slots slot) {
         this.slot = slot;
     }
+    
+    public Cursos getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Cursos curso) {
+        this.curso = curso;
+    }
 
     public Disciplina__[] getDisciplinas() {
         return disciplinas;

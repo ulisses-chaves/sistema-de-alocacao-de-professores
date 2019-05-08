@@ -6,6 +6,7 @@
 package com.Hirukar.Project.Models.Beans;
 
 import com.Hirukar.Project.Models.Beans.Enums.Area;
+import static com.Hirukar.Project.Models.Beans.Enums.Area.EXTERNA;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
 import java.sql.ResultSet;
@@ -28,6 +29,8 @@ public class Disciplina__ {
     private Cursos curso;
     private int periodo ;
     List<Disciplina__> preRequisito;
+    
+    
     public boolean remover(int n){
         return this.area == Area.getArea(n);
     }
@@ -35,8 +38,8 @@ public class Disciplina__ {
         List<Disciplina__> lista = new ArrayList<>();
         lista.addAll(Arrays.asList(new Disciplina__(),
                                    new Disciplina__("prog", "0001", "#373a07", Cursos.BCC, Area.ENCISO, TipoDisciplina.OBRIGATORIA),
-                                   new Disciplina__("alg", "0002", "#700202", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA),
-                                   new Disciplina__("calc", "0004", "#144b03", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA),
+                                   new Disciplina__("alg", "0002", "#700202", Cursos.BCC, Area.ENCISO, TipoDisciplina.OBRIGATORIA),
+                                   new Disciplina__("calc", "0004", "#144b03", Cursos.BCC, Area.EXTERNA, TipoDisciplina.OBRIGATORIA),
                                    new Disciplina__("icc", "0005", "#9e6105", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA),
                                    new Disciplina__("disc", "0006", "#140458", Cursos.BCC, Area.FC, TipoDisciplina.OBRIGATORIA)));
         return lista;
@@ -60,7 +63,7 @@ public class Disciplina__ {
         this.codigo = "";
         this.turma = "";
         this.curso = Cursos.getCurso(0);
-        this.area = Area.getArea(0);
+        this.area = Area.EXTERNA;
         this.tipo = TipoDisciplina.getTipoDisciplina(0);
         this.periodo = -1;
         this.preRequisito = Arrays.asList();
@@ -68,7 +71,7 @@ public class Disciplina__ {
     }
 
     Disciplina__(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
     
