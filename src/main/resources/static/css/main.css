@@ -1,0 +1,100 @@
+/* pattern */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #ebe9e9;
+}
+.color-dark {
+    color: #343a40;
+    font-weight: 500;
+}
+.title-row {
+    margin: 4px 250px 30px 250px;
+    background-color: #343a40;
+    padding: 1px 0;
+    border-radius: 5px;
+}
+.tamanho-input {
+    height: 28px;
+}
+
+/* navbar */
+.imgs {
+    width: 100%;
+    text-align: center;
+}
+#logoSAP {
+    width: 55px;
+}
+#logoUFRPE {
+    width: 51px;
+}
+
+/* login */
+.divLogoDescricao {
+    text-align: center;
+}
+.logoDescricao {
+    width: 60%;
+}
+.login {
+    margin-top: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.links {
+    float: left;
+    margin: auto;
+}
+.links a {
+    color: #ebe9e9;
+    font-size: 12px;
+}
+
+/* cadastros */
+.form-cadastro {
+    border-radius: 3px;
+}
+
+/* regras */
+.tabelinha #emBranco {
+    border: none;
+    background-color: #ffffff;
+}
+.tabelinha th {
+    background-color: #343a40;
+    color: #ebe9e9;
+    border: 2px solid;
+    border-color: #ebe9e9;
+    width: 130px;
+    height: 37px;
+    text-align: center;
+}
+.tabelinha td{
+    border: 2px solid;
+    width: 100px;
+    text-align: center;
+}
+
+/* footer */
+footer {
+    color: #ebe9e9;
+    text-align:center;
+    width: 100%;
+}
+footer img{
+    width: 45px;
+    margin-right: 20px;
+}
+@media (min-height: 600px) {
+    footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}
+@media (min-height: 0px) {
+    footer {
+        margin-top: 30px;
+    }
+}
