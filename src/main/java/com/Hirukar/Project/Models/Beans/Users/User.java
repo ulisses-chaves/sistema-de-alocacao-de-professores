@@ -5,9 +5,6 @@
  */
 package com.Hirukar.Project.Models.Beans.Users;
 
-import com.Hirukar.Project.Models.Users_.Coordenador;
-import com.Hirukar.Project.Models.Users_.Supervisor;
-import com.Hirukar.Project.Models.Users_.Professor;
 import com.Hirukar.Project.Models.Beans.Enums.TipoUsuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,14 +22,14 @@ public abstract class User {
     private TipoUsuario tipo;
     private int id;
 
-   /* public static User logar(ResultSet rs) throws SQLException {
+    public static User logar(ResultSet rs) throws SQLException {
         switch (TipoUsuario.getTipoUsuario(rs.getInt("User.tipo"))) {
             case PROFESSOR: return new Professor(rs);
             case COORDENADOR: return new Coordenador(rs);
             case SUPERVISOR: return new Supervisor(rs);
             default: return null;
         }
-    }*/
+    }
 
     public User(String login, String email, String matricula, String senha, int tipo, int id) {
         this.login = login;

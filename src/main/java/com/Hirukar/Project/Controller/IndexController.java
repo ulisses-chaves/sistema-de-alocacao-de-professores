@@ -6,19 +6,10 @@
 package com.Hirukar.Project.Controller;
 
 import com.Hirukar.Project.Connection.DAO.UserDAO;
-import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
-import com.Hirukar.Project.Models.Beans.Enums.Cursos;
-import com.Hirukar.Project.Models.Beans.Horarios__;
-import com.Hirukar.Project.Models.Users_.Professor;
-import com.Hirukar.Project.Models.Beans.Slots;
 import com.Hirukar.Project.Models.Beans.Users.User;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,9 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndexController {
     @RequestMapping("/")
     public ModelAndView index(){
-        ModelAndView mv = new ModelAndView("index");
-        mv.addObject("a", "sexo anal na casa de carai");
-        return mv;
+        return new ModelAndView("index");
     }
 
 

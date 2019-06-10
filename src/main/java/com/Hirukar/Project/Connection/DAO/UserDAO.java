@@ -6,7 +6,7 @@
 package com.Hirukar.Project.Connection.DAO;
 
 import com.Hirukar.Project.Connection.ConnectionFactory.DatabaseConnection;
-import com.Hirukar.Project.Models.Users_.Professor;
+import com.Hirukar.Project.Models.Beans.Users.Professor;
 import com.Hirukar.Project.Models.Beans.Users.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -34,7 +34,7 @@ public final class UserDAO {
             stmt.setString(1, login);
             stmt.setString(2, senha);
             rs = stmt.executeQuery();
-            return null;
+            return User.logar(rs);
         }catch(ClassNotFoundException | SQLException e){
             throw new SQLException(e.getMessage());
         }finally{
@@ -46,7 +46,8 @@ public final class UserDAO {
     
 
     public void cadastrarProfessor(Professor professor) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(professor.getLogin().equals(""))
+            ;
     }
 
     

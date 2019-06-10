@@ -6,7 +6,7 @@
 package com.Hirukar.Project.Connection.DAO;
 
 import com.Hirukar.Project.Connection.ConnectionFactory.DatabaseConnection;
-import com.Hirukar.Project.Models.Beans.Disciplina;
+import com.Hirukar.Project.Models.Beans.Disciplina__;
 import com.Hirukar.Project.Models.Beans.Slots;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -9,9 +9,6 @@ import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
 import com.Hirukar.Project.Models.Beans.Enums.Area;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
-import com.Hirukar.Project.Models.Servidor.Repositorio;
-import java.io.IOException;
-import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -22,23 +19,20 @@ import java.util.logging.Logger;
  *
  * @author RODEMARCK
  */
-public class Horarios__ implements Serializable{
+public class Horarios__ {
     private final int id;
     private int periodo;
     private Slots slot;
     private Cursos curso;
-    private Disciplina[] disciplinas = new Disciplina[6];
+    private Disciplina__[] disciplinas = new Disciplina__[6];
     
     public Horarios__(){    
         this.id = 0;
         slot = new Slots();
         periodo = 3;
         curso = Cursos.BCC;
-        try{
-            for(int i=0; i<6;i++)
-                disciplinas[i] = Repositorio.get().getDisciplinas().get(i);
-        }catch(Exception e){
-        }
+        for(int i=0; i<6;i++)
+            disciplinas[i] = Disciplina__.todasDisciplinas.get(i);
     }
 
     public int getId() {
@@ -64,8 +58,8 @@ public class Horarios__ implements Serializable{
             this.id = rs.getInt("Horario.id");
             this.slot = new Slots(dao.getSlots(rs.getInt("Horario.slots")));
             rs = dao.getDisciplina(rs.getInt("Horario.aulas"));
-            /*for(Disciplina d : this.disciplinas)
-                d = new Disciplina(rs);*/
+            for(Disciplina__ d : this.disciplinas)
+                d = new Disciplina__(rs);
         }catch(SQLException | ClassNotFoundException e){
             throw e;
         }finally{
@@ -74,7 +68,7 @@ public class Horarios__ implements Serializable{
         
     }
     
-    public Disciplina get(Object index){
+    public Disciplina__ get(Object index){
         return disciplinas[Integer.parseInt(""+index)];
     }
     
@@ -94,11 +88,11 @@ public class Horarios__ implements Serializable{
         this.curso = curso;
     }
 
-    public Disciplina[] getDisciplinas() {
+    public Disciplina__[] getDisciplinas() {
         return disciplinas;
     }
 
-    public void setDisciplinas(Disciplina[] disciplinas) {
+    public void setDisciplinas(Disciplina__[] disciplinas) {
         this.disciplinas = disciplinas;
     }
     

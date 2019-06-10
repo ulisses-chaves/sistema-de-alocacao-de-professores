@@ -5,11 +5,8 @@
  */
 package com.Hirukar.Project.Controller;
 
-import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
-import com.Hirukar.Project.Models.Users_.Professor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
