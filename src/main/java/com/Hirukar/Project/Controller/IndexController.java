@@ -9,7 +9,7 @@ import com.Hirukar.Project.Connection.DAO.UserDAO;
 import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Horarios__;
-import com.Hirukar.Project.Models.Beans.Users.Professor;
+import com.Hirukar.Project.Models.Users_.Professor;
 import com.Hirukar.Project.Models.Beans.Slots;
 import com.Hirukar.Project.Models.Beans.Users.User;
 import java.sql.SQLException;
@@ -34,7 +34,9 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndexController {
     @RequestMapping("/")
     public ModelAndView index(){
-        return new ModelAndView("index");
+        ModelAndView mv = new ModelAndView("index");
+        mv.addObject("a", "sexo anal na casa de carai");
+        return mv;
     }
 
 

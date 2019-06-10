@@ -7,11 +7,11 @@ package com.Hirukar.Project.Controller;
 
 import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
 import com.Hirukar.Project.Connection.DAO.UserDAO;
-import com.Hirukar.Project.Models.Beans.Disciplina__;
+import com.Hirukar.Project.Models.Beans.Disciplina;
 import com.Hirukar.Project.Models.Beans.Enums.Area;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
-import com.Hirukar.Project.Models.Beans.Users.Professor;
+import com.Hirukar.Project.Models.Users_.Professor;
 import java.sql.SQLException;
 import java.util.concurrent.ExecutionException;
 import org.springframework.http.HttpStatus;
@@ -53,7 +53,7 @@ public class CadastrarController {
     @RequestMapping(value = "fazerCadastroDisciplina", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> fazerCadastroDisciplina(String disciplina, String codigo,int curso,int area,int tipo){
         try{
-          //  new DisciplinasDAO().cadastrar(new Disciplina__ (disciplina,codigo,Cursos.getCurso(curso),Area.getArea(area),TipoDisciplina.getTipoDisciplina(tipo)));
+          //  new DisciplinasDAO().cadastrar(new Disciplina (disciplina,codigo,Cursos.getCurso(curso),Area.getArea(area),TipoDisciplina.getTipoDisciplina(tipo)));
             return new ResponseEntity<>("Registrado com sucesso",HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_ACCEPTABLE);

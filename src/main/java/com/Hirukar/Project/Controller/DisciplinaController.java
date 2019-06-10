@@ -7,9 +7,8 @@ package com.Hirukar.Project.Controller;
 
 import com.Hirukar.Project.Connection.DAO.UserDAO;
 import com.Hirukar.Project.Models.Beans.Horarios__;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -28,7 +27,7 @@ public class  DisciplinaController {
     static Horarios__ h = new Horarios__();
     static boolean esq = true,dir = true;
     
-    public Horarios__[] init(){
+    public Horarios__[] init() throws IOException{
         Horarios__ horarios[] = new Horarios__[5];
         for(Horarios__ h : horarios)
             h = new Horarios__();
@@ -36,10 +35,11 @@ public class  DisciplinaController {
         return horarios;
     }
     @RequestMapping("/disciplinas")
-    public ModelAndView disciplinas() throws IllegalAccessException{
-        ModelAndView mv = new ModelAndView("disciplinas");
-        mv.addObject("h", h);
-        return mv;
+    public String disciplinas() throws IllegalAccessException{
+        System.out.println("diciplinado de forma errada");
+       // ModelAndView mv = new ModelAndView("disciplinas");
+        //mv.addObject("h", h);
+        return "disciplinas";
     }
     
     @RequestMapping(value="/atualizarSlots", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
@@ -79,4 +79,3 @@ public class  DisciplinaController {
         return new ResponseEntity<>("login ou senha invalidos",HttpStatus.BAD_REQUEST);
     }
 }
-;
