@@ -6,18 +6,17 @@ const LoginTemplate = `
         </div>
         <div class="col-sm-12 col-md-6 col-lg-6 pt-4">
             <div class="login col-sm-12 col-md-12 col-lg-9 col-xl-8 bg-dark p-3">
-                <form action="">
+                <form v-on:submit.prevent="logar">
                     <label for="inputLogin">Login:</label>
-                    <input type="text" class="form-control tamanho-input p-1" id="inputLogin" placeholder="Seu login" required>
+                    <input type="text" class="form-control tamanho-input p-1" id="inputLogin" placeholder="Seu login" v-model="user.login" required>
                     <label class= "mt-2" for="inputSenha">Senha:</label>
-                    <input type="password" class="form-control tamanho-input h-30px p-1" id="inputSenha" placeholder="Sua senha" required>
+                    <input type="password" class="form-control tamanho-input h-30px p-1" id="inputSenha" placeholder="Sua senha" v-model="user.password" required>
                     <div class="links my-3 p-1">
                         <a href="#/cadastroProfessor">Cadastro</a> <br>
                         <a href="" data-toggle="modal" data-target="#modalRecuperar">Esqueceu a senha?</a>
                     </div>
-                    <router-view> </router-view>
                     <div class="text-right pr-3 my-1 mt-4">
-                        <button type="submit" id="btn-logar" class="btn btn-outline-light" value="Entrar">Entrar</button>
+                        <button class="btn btn-outline-light" value="Entrar">Entrar</button>
                     </div>
                 </form> 
                 <div id="resposta"></div>
