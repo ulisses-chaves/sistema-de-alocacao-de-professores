@@ -8,19 +8,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.servlet.ModelAndView;
 
+import static junit.framework.TestCase.assertEquals;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DisciplinaControllerTest {
     private DisciplinaController disciplinasteste = new DisciplinaController();
 
+
+
     @Test
-    public void discplinaTest()  throws IllegalAccessException{
-        ModelAndView s = disciplinasteste.disciplinas();
-        if(s == null)
-            System.out.println("nullo!!!!!");
-        Assert.assertEquals(s.getModel(),new ModelAndView("h").getModel());
-        ModelAndView sTest = new ModelAndView("disciplinas");
-       // s.addObject("h", h);
-        Assert.assertEquals(s.getModel(),sTest.getModel());
+    public void discplinaTest2() throws IllegalAccessException{
+        String s = disciplinasteste.modalDisciplinas();
+        assertEquals(s,"ResponseServer :: #modal-disciplina");
+        String r = disciplinasteste.botaoNavegacaoDisciplina();
+        assertEquals(r,"ResponseServer :: #navegaca-disciplina");
     }
+
 }
