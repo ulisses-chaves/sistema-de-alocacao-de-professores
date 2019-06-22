@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Menu | Coordenador</title>
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/menu-style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="shortcut icon" href="/img/SAP-thumb.png" >
+    </head>
+    <body>
+        <div class="header">
+            <div class="linha">
+                <header>
+                    <div class="coluna col9 imgs">
+                        <a href="/menuCoordenador">
+                              <img src="/img/SAP-branco.png" id="logoSAP" alt="Logo do Site" title="SAP">
+                        </a>
+                        <a href="http://www.ufrpe.br/" target="_blank">
+                            <img src="/img/ufrpe-logo-semfundo.png" alt="Site da Instituição" id="logoUFRPE" title="UFRPE">
+                        </a>
+                    </div>
+                    <div class="coluna col3">
+                        <p><!--aqui vai ter o nome da pessoa que ta usando e o que ela é-->Nome - Código</p>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <section>
+            <div class="linha">
+                    <div class="coluna col12">
+                        <h1 style="color: #343a40">Menu</h1>
+                        <hr>
+                    </div>
+            </div>
+            <div class="linha">
+                <div class="menu-coordenador">
+                    <div class="coluna col4">
+                        <h2>Coordenador</h2>
+                        <img src="/img/businessman.png" alt="Coordenador" title="Coordenador">
+                    </div>
+                    <div class="coluna col8">
+                        <div>
+                            <ul>
+                                <li>
+                                    <a href="" onmouseover="horarioObr()" onmouseout="semMouse()">
+                                        <img src="/img/clock.png" alt="Horário Obrigatórias"><br>Obrigatórias
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" onmouseover="slotsDisc()" onmouseout="semMouse()">
+                                        <img src="/img/books-stack-of-three.png" alt="Slots Disciplinas"><br>Slots
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" onmouseover="histAlocacao()" onmouseout="semMouse()">
+                                        <img src="/img/eye.png" alt="Histórico Alocação"><br>Histórico
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" onmouseover="logout()" onmouseout="semMouse()">
+                                        <img src="/img/runer-silhouette-running-fast.png" alt="Sair"><br>Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="texto">
+                            <p id="texto-menu"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="footer">
+            <div class="linha">
+                <footer>
+                    <div class="coluna col12">
+                        <a href="https://fabricahirukar.wixsite.com/fabrica" target="_blank">
+                            <img src="/img/hirukar-logo.png" alt="">
+                        </a>
+                        <span>&copy; Desenvolvido pela fábrica Hirukar</span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="/js/menu-script.js"></script>
+    </body>
+</html>
