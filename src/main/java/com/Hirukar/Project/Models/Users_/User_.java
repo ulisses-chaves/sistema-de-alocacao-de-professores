@@ -3,7 +3,7 @@ package com.Hirukar.Project.Models.Users_;
 import java.io.*;
 import java.util.ArrayList;
 
-public class User_ implements Serializable{
+public class User_ {
     private String login;
     private String password;
     private String[] ROLES;

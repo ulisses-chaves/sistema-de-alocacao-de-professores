@@ -1,6 +1,6 @@
 package com.Hirukar.Project.Models.Users_;
 
-/*import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,11 +9,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component*/
-public class Detalhes /*implements UserDetailsService*/{
-    /*@Override
+@Component
+public class Detalhes implements UserDetailsService{
+    @Override
     public UserDetails loadUserByUsername(String username){
-        System.out.println("detalhes sorditos");
         try{
             User_ u = new User_(username);
             List<GrantedAuthority> grantedAuthority = AuthorityUtils.createAuthorityList(u.getROLES());
@@ -22,5 +21,5 @@ public class Detalhes /*implements UserDetailsService*/{
             System.out.println("login falho");
             throw new UsernameNotFoundException(e.getMessage());
         }
-    }*/
+    }
 }
