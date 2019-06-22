@@ -9,6 +9,7 @@ import com.Hirukar.Project.Models.Beans.Enums.Area;
 import static com.Hirukar.Project.Models.Beans.Enums.Area.EXTERNA;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,8 +19,7 @@ import java.util.List;
  *
  * @author RODEMARCK
  */
-public class Disciplina__ {
-    public final static  List<Disciplina__> todasDisciplinas = inicializar();
+public class Disciplina implements Serializable{
     private String nome;
     private String codigo;
     private String turma;
@@ -28,37 +28,28 @@ public class Disciplina__ {
     private Area area;
     private Cursos curso;
     private int periodo ;
-    List<Disciplina__> preRequisito;
+    ArrayList<Disciplina> preRequisito;
     
     
     public boolean remover(int n){
         return this.area == Area.getArea(n);
     }
-    public static List<Disciplina__> inicializar(){
-        List<Disciplina__> lista = new ArrayList<>();
-        lista.addAll(Arrays.asList(new Disciplina__(),
-                                   new Disciplina__("prog", "0001", "#373a07", Cursos.BCC, Area.ENCISO, TipoDisciplina.OBRIGATORIA),
-                                   new Disciplina__("alg", "0002", "#700202", Cursos.BCC, Area.ENCISO, TipoDisciplina.OBRIGATORIA),
-                                   new Disciplina__("calc", "0004", "#144b03", Cursos.BCC, Area.EXTERNA, TipoDisciplina.OBRIGATORIA),
-                                   new Disciplina__("icc", "0005", "#9e6105", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA),
-                                   new Disciplina__("disc", "0006", "#140458", Cursos.BCC, Area.FC, TipoDisciplina.OBRIGATORIA)));
-        return lista;
-    }
    
 
-    public Disciplina__ (String disciplina, String codigo,String cor, Cursos curso, Area area, TipoDisciplina tipoDisciplina,Disciplina__ ... preRequisito){
+    public Disciplina (String disciplina, String codigo,String cor, Cursos curso,String turma, Area area, TipoDisciplina tipoDisciplina,Disciplina ... preRequisito){
+        this.preRequisito = new ArrayList<>();
         this.nome = disciplina;
         this.codigo = codigo;
-        this.turma = "BC3";
+        this.turma = turma;
         this.curso = curso;
         this.area = area;
         this.tipo = tipoDisciplina;
         this.periodo = -1;
-        this.preRequisito = Arrays.asList(preRequisito);
+        this.preRequisito.addAll(Arrays.asList(preRequisito));
         this.cor = cor;
     }
 
-    public Disciplina__(){
+    public Disciplina(){
         this.nome = "--";
         this.codigo = "";
         this.turma = "";
@@ -66,13 +57,11 @@ public class Disciplina__ {
         this.area = Area.EXTERNA;
         this.tipo = TipoDisciplina.getTipoDisciplina(0);
         this.periodo = -1;
-        this.preRequisito = Arrays.asList();
+        this.preRequisito = new ArrayList<>();
         this.cor = "white";
     }
 
-    Disciplina__(ResultSet rs) {
-        
-    }
+
     
     
 
@@ -140,11 +129,8 @@ public class Disciplina__ {
         this.periodo = periodo;
     }
 
-    public List<Disciplina__> getPreRequisito() {
+    public ArrayList<Disciplina> getPreRequisito() {
         return preRequisito;
     }
 
-    public void setPreRequisito(List<Disciplina__> preRequisito) {
-        this.preRequisito = preRequisito;
-    }
 }

@@ -6,7 +6,7 @@ const LoginTemplate = `
         </div>
         <div class="col-sm-12 col-md-6 col-lg-6 pt-4">
             <div class="login col-sm-12 col-md-12 col-lg-9 col-xl-8 bg-dark p-3">
-                <form action="">
+                <form action="/" method="POST">
                     <label for="inputLogin">Login:</label>
                     <input type="text" class="form-control tamanho-input p-1" id="inputLogin" placeholder="Seu login" required>
                     <label class= "mt-2" for="inputSenha">Senha:</label>
@@ -19,6 +19,7 @@ const LoginTemplate = `
                     <div class="text-right pr-3 my-1 mt-4">
                         <button type="submit" id="btn-logar" class="btn btn-outline-light" value="Entrar">Entrar</button>
                     </div>
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
                 </form> 
                 <div id="resposta"></div>
             </div>            

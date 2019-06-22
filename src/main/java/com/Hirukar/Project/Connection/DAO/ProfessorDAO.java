@@ -1,6 +1,6 @@
 package com.Hirukar.Project.Connection.DAO;
 
-import com.Hirukar.Project.Models.Beans.Users.Professor;
+import com.Hirukar.Project.Models.Users_.Professor;
 import java.util.ArrayList;
 import java.util.List;
 

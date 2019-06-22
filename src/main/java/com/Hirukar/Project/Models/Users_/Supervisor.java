@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Hirukar.Project.Models.Beans.Users;
+package com.Hirukar.Project.Models.Users_;
 
 import com.Hirukar.Project.Models.Beans.Enums.TipoUsuario;
+import com.Hirukar.Project.Models.Beans.Users.User;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -13,10 +15,12 @@ import java.sql.SQLException;
  *
  * @author RODEMARCK
  */
-public class Supervisor extends User{
+public class Supervisor extends User_{
     
-    public Supervisor(ResultSet rs) throws SQLException {
-        super(rs.getString("User.login"), rs.getString("User.email"), rs.getString("User.matricula"), rs.getString("User.senha"), rs.getInt("User.tipo"), rs.getInt("User.id"));
+    public Supervisor(String login, String password, String[] ROLES) throws IOException {
+        super(login, password, ROLES);
     }
+    
+
     
 }

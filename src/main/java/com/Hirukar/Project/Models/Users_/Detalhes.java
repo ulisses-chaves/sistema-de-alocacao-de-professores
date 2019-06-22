@@ -11,8 +11,9 @@ import java.util.List;
 
 @Component*/
 public class Detalhes /*implements UserDetailsService*/{
-   /* @Override
+    /*@Override
     public UserDetails loadUserByUsername(String username){
+        System.out.println("detalhes sorditos");
         try{
             User_ u = new User_(username);
             List<GrantedAuthority> grantedAuthority = AuthorityUtils.createAuthorityList(u.getROLES());
