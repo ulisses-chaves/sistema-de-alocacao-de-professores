@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class User_ {
-    private String login;
+/*    private String login;
     private String password;
     private String[] ROLES;
 
@@ -52,5 +52,5 @@ public class User_ {
     public static boolean contaRegistrada(String login){
         return new File("bancoDeDados\\"+login + ".hirukar").exists();
 
-    }
+    }*/
 }

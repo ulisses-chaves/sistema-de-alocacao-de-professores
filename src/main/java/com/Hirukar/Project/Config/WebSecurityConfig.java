@@ -7,7 +7,7 @@ package com.Hirukar.Project.Config;
 
 import com.Hirukar.Project.Models.Users_.Detalhes;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+/*import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -17,11 +17,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 /**
  *
  * @author RODEMARCK
- */
+ *
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
-    private static final String[] ARTEFATOS  =  {
+@EnableGlobalMethodSecurity(prePostEnabled = true)*/
+public class WebSecurityConfig /*extends WebSecurityConfigurerAdapter*/{
+    /*private static final String[] ARTEFATOS  =  {
             "/css/**",
             "/img/**",
             "/fonts/**",
@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .and()
             .logout()
                 .permitAll();
-    }
+    }*/
 
 
 
