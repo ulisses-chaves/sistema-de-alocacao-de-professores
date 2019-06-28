@@ -41,7 +41,7 @@
             </div>
         </div>
         <div>
-        	<h1>Alocação de Disciplinas</h1>
+        	<h1>Alocação</h1>
         	<hr>
         </div>
         <div class="linha">
@@ -52,7 +52,7 @@
         <div id="mensagens">
                 <!-- modal dsicplina-->
             <div class="modal fade" id="modal-disciplina" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
@@ -62,43 +62,60 @@
                         </div>
                         <div class="modal-body">
                             <form>
-                                <div class="form-group">
-                                    <label for="modal-nome" class="col-form-label">Nome:</label>
-                                    <input type="text" class="form-control" id="modal-nome" readonly>
+                            	<div class="form-group">
+                                    <label for="modal-professor" class="col-form-label">Alocar Professor</label>
+                                    <select id="modal-professor" class="form-control">
+								        <option selected>Escolher Professor</option>
+								        <option>...</option>
+							      	</select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="modal-codigo" class="col-form-label">Código:</label>
-                                    <input type="text" class="form-control" id="modal-codigo" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="modal-turma" class="col-form-label">Turma:</label>
-                                    <input type="text" class="form-control" id="modal-turma" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="modal-cor" class="col-form-label">Cor:</label>
-                                    <input type="text" class="form-control" id="modal-cor" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="modal-tipo" class="col-form-label">Tipo:</label>
-                                    <input type="text" class="form-control" id="modal-tipo" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="recipient-area" class="col-form-label">Área:</label>
-                                    <input type="text" class="form-control" id="recipient-area" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="modal-curso" class="col-form-label">Curso:</label>
-                                    <input type="text" class="form-control" id="modal-curso" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="modal-periodo" class="col-form-label">Periodo:</label>
-                                    <input class="form-control" id="modal-periodo" readonly>
-                                </div>
+                            	<div class="form-row">
+								    <div class="form-group col-md-6">
+								    	<label for="modal-nome">Disciplina</label>
+								      	<select id="modal-nome" class="form-control">
+								        	<option selected>Escolher Disciplina</option>
+								        	<option>...</option>
+							      		</select>
+							      	</div>
+								    <div class="form-group col-md-6">
+								      <label for="modal-codigo">Código</label>
+								      <input type="text" class="form-control" id="modal-codigo" readonly>
+								    </div>
+							  	</div>
+							  	<div class="form-row">
+								    <div class="form-group col-md-6">
+								      <label for="modal-turma">Turma</label>
+								      <input type="text" class="form-control" id="modal-turma" readonly>
+								    </div>
+								    <div class="form-group col-md-6">
+								      <label for="modal-cor">Cor</label>
+								      <input type="text" class="form-control" id="modal-cor" readonly>
+								    </div>
+							  	</div>
+							  	<div class="form-row">
+								    <div class="form-group col-md-6">
+								      <label for="modal-tipo">Tipo</label>
+								      <input type="text" class="form-control" id="modal-tipo" readonly>
+								    </div>
+								    <div class="form-group col-md-6">
+								      <label for="recipient-area">Área</label>
+								      <input type="text" class="form-control" id="recipient-area" readonly>
+								    </div>
+							  	</div>
+							  	<div class="form-row">
+								    <div class="form-group col-md-6">
+								      <label for="modal-curso">Curso</label>
+								      <input type="text" class="form-control" id="modal-curso" readonly>
+								    </div>
+								    <div class="form-group col-md-6">
+								      <label for="modal-periodo">Periodo</label>
+								      <input type="text" class="form-control" id="modal-periodo" readonly>
+								    </div>
+							  	</div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" class="btn btn-primary">Enviar</button>
+                            <button type="button" class="btn btn-dark">Salvar</button>
                         </div>
                     </div>
                 </div>
