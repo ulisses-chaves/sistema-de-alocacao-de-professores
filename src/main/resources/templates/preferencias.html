@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html   lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sistema de Alocação de Professores</title>
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/preferencias.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="shortcut icon" href="/SAP-thumb.png">
+    </head>
+    <body>
+        <div class="header">
+            <div class="linha">
+                <header>
+                    <div class="coluna col6">
+                        <a href="/">
+                            <img src="/img/SAP-branco.png" class="logoSAP" alt="Logo do Site" title="SAP">
+                        </a>
+                        <a href="http://www.ufrpe.br/" target="_blank">
+                            <img src="/img/ufrpe-logo-semfundo.png" alt="Site da Instituição" class="logoUFRPE" title="UFRPE">
+                        </a>
+                    </div>
+                    <div class="coluna col6">
+                        <nav>
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/sobre">Sobre</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+        <div class="linha mb-3">
+            <div class="coluna col12">
+                <h1 style="color: #343a40" class="text-center mt-4">Preferências</h1>
+                <hr>
+            </div>
+        </div>
+        <div style="color: #343a40" class="linha text-center">
+            <div class="coluna col6">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Disciplina</th>
+                            <th>Curso</th>
+                            <th>Tipo</th>
+                            <th><i>Adicionar</i></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaEsquerda">
+                        
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="coluna col6">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Disciplina</th>
+                            <th><i>Remover</i></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaDireita">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="mt-5 text-center">
+            <button class="btn btn-dark mx-2" onclick="atualizarPreferencias()">Salvar</button>
+            <a href="" class="btn btn-dark mx-2">Voltar</a>
+        </div>
+        <div class="footer">
+            <div class="linha">
+                <footer>
+                    <div class="coluna col12">
+                        <a href="https://fabricahirukar.wixsite.com/fabrica" target="_blank">
+                            <img src="/img/hirukar-logo.png" alt="">
+                        </a>
+                        <span>&copy; Desenvolvido pela fábrica Hirukar</span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/preferencia.js"></script>
+    </body>
+</html>
