@@ -1,7 +1,7 @@
 window.onload = function () {
     $.ajax({
         type:'GET',
-        url:'https://reqres.in/api/users?page=2', // rota que traga um array de objetos, cada objeto com 3 atributos: nome do professor, nome da disciplina e o periodo que ele lecionou
+        url:'', // rota que traga um array de objetos, cada objeto com 3 atributos: nome do professor, nome da disciplina e o periodo que ele lecionou
         success: function (responseText, textStatus, jqXHR) {
             var corpo_tabela = document.querySelector ("#tabela");
             var historico = responseText.data;

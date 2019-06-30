@@ -1,7 +1,7 @@
 window.onload = function () {
     $.ajax({
         type:'GET',
-        url:'', // rota que traga um array de objetos, cada objeto com 3 atributos: nome do professor, a primeira preferencia dele e a segunda preferencia
+        url:'https://reqres.in/api/users?page=2', // rota que traga um array de objetos, cada objeto com 3 atributos: nome do professor, a primeira preferencia dele e a segunda preferencia
         success: function (responseText, textStatus, jqXHR) {
             var corpo_tabela = document.querySelector("#tabela");
             var preferencias = responseText.data;

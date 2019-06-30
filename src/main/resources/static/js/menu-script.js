@@ -19,10 +19,16 @@ function preencherSlotsDisc(){
     document.getElementById('texto-menu').innerHTML = 'Preencha os slots das disciplinas';
 }
 function alocarProf(){
-    document.getElementById('texto-menu').innerHTML = 'Alocar os professores para as disciplinas';
+    document.getElementById('texto-menu').innerHTML = 'Alocar os professores às disciplinas e as disciplinas aos horários';
 }
 function preferencias(){
-    document.getElementById('texto-menu').innerHTML = 'Visualize e decida as preferências de cada professor para as disciplinas';
+    document.getElementById('texto-menu').innerHTML = 'Visualize as preferências de cada professor para as disciplinas';
+}
+function mostrar() {
+	document.getElementById('aba').style.display = 'block';
+}
+function esconder () {
+	document.getElementById('aba').style.display = 'none';
 }
 /* coordenador */
 function horarioObr(){
