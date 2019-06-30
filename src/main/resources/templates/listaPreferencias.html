@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <title>Visualizar Preferências</title>
+    <link rel="icon" href="/img/SAP-thumb.png">
+
+    <style>
+        .bold{
+            font-weight: bold;
+        }
+        table {
+            font-family: Arial, Helvetica, sans-serif, sans-serif;
+            border-collapse: collapse;
+            width: 1200px;
+        }
+        th {
+            border: 1px solid #5f6366;
+            text-align: center;
+            padding: 8px;
+            background-color: #333333;
+        }
+        tr:nth-child(even) {
+            background-color: #ffffff;
+            text-align: center;
+        }
+        td {
+            font-family: Arial, Helvetica, sans-serif, #000000;
+            text-align: center;
+            background-color: #747373;
+        }
+        #tabela{
+            margin-top: 100px
+        }
+        #botao{
+            margin-top: 100px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <div class="linha">
+            <header>
+                <div class="coluna col6">
+                    <a href="/">
+                        <img src="/img/SAP-branco.png" class="logoSAP" alt="Logo do Site" title="SAP">
+                    </a>
+                    <a href="http://www.ufrpe.br/" target="_blank">
+                        <img src="/img/ufrpe-logo-semfundo.png" alt="Site da Institui��o" class="logoUFRPE" title="UFRPE">
+                    </a>
+                </div>
+                <div class="coluna col6">
+                    <nav>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/sobre">Sobre</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        </div>
+    </div>
+    <h1 class="text-center mt-5" style="color: #343a40">Lista de Preferência dos Professores</h1>
+    <hr>
+    <div class="my-5">
+        <table class="m-auto" id="tabela">
+            <thead>
+                <tr>
+                    <th>Nome do Professor</th>
+                    <th>Primeira escolha</th>
+                    <th>Segunda escolha</th>
+                </tr>        
+            </thead>
+            <tbody id="tabela">
+
+            </tbody>
+        </table>
+    </div>
+
+        <div id="botao", align="center">
+            <a class="btn btn-dark" href="">Voltar</a>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="linha">
+            <footer>
+                <div class="coluna col12">
+                    <a href="https://fabricahirukar.wixsite.com/fabrica" target="_blank">
+                        <img src="/img/hirukar-logo.png" alt="">
+                    </a>
+                    <span>&copy; Desenvolvido pela fábrica Hirukar</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/listaPreferencias.js"></script>
+</body>
+</html>
