@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  * @author RODEMARCK
  */
 public final class UserDAO {
-    private Connection con;
+    
     
     public UserDAO(){}
     
@@ -28,8 +28,9 @@ public final class UserDAO {
         boolean check = false;
         ResultSet rs=null;
         PreparedStatement stmt=null;
+        Connection con = null;
         try {
-            con = new DatabaseConnection().getConnection();
+            con = DatabaseConnection.getInstance().getConnection();
             stmt = con.prepareStatement("SELECT * FROM Login WHERE Login.login=? AND Login.senha=?");
             stmt.setString(1, login);
             stmt.setString(2, senha);
@@ -38,7 +39,7 @@ public final class UserDAO {
         }catch(ClassNotFoundException | SQLException e){
             throw new SQLException(e.getMessage());
         }finally{
-            new DatabaseConnection().close(con,rs, stmt);
+            DatabaseConnection.getInstance().close(con,rs, stmt);
         }
         
     }

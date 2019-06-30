@@ -20,6 +20,7 @@ import java.util.List;
  */
 public class Disciplina__ {
     public final static  List<Disciplina__> todasDisciplinas = inicializar();
+    private int ID;
     private String nome;
     private String codigo;
     private String turma;
@@ -146,5 +147,13 @@ public class Disciplina__ {
 
     public void setPreRequisito(List<Disciplina__> preRequisito) {
         this.preRequisito = preRequisito;
+    }
+
+    public int getID() {
+        return ID;
+    }
+    
+    public void serID(int ID){
+        this.ID = ID;
     }
 }
