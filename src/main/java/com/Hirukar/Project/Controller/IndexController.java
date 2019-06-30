@@ -5,13 +5,10 @@
  */
 package com.Hirukar.Project.Controller;
 
-import com.Hirukar.Project.Connection.DAO.UserDAO;
 import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Horarios__;
-import com.Hirukar.Project.Models.Beans.Users.Professor;
 import com.Hirukar.Project.Models.Beans.Slots;
-import com.Hirukar.Project.Models.Beans.Users.User;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -38,7 +35,7 @@ public class IndexController {
     }
 
 
-    @RequestMapping(value = "fazerLogin", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    /*@RequestMapping(value = "fazerLogin", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ModelAndView formLogin(String login,String senha,Model model){
         try {
             UserDAO dao = new UserDAO();
@@ -52,7 +49,9 @@ public class IndexController {
             model.addAttribute("loginError", true);
             return  new ModelAndView ("index");
         }
-    }
+    }*/
+    
+    
     @RequestMapping(value = "fazerLogin", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ModelAndView indexS() throws SQLException{
         return new ModelAndView ("index");

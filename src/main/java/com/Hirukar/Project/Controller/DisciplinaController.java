@@ -5,7 +5,6 @@
  */
 package com.Hirukar.Project.Controller;
 
-import com.Hirukar.Project.Connection.DAO.UserDAO;
 import com.Hirukar.Project.Models.Beans.Horarios__;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -63,20 +62,17 @@ public class  DisciplinaController {
     @RequestMapping(value = "/alterarSlots", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> alterarSlots(int n1,int n2) throws SQLException{
         System.out.println("\n.\n.{\nn1:"+n1+"\nn2:"+n2+"\n}");
-        if(h.troca(n1, n2))
-            return new ResponseEntity<>("OK",HttpStatus.OK);
-        else
-            return new ResponseEntity<>("troca não realizada",HttpStatus.BAD_REQUEST);
+        h.troca(n1, n2);
+        return new ResponseEntity<>("OK",HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/horarios", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    /*@RequestMapping(value = "/horarios", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> formLogin(String login,String senha) throws SQLException{
-        UserDAO dao = new UserDAO();
         ResponseEntity<String> re = null;
         System.out.println("login:"+login+";  senha:"+senha);
         if(dao.logar(login, senha) != null) 
             return new ResponseEntity<>("logado",HttpStatus.OK);
         return new ResponseEntity<>("login ou senha invalidos",HttpStatus.BAD_REQUEST);
-    }
+    }*/
 }
 ;

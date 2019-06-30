@@ -5,6 +5,7 @@
  */
 package com.Hirukar.Project.Controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -12,9 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author RODEMARCK
  */
+@Controller
 public class MenuProfessorController {
-    @RequestMapping("/menuProfesso")
+    @RequestMapping("/menuProfessor")
     public ModelAndView menuProfesso(){
-        return new ModelAndView("menuProfesso");
+        return new ModelAndView("menuProfessor");
     }
 }

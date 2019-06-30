@@ -7,7 +7,6 @@ package com.Hirukar.Project.Controller;
 
 import com.Hirukar.Project.Models.Beans.Disciplina__;
 import com.Hirukar.Project.Models.Beans.Enums.Area;
-import com.Hirukar.Project.Models.Beans.Users.Professor;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Controller;
@@ -26,7 +25,7 @@ public class AlocarProfessorController {
     @RequestMapping("/alocarProfessor")
     public ModelAndView alocacaoProfessor(){
         ModelAndView mv = new ModelAndView("alocarProfessor");
-        mv.addObject("professores",Professor.todosProfessores);
+        mv.addObject("professores",null);
         mv.addObject("aulas", new ArrayList<>());
         return mv;
     }

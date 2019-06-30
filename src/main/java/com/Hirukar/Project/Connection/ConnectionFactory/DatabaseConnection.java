@@ -15,8 +15,15 @@ public final class DatabaseConnection {
     private final static String USER = "CNV7omG8PV";
     private final static String PASS = "ema3gCwtYr";
     
+    private static DatabaseConnection instance;
+     
+    public static DatabaseConnection getInstance(){
+        if(instance == null)
+            instance = new DatabaseConnection();
+        return instance;
+    }
 
-    public DatabaseConnection() {}
+    private DatabaseConnection() {}
     
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName(DRIVER);

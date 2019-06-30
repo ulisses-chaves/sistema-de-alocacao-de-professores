@@ -1,6 +1,5 @@
 package com.Hirukar.Project.ControllerTest;
 
-import com.Hirukar.Project.Models.Beans.Users.Professor;
 import org.junit.Assert;
 import com.Hirukar.Project.Controller.AlocarProfessorController;
 import org.junit.Test;
@@ -21,7 +20,7 @@ public class AlocarProfessorControllerTest {
     public void alocarTest(){
         ModelAndView s = alocar.alocacaoProfessor();
         ModelAndView sTest = new ModelAndView("alocarProfessor");
-        sTest.addObject("professores",Professor.todosProfessores);
+        sTest.addObject("professores",null);
         sTest.addObject("aulas", new ArrayList<>());
         Assert.assertEquals(s.getModel(),sTest.getModel());
     }

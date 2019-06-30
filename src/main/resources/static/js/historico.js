@@ -34,7 +34,7 @@ var Objeto = {
     
 };
 
-Function adicionar_dados(event) {
+function adicionar_dados(event) {
     event.preventDefault();
     nova_linha= new Objeto(campo_professor, campo_disciplina, campo_alocacao);
     nova_linha.criar_linha_tabela();  

@@ -6,12 +6,10 @@
 package com.Hirukar.Project.Controller;
 
 import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
-import com.Hirukar.Project.Connection.DAO.UserDAO;
 import com.Hirukar.Project.Models.Beans.Disciplina__;
 import com.Hirukar.Project.Models.Beans.Enums.Area;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
-import com.Hirukar.Project.Models.Beans.Users.Professor;
 import java.sql.SQLException;
 import java.util.concurrent.ExecutionException;
 import org.springframework.http.HttpStatus;
@@ -38,7 +36,6 @@ public class CadastrarController {
     
    @RequestMapping(value = "fazerCadastroProfessor", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> fazerCadastroProfessor(String name,String login,String senha,String email,String codigo,int area){
-        UserDAO dao = new UserDAO();
         System.out.println("aaaa");
         try{
             //dao.cadastrarProfessor(new Professor(name,login,senha,email,codigo,Area.getArea(area)));

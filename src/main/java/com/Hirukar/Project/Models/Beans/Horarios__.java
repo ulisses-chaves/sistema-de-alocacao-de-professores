@@ -28,7 +28,7 @@ public class Horarios__ {
     
     public Horarios__(){    
         this.id = 0;
-        slot = new Slots();
+        //slot = new Slots();
         periodo = 3;
         curso = Cursos.BCC;
         for(int i=0; i<6;i++)
@@ -47,26 +47,7 @@ public class Horarios__ {
         this.periodo = periodo;
     }
     
-    public Horarios__(int id) throws SQLException, ClassNotFoundException{
-        DisciplinasDAO dao = new DisciplinasDAO();
-        ResultSet rs = null;
-        try {
-            dao.criaConexao();
-            rs = dao.getHorario(id);
-            if(!rs.next())
-                throw new SQLException("Critical error");
-            this.id = rs.getInt("Horario.id");
-            this.slot = new Slots(dao.getSlots(rs.getInt("Horario.slots")));
-            rs = dao.getDisciplina(rs.getInt("Horario.aulas"));
-            for(Disciplina__ d : this.disciplinas)
-                d = new Disciplina__(rs);
-        }catch(SQLException | ClassNotFoundException e){
-            throw e;
-        }finally{
-            dao.fechaConexao();
-        }
-        
-    }
+    
     
     public Disciplina__ get(Object index){
         return disciplinas[Integer.parseInt(""+index)];
@@ -96,8 +77,8 @@ public class Horarios__ {
         this.disciplinas = disciplinas;
     }
     
-    public boolean troca(int n1, int n2){
-        return this.slot.troca(n1,n2);
+    public void troca(int n1, int n2){
+        this.slot.troca(n1,n2);
     }
     
 }
