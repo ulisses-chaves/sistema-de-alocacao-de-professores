@@ -16,7 +16,7 @@ function histAlocacao(){
     document.getElementById('texto-menu').innerHTML = 'Visualize o histórico de alocações';
 }
 function preencherSlotsDisc(){
-    document.getElementById('texto-menu').innerHTML = 'Preencha os slots das disciplinas';
+    document.getElementById('texto-menu').innerHTML = 'Cadastre as disciplinas do curso';
 }
 function alocarProf(){
     document.getElementById('texto-menu').innerHTML = 'Alocar os professores às disciplinas e as disciplinas aos horários';
