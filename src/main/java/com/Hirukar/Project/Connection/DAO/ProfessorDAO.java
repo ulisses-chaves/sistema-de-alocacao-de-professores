@@ -20,7 +20,7 @@ public abstract class ProfessorDAO {
         con = DatabaseConnection.getInstance().getConnection();
         stmt = con.prepareStatement(
                 "SELECT * FROM professor " +
-                "WHERE professor.Nome=?"
+                "WHERE professor.login=?"
         );
         stmt.setString(1, nome);
         rs = stmt.executeQuery();
@@ -39,11 +39,14 @@ public abstract class ProfessorDAO {
         
         con = DatabaseConnection.getInstance().getConnection();
         stmt = con.prepareStatement(
-                "SELECT * FROM professor " +
-                "WHERE 1"
+                "SELECT * FROM professor WHERE 1"
         );
-        while(rs.next())
+        rs = stmt.executeQuery();
+        System.out.println("catando no bd");
+        while(rs.next()){
+            System.out.println("*");
             profesores.add(new Professor(rs));
+        }
         
         DatabaseConnection.getInstance().close(con, rs, stmt);
         return profesores;

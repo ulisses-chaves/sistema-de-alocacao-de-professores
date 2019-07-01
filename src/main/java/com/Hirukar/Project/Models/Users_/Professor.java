@@ -1,10 +1,12 @@
 package com.Hirukar.Project.Models.Users_;
 
+import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
 import com.Hirukar.Project.Models.Beans.Disciplina__;
 import com.Hirukar.Project.Models.Beans.Enums.Area;
 import com.Hirukar.Project.Models.Beans.Enums.TipoUsuario;
 import java.io.*;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Professor {
@@ -17,8 +19,17 @@ public class Professor {
     private Disciplina__ preferencia1;
     private Disciplina__ preferencia2;
     
-    public Professor(ResultSet rs){
-        
+    public Professor(ResultSet rs) throws SQLException, ClassNotFoundException{
+        this.CPF = rs.getString("professor.CPF");
+        this.nome = rs.getString("professor.Nome");
+        this.area = Area.valueOf(rs.getString("professor.Area").toUpperCase());
+        this.login = rs.getString("professor.Login");
+        this.senha = rs.getString("professor.senha");
+        this.cargo = TipoUsuario.valueOf(rs.getString("professor.cargo").toUpperCase());
+        this.preferencia1 = rs.getInt("professor.FK_Disciplina_Preferencia_1") == 0 ? 
+                null : DisciplinasDAO.getDisciplina(rs.getInt("professor.FK_Disciplina_Preferencia_1"));
+        this.preferencia2 = rs.getInt("professor.FK_Disciplina_Preferencia_2") == 0 ? 
+                null : DisciplinasDAO.getDisciplina(rs.getInt("professor.FK_Disciplina_Preferencia_2"));
     }
 
     public String getCPF() {

@@ -7,13 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public final class DatabaseConnection {
-    private final static String HOST = "remotemysql.com";
+    private final static String HOST = "localhost";
     private final static int PORT=3306;
-    private final static String DATABASE = "CNV7omG8PV";
+    private final static String DATABASE = "sap";
     private final static String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private final static String URL = "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE+"?useSSL=false";
-    private final static String USER = "CNV7omG8PV";
-    private final static String PASS = "ema3gCwtYr";
+    private final static String URL = "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE+"?useTimezone=true&serverTimezone=UTC";
+    private final static String USER = "root";
+    private final static String PASS = "";
     
     private static DatabaseConnection instance;
      

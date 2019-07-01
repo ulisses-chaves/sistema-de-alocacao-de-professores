@@ -42,9 +42,6 @@ public class VariavelController {
         //
     }
     
-    @RequestMapping
-    public ArrayList<Professor> get2Professores() throws ClassNotFoundException, SQLException{
-        return ProfessorDAO.listar();
-    }
+   
      
 }

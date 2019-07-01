@@ -38,7 +38,7 @@ public class Professor extends User{
     private static List<Professor> inicializar(){
         List<Professor> l = new ArrayList<>();
         l.addAll(Arrays.asList(new Professor("professor1","1001",Area.ARC),
-                               new Professor("professor2","1002",Area.ENCISO),
+                               new Professor("professor2","1002",Area.ENSISO),
                                new Professor("professor3","1003",Area.FC)));
         return l;
     }

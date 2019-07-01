@@ -7,7 +7,7 @@ package com.Hirukar.Project.Config;
 
 import com.Hirukar.Project.Models.Users_.Detalhes;
 import org.springframework.beans.factory.annotation.Autowired;
-/*import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -17,17 +17,18 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 /**
  *
  * @author RODEMARCK
- *
+ */
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)*/
-public class WebSecurityConfig /*extends WebSecurityConfigurerAdapter*/{
-    /*private static final String[] ARTEFATOS  =  {
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+    private static final String[] ARTEFATOS  =  {
             "/css/**",
             "/img/**",
             "/fonts/**",
             "/js/**",
             "/components/**",
-            "/templates/**"
+            "/templates/**",
+            "/resources/**"
     };
 
     @Autowired
@@ -42,19 +43,22 @@ public class WebSecurityConfig /*extends WebSecurityConfigurerAdapter*/{
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers(ARTEFATOS).permitAll()
-                .antMatchers("/cadastroProfessor").hasAnyRole("SUPERVISOR","COORDENADOR")
-                .antMatchers("/cadastroDisciplina").hasAnyRole("SUPERVISOR","COORDENADOR")
+                .antMatchers(ARTEFATOS)
+                    .permitAll()
+                .antMatchers("/cadastroProfessor")
+                    .hasAnyRole("SUPERVISOR","COORDENADOR")
+                .antMatchers("/cadastroDisciplina")
+                    .hasAnyRole("SUPERVISOR","COORDENADOR")
                 .anyRequest()
-                .authenticated()
+                    .authenticated()
             .and()
             .formLogin()
                 .loginPage("/")
-                .permitAll()
+                    .permitAll()
             .and()
             .logout()
                 .permitAll();
-    }*/
+    }
 
 
 

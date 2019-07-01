@@ -38,8 +38,8 @@ public class Disciplina__ {
     public static List<Disciplina__> inicializar(){
         List<Disciplina__> lista = new ArrayList<>();
         lista.addAll(Arrays.asList(new Disciplina__(),
-                                   new Disciplina__("prog", "0001", "#373a07", Cursos.BCC, Area.ENCISO, TipoDisciplina.OBRIGATORIA),
-                                   new Disciplina__("alg", "0002", "#700202", Cursos.BCC, Area.ENCISO, TipoDisciplina.OBRIGATORIA),
+                                   new Disciplina__("prog", "0001", "#373a07", Cursos.BCC, Area.ENSISO, TipoDisciplina.OBRIGATORIA),
+                                   new Disciplina__("alg", "0002", "#700202", Cursos.BCC, Area.ENSISO, TipoDisciplina.OBRIGATORIA),
                                    new Disciplina__("calc", "0004", "#144b03", Cursos.BCC, Area.EXTERNA, TipoDisciplina.OBRIGATORIA),
                                    new Disciplina__("icc", "0005", "#9e6105", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA),
                                    new Disciplina__("disc", "0006", "#140458", Cursos.BCC, Area.FC, TipoDisciplina.OBRIGATORIA)));

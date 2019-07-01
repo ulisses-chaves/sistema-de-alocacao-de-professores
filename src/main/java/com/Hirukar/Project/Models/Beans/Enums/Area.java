@@ -10,7 +10,7 @@ package com.Hirukar.Project.Models.Beans.Enums;
  * @author RODEMARCK
  */
 public enum Area {
-    ARC(0),ENCISO(1),FC(2),EXTERNA(3),FLUTUANTE(4);
+    ARC(0),ENSISO(1),FC(2),EXTERNA(3),FLUTUANTE(4);
     
     private final int value;
     public int getValue(){
@@ -19,7 +19,7 @@ public enum Area {
     public static Area getArea(int n){
        switch(n){
             case 0: return Area.ARC;
-            case 1: return Area.ENCISO;
+            case 1: return Area.ENSISO;
             case 2: return Area.FC;
             case 3: return EXTERNA;
             case 4: return FLUTUANTE;
