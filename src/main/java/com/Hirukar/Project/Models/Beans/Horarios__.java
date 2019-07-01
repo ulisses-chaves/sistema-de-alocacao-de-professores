@@ -31,8 +31,6 @@ public class Horarios__ {
         //slot = new Slots();
         periodo = 3;
         curso = Cursos.BCC;
-        for(int i=0; i<6;i++)
-            disciplinas[i] = Disciplina__.todasDisciplinas.get(i);
     }
 
     public int getId() {

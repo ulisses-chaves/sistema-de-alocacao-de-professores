@@ -19,7 +19,6 @@ import java.util.List;
  * @author RODEMARCK
  */
 public class Disciplina__ {
-    public final static  List<Disciplina__> todasDisciplinas = inicializar();
     private int ID;
     private String nome;
     private String cor;
