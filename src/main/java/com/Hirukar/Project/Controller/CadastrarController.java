@@ -54,9 +54,10 @@ public class CadastrarController {
     
     
     @RequestMapping(value = "fazerCadastroDisciplina", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public ResponseEntity<String> fazerCadastroDisciplina(String disciplina, String codigo,int curso,int area,int tipo){
-        try{
-          //  new DisciplinasDAO().cadastrar(new Disciplina__ (disciplina,codigo,Cursos.getCurso(curso),Area.getArea(area),TipoDisciplina.getTipoDisciplina(tipo)));
+    public ResponseEntity<String> fazerCadastroDisciplina(String disciplina, String codigo,String area,String tipo){
+        Disciplina__ d = new Disciplina__(disciplina,codigo,TipoDisciplina.valueOf(tipo),Area.valueOf(area));
+    	try{
+    		DisciplinasDAO.cadastrar(d);
             return new ResponseEntity<>("Registrado com sucesso",HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_ACCEPTABLE);

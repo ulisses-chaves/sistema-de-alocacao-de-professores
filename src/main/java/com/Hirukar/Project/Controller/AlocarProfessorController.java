@@ -30,7 +30,7 @@ public class AlocarProfessorController {
         return mv;
     }
     
-    @RequestMapping(value="/atualizarAulas", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    /*@RequestMapping(value="/atualizarAulas", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public String requisicao(ModelMap map,Area area){
         List<Disciplina__> v = new ArrayList<>();
         Disciplina__.inicializar().forEach((t) -> {
@@ -39,6 +39,6 @@ public class AlocarProfessorController {
         });
         map.addAttribute("aulas", v);
         return "alocarProfessor :: #aulinhas";
-    }
+    }*/
     
 }

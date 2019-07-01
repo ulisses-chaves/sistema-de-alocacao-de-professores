@@ -10,6 +10,7 @@ import static com.Hirukar.Project.Models.Beans.Enums.Area.EXTERNA;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,13 +34,25 @@ public class Disciplina__ {
     }
    
 
-    Disciplina__(ResultSet rs) {
-        
+    public Disciplina__(ResultSet rs) throws SQLException {
+        this.nome = rs.getString("disciplina.Nome");
+        this.codigo = rs.getString("disciplina.Codigo");
+        this.tipo = TipoDisciplina.valueOf(rs.getString("disciplina.Nome").toUpperCase());
+        this.area = Area.valueOf(rs.getString("disciplina.Nome").toUpperCase());
     }
     
     
 
-    public String getNome() {
+    public Disciplina__(String nome, String codigo, TipoDisciplina tipo, Area area) {
+		super();
+		this.nome = nome;
+		this.codigo = codigo;
+		this.tipo = tipo;
+		this.area = area;
+	}
+
+
+	public String getNome() {
         return nome;
     }
 
