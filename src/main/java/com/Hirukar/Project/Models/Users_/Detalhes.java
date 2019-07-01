@@ -27,7 +27,7 @@ public class Detalhes implements UserDetailsService{
             
             Professor u = ProfessorDAO.getPeloNome(username);
             System.out.println("e....");
-            List<GrantedAuthority> grantedAuthority = AuthorityUtils.createAuthorityList(u.getCargo().toString());
+            List<GrantedAuthority> grantedAuthority = AuthorityUtils.createAuthorityList(u.getCargo().name());
             return new org.springframework.security.core.userdetails.User(u.getLogin(),u.getSenha(),grantedAuthority);
         }catch (ClassNotFoundException | SQLException e){
             System.out.println("login falho; erro :"+e.getMessage());

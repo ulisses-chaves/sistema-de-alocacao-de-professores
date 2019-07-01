@@ -45,19 +45,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .authorizeRequests()
                 .antMatchers(ARTEFATOS)
                     .permitAll()
-                .antMatchers("/cadastroProfessor")
-                    .hasAnyRole("SUPERVISOR","COORDENADOR")
-                .antMatchers("/cadastroDisciplina")
-                    .hasAnyRole("SUPERVISOR","COORDENADOR")
-                .anyRequest()
-                    .authenticated()
             .and()
             .formLogin()
                 .loginPage("/")
                     .permitAll()
             .and()
             .logout()
-                .permitAll();
+                .permitAll()
+            .and()
+            .csrf()
+                .disable();
     }
 
 

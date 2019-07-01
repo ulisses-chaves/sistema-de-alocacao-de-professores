@@ -13,6 +13,6 @@ public class ConfiguracaoCriptografia {
     }
 
     public static void main(String[] args) {
-        System.out.println(new BCryptPasswordEncoder().encode("prof"));
+        System.out.println(new BCryptPasswordEncoder().encode("rodew"));
     }
 }

@@ -29,19 +29,56 @@ public abstract class DisciplinasDAO {
         ResultSet rs = null;
         Horarios__ horarios = null;
         
+        
+        
         DatabaseConnection.getInstance().close(con, rs, stmt);
         return horarios;
     }
     
     public static Disciplina__ getDisciplina(int id) throws ClassNotFoundException,SQLException{
-        Connection con = DatabaseConnection.getInstance().getConnection();
+        Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Disciplina__ d = null;
+        con = DatabaseConnection.getInstance().getConnection();
+        
+        
         
         DatabaseConnection.getInstance().close(con, rs, stmt);
         return d;
     }
+    
+    
+    public static void getDisciplina(Disciplina__ d) throws ClassNotFoundException,SQLException{
+       Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try{
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "INSERT INTO disciplina\n" +
+                    "( \n" +
+                    " 	Nome,Tipo\n" +
+                    ")\n" +
+                    "VALUES\n" +
+                    "(\n" +
+                    "	?,?\n" +
+                    ")"
+            );
+            stmt.setString(1, d.getNome());
+            stmt.setString(2, d.getTipo().name());
+            stmt.execute();
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally{
+            DatabaseConnection.getInstance().close(con, rs, stmt);
+        }
+        
+        
+    }
+    
+    
     
     
     public static Slots getSlots(int id) throws ClassNotFoundException,SQLException{

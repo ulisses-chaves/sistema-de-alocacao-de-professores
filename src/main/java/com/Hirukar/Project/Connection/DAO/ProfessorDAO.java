@@ -12,22 +12,25 @@ import java.util.List;
 public abstract class ProfessorDAO {
     
     public static Professor getPeloNome(String nome) throws ClassNotFoundException, SQLException {
-        Connection con = DatabaseConnection.getInstance().getConnection();
+        Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Professor prof = null;
-        
-        con = DatabaseConnection.getInstance().getConnection();
-        stmt = con.prepareStatement(
-                "SELECT * FROM professor " +
-                "WHERE professor.login=?"
-        );
-        stmt.setString(1, nome);
-        rs = stmt.executeQuery();
-        if(rs.next())
-            prof = new Professor(rs);
-        
-        DatabaseConnection.getInstance().close(con, rs, stmt);
+        try{
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "SELECT * FROM professor " +
+                    "WHERE professor.login=?"
+            );
+            stmt.setString(1, nome);
+            rs = stmt.executeQuery();
+            if(rs.next())
+                prof = new Professor(rs);
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally{
+            DatabaseConnection.getInstance().close(con, rs, stmt);
+        }
         return prof;
     }
     
@@ -53,39 +56,52 @@ public abstract class ProfessorDAO {
     }
     
     public static void cadastrar(Professor professor) throws ClassNotFoundException, SQLException {
-        Connection con = DatabaseConnection.getInstance().getConnection();
+        Connection con  = null;
         PreparedStatement stmt = null;
         
-        stmt = con.prepareStatement(
-                "INSERT INTO professor " +
-                "( Nome, CPF, FK_Disciplina_Preferencia_1,FK_Disciplina_Preferencia_2) " +
-                "VALUES ( ?,?,?,?)"
-        );
-        stmt.setString(1, professor.getNome());
-        stmt.setString(2, professor.getCPF());
-        stmt.setInt(3, professor.getPreferencia1().getID());
-        stmt.setInt(4, professor.getPreferencia2().getID());
-        
-        stmt.execute();
-        
-        DatabaseConnection.getInstance().close(con, stmt);
+        try{
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "INSERT INTO professor\n" +
+                    "( \n" +
+                    " 	CPF, Nome, Area,login,senha,cargo\n" +
+                    ")\n" +
+                    "VALUES\n" +
+                    "(\n" +
+                    "	?,?,?,?,?,?\n" +
+                    ")"
+            );
+            stmt.setString(1, professor.getCPF());
+            stmt.setString(2, professor.getNome());
+            stmt.setString(3, professor.getArea().name());
+            stmt.setString(4, professor.getLogin());
+            stmt.setString(5, professor.getSenha());
+            stmt.setString(6, professor.getCargo().name());
+
+            stmt.execute();
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally{
+            DatabaseConnection.getInstance().close(con, stmt);
+        }   
     }
     
     public static void atualiza(String login, Professor profNovo) throws ClassNotFoundException, SQLException {
-        Connection con = DatabaseConnection.getInstance().getConnection();
         PreparedStatement stmt = null;
+        Connection con  = null;
         
+        try{
         con = DatabaseConnection.getInstance().getConnection();
         stmt = con.prepareStatement(
                 "UPDATE professor" +
                 "SET" +
-                "	[Nome] = ?," +
-                "	[CPF] = ?," +
-                "	[Area] = ?," +
-                "	[FK_Disciplina_Preferencia_1] = ?," +
-                "	[FK_Disciplina_Preferencia_2] = ?," +
-                "       [login] = ?"+
-                "       [senha] = ?"+
+                "	Nome = ?," +
+                "	CPF = ?," +
+                "	Area = ?," +
+                "	FK_Disciplina_Preferencia_1 = ?," +
+                "	FK_Disciplina_Preferencia_2 = ?," +
+                "       login = ?"+
+                "       senha = ?"+
                 "WHERE 	professor.nome=?"
         );
         stmt.setString(1, profNovo.getNome());
@@ -96,7 +112,11 @@ public abstract class ProfessorDAO {
         stmt.setString(6, login);
         stmt.setString(7, profNovo.getSenha());
         stmt.execute();
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally{
+            DatabaseConnection.getInstance().close(con, stmt);
+        }
         
-        DatabaseConnection.getInstance().close(con, stmt);
     }
 }

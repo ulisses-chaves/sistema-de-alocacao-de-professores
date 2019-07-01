@@ -41,7 +41,7 @@
                     <h1>Cadastro de Professor</h1>
                     <hr>
                     <div class="formulario">
-                        <form id="formCadastro"  method="POST">
+                        <form id="formCadastro" action="fazerCadastroProfessor" method="POST">
                             <label for="nome">Nome</label>
                             <input type="text" name="nome" id="iNome" placeholder="Nome completo" required>
                             <div class="px"> 
@@ -57,8 +57,8 @@
                                 <input  type="text" name="codigo" id="iCodigo" placeholder="Informe seu código" required>
                                 <label for="area">Área</label>
                                 <select name="area" id="iArea" required>
-                                    <option value="arq">Arq</option>
-                                    <option value="ensiso">Ensiso</option>
+                                    <option value="ARQ">ARQ</option>
+                                    <option value="ENSISO">ENSISO</option>
                                     <option value="fc">FC</option>
                                 </select>
                             </div>

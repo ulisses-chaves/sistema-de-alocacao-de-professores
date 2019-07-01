@@ -15,6 +15,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MimeTypeUtils;
@@ -30,43 +32,14 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class IndexController {
     @RequestMapping("/")
-    public ModelAndView index(){
-        return new ModelAndView("index");
-    }
-
-
-    /*@RequestMapping(value = "fazerLogin", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public ModelAndView formLogin(String login,String senha,Model model){
-        try {
-            UserDAO dao = new UserDAO();
-            ResponseEntity<String> re = null;
-            User c = dao.logar(login, senha);
-            ModelAndView mv = new ModelAndView ("sobre");
-            
-            System.out.println("login:"+login+";  senha:"+senha);
-            return  mv;
-        } catch (SQLException ex) {
-            model.addAttribute("loginError", true);
-            return  new ModelAndView ("index");
+    public ModelAndView index(@AuthenticationPrincipal UserDetails userDetails){
+        if(userDetails==null)
+            return new ModelAndView("index");
+        switch(userDetails.getAuthorities().toArray()[0].toString()){
+            case "PROFESSOR":return new ModelAndView("menuProfessor");
+            case "COORDENADOR":return new ModelAndView("menuCoordenador");
+            case "SUPERVISOR":return new ModelAndView("menuSupervisor");
         }
-    }*/
-    
-    
-    @RequestMapping(value = "fazerLogin", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public ModelAndView indexS() throws SQLException{
-        return new ModelAndView ("index");
-    }
-
-    
-    @RequestMapping(value = "logar", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public ModelAndView disciplinas(String request){    
-         
-        return new ModelAndView("logado");
-    }
-    
-    
-    @RequestMapping("index_testes")
-    public String index_testes(){
-        return "index_testes";
+        return new ModelAndView("index");
     }
 }
