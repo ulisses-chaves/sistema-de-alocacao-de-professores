@@ -53,8 +53,12 @@ public class CadastrarController {
     
     
     
-    @RequestMapping(value = "fazerCadastroDisciplina", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    @RequestMapping(value = "/fazerCadastroDisciplina", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> fazerCadastroDisciplina(String disciplina, String codigo,String area,String tipo){
+        System.out.println("disciplina:"+disciplina);
+        System.out.println("codigo:"+codigo);
+        System.out.println("area:"+area);
+        System.out.println("tipo:"+tipo);
         Disciplina__ d = new Disciplina__(disciplina,codigo,TipoDisciplina.valueOf(tipo),Area.valueOf(area));
     	try{
     		DisciplinasDAO.cadastrar(d);

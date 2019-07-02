@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 01, 2019 at 06:37 AM
+-- Generation Time: Jul 02, 2019 at 01:21 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `sap`
 --
-CREATE DATABASE IF NOT EXISTS `sap` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `sap`;
 
 -- --------------------------------------------------------
 
@@ -63,10 +61,20 @@ CREATE TABLE IF NOT EXISTS `curso` (
 DROP TABLE IF EXISTS `disciplina`;
 CREATE TABLE IF NOT EXISTS `disciplina` (
   `ID` int(5) NOT NULL AUTO_INCREMENT,
-  `Nome` varchar(30) NOT NULL,
   `Tipo` enum('Obrigatoria','Externa','Optativa') NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `Area` enum('ARC','FC','ENSISO') DEFAULT NULL,
+  `Codigo` varchar(10) NOT NULL,
+  `Nome` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `Nome` (`Nome`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `disciplina`
+--
+
+INSERT INTO `disciplina` (`ID`, `Tipo`, `Area`, `Codigo`, `Nome`) VALUES
+(1, 'Obrigatoria', 'ARC', '06418', 'ÁLGEBRA VETORIAL E LINEAR PARA COMPUTAÇÃO');
 
 -- --------------------------------------------------------
 
@@ -80,13 +88,25 @@ CREATE TABLE IF NOT EXISTS `horario_disciplinas` (
   `numero` int(11) NOT NULL,
   `FK_ID_disciplinas` int(11) NOT NULL,
   `FK_ID_slots` int(11) NOT NULL,
-  `horario1` time NOT NULL,
-  `horario2` time DEFAULT NULL,
-  `dia1` enum('Segunda','Terca','Quarta','Quinta','Sexta','Sabado') NOT NULL,
-  `dia2` enum('Segunda','Terca','Quarta','Quinta','Sexta','Sabado') DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  KEY `horario_disciplinas_ibfk_1` (`FK_ID_slots`),
-  KEY `horario_disciplinas_ibfk_2` (`FK_ID_disciplinas`)
+  KEY `horario_disciplinas_fk_ibfk_1` (`FK_ID_disciplinas`),
+  KEY `horario_disciplinas_fk_ibfk_2` (`FK_ID_slots`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hora_aula`
+--
+
+DROP TABLE IF EXISTS `hora_aula`;
+CREATE TABLE IF NOT EXISTS `hora_aula` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `dia_da_semana` enum('SEGUNDA','TERCA','QUARTA','QUINTA','SEXTA') NOT NULL,
+  `hora` int(11) NOT NULL,
+  `FK_ID_slots` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `hora_aula_fk_ibfk_2` (`FK_ID_slots`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -160,7 +180,8 @@ CREATE TABLE IF NOT EXISTS `professor` (
 --
 
 INSERT INTO `professor` (`CPF`, `Nome`, `Area`, `FK_Disciplina_Preferencia_1`, `FK_Disciplina_Preferencia_2`, `login`, `cargo`, `senha`) VALUES
-(1232, 'NOME', 'Ensiso', NULL, NULL, 'prof', 'PROFESSOR', '$2a$10$NktDIbpJMyAv2yNzuipqzu4kSGy.8jYtYVsRV140MAyR8VSrvlRR.');
+(1232, 'NOME', 'Ensiso', NULL, NULL, 'prof', 'PROFESSOR', '$2a$10$NktDIbpJMyAv2yNzuipqzu4kSGy.8jYtYVsRV140MAyR8VSrvlRR.'),
+(1234, 'rodemarck', 'Ensiso', NULL, NULL, 'rode', 'PROFESSOR', '$2a$10$xu8K04NpPutppxYwdgLrcuFAF3ptgyCsEKSRMP6WF7F.Wy0UnRo4i');
 
 -- --------------------------------------------------------
 

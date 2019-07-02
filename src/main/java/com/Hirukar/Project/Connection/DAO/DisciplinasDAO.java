@@ -57,10 +57,10 @@ public abstract class DisciplinasDAO {
         try{
             con = DatabaseConnection.getInstance().getConnection();
             stmt = con.prepareStatement(
-                    "insert into disciplina \n"+
-					"	(Nome,Tipo,Area,Codigo) \n"+
-					"values \n"+
-					"	(?,?,?,?)"
+                        "insert into disciplina \n"+
+			"	(Nome,Tipo,Area,Codigo) \n"+
+			"values \n"+
+			"	(?,?,?,?)"
             );
             stmt.setString(1, d.getNome());
             stmt.setString(2, d.getTipo().name());
