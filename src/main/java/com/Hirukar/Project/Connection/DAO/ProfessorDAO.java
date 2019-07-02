@@ -41,16 +41,17 @@ public abstract class ProfessorDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         ArrayList<Professor> profesores = new ArrayList<>();
-        
-        con = DatabaseConnection.getInstance().getConnection();
-        stmt = con.prepareStatement(
-                "SELECT * FROM professor WHERE 1"
-        );
-        rs = stmt.executeQuery();
-        System.out.println("catando no bd");
-        while(rs.next()){
-            System.out.println("*");
-            profesores.add(new Professor(rs));
+        try {
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "SELECT * FROM professor WHERE 1"
+            );
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                profesores.add(new Professor(rs));
+            }
+        }catch(ClassNotFoundException | SQLException e){
+
         }
         
         DatabaseConnection.getInstance().close(con, rs, stmt);
@@ -96,14 +97,14 @@ public abstract class ProfessorDAO {
         con = DatabaseConnection.getInstance().getConnection();
         stmt = con.prepareStatement(
                 "UPDATE professor" +
-                "SET" +
-                "	Nome = ?," +
-                "	CPF = ?," +
-                "	Area = ?," +
-                "	FK_Disciplina_Preferencia_1 = ?," +
-                "	FK_Disciplina_Preferencia_2 = ?," +
-                "       login = ?"+
-                "       senha = ?"+
+                "SET \n" +
+                "	Nome = ?, \n" +
+                "	CPF = ?, \n" +
+                "	Area = ? \n," +
+                "	FK_Disciplina_Preferencia_1 = ?, \n" +
+                "	FK_Disciplina_Preferencia_2 = ?, \n" +
+                "   login = ? \n"+
+                "   senha = ? \n"+
                 "WHERE 	professor.nome=?"
         );
         stmt.setString(1, profNovo.getNome());
@@ -120,5 +121,18 @@ public abstract class ProfessorDAO {
             DatabaseConnection.getInstance().close(con, stmt);
         }
         
+    }
+
+    public static void deletar(Professor professor) throws SQLException, ClassNotFoundException {
+        Connection con = DatabaseConnection.getInstance().getConnection();
+        PreparedStatement stmt = null;
+
+        con = DatabaseConnection.getInstance().getConnection();
+        stmt = con.prepareStatement(
+                    "DELETE FROM professor \n" +
+                         "WHERE professor.cpf=? "
+        );
+        stmt.execute();
+        DatabaseConnection.getInstance().close(con, stmt);
     }
 }

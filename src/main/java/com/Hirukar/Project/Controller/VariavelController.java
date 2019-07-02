@@ -5,7 +5,9 @@
  */
 package com.Hirukar.Project.Controller;
 
+import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
 import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
+import com.Hirukar.Project.Models.Beans.Disciplina__;
 import com.Hirukar.Project.Models.Users_.Professor;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -38,10 +40,34 @@ public class VariavelController {
     }
     
     @RequestMapping(value="/professores", method = RequestMethod.DELETE, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public void deleteProfessores(Professor professor){
-        //
+    public void deleteProfessores(Professor professor) throws SQLException, ClassNotFoundException {
+        ProfessorDAO.deletar(professor);
     }
-    
-   
-     
+
+
+
+    @RequestMapping(value="/disciplina", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public ArrayList<Disciplina__> getDisciplina() throws ClassNotFoundException, SQLException{
+        return DisciplinasDAO.listar();
+    }
+
+
+    @RequestMapping(value="/disciplina", method = RequestMethod.PUT, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public void putDisciplina(Disciplina__ disciplina) throws ClassNotFoundException, SQLException{
+        DisciplinasDAO.cadastrar(disciplina);
+    }
+
+
+    @RequestMapping(value="/disciplina", method = RequestMethod.PATCH, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public void patchDisciplina(String login,Disciplina__ disciplina) throws ClassNotFoundException, SQLException{
+        DisciplinasDAO.atualiza(login, disciplina);
+    }
+
+    @RequestMapping(value="/disciplina", method = RequestMethod.DELETE, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public void deleteDisciplina(Disciplina__ disciplina) throws SQLException, ClassNotFoundException {
+        DisciplinasDAO.deletar(disciplina);
+    }
+
+
+
 }

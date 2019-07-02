@@ -107,7 +107,7 @@ public abstract class DisciplinasDAO {
     
     
     
-    public static Slots getSlots(int id) throws ClassNotFoundException,SQLException{
+    public static Slots getSlots(int id) throws ClassNotFoundException,SQLException {
         Connection con = DatabaseConnection.getInstance().getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -115,5 +115,26 @@ public abstract class DisciplinasDAO {
         
         DatabaseConnection.getInstance().close(con, rs, stmt);
         return s;
+    }
+
+    public static void atualiza(String login, Disciplina__ disciplina)  throws SQLException, ClassNotFoundException{
+    }
+
+    public static void deletar(Disciplina__ disciplina)  throws SQLException, ClassNotFoundException{
+        Connection con = DatabaseConnection.getInstance().getConnection();
+        PreparedStatement stmt = null;
+        try {
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "DELETE FROM disciplina \n" +
+                            "WHERE disciplina.ID=? "
+            );
+            stmt.setInt(1, disciplina.getID());
+            stmt.execute();
+        }catch(SQLException | ClassNotFoundException e){
+            throw e;
+        }finally {
+            DatabaseConnection.getInstance().close(con, stmt);
+        }
     }
 }
