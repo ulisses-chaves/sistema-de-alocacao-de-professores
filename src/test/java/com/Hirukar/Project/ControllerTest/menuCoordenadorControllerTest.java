@@ -11,12 +11,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class menuCoordenadorControllerTest {
-    private MenuCoordenadorController coordenador = new MenuCoordenadorController();
+    /*private MenuCoordenadorController coordenador = new MenuCoordenadorController();
     @Test
     public void supervisorTest(){
         ModelAndView mv = coordenador.menuCoordenador();
         if(mv == null)
             System.out.println("nullo!!!!!");
         Assert.assertEquals(mv.getModel(),new ModelAndView("menuCoordenador").getModel());
-    }
+    }*/
 }

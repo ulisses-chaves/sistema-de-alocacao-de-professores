@@ -17,11 +17,14 @@ import java.sql.SQLException;
 import java.util.concurrent.ExecutionException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -34,7 +37,9 @@ public class CadastrarController {
         return "cadastroProfessor";
     }
     @RequestMapping("/cadastroDisciplina")
-    public String cadastroDisciplina(){
+    public String cadastroDisciplina(@AuthenticationPrincipal UserDetails userDetails) {
+        if(userDetails == null  || userDetails.getAuthorities().toArray()[0].toString().equals(""))
+            return "redirect:/";
         return "cadastroDisciplina";
     }
     
@@ -55,10 +60,6 @@ public class CadastrarController {
     
     @RequestMapping(value = "/fazerCadastroDisciplina", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> fazerCadastroDisciplina(String disciplina, String codigo,String area,String tipo){
-        System.out.println("disciplina:"+disciplina);
-        System.out.println("codigo:"+codigo);
-        System.out.println("area:"+area);
-        System.out.println("tipo:"+tipo);
         Disciplina__ d = new Disciplina__(disciplina,codigo,TipoDisciplina.valueOf(tipo),Area.valueOf(area));
     	try{
     		DisciplinasDAO.cadastrar(d);

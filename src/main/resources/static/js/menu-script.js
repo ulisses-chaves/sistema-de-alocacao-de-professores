@@ -3,6 +3,7 @@ function semMouse(){
 }
 function logout(){
     document.getElementById('texto-menu').innerHTML = 'Encerre a sessão';
+    $.post("/deslogar");
 }
 /* professor */
 function defPreferencias(){

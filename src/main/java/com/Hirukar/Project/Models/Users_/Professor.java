@@ -31,7 +31,11 @@ public class Professor {
         this.preferencia2 = rs.getInt("professor.FK_Disciplina_Preferencia_2") == 0 ? 
                 null : DisciplinasDAO.getDisciplina(rs.getInt("professor.FK_Disciplina_Preferencia_2"));
     }
-
+    public Professor(){
+        this.login = "";
+        this.senha = "";
+        this.cargo = TipoUsuario.PROFESSOR;
+    }
     public Professor(String CPF, String nome, Area area, String login, String senha, TipoUsuario cargo) {
         this.CPF = CPF;
         this.nome = nome;

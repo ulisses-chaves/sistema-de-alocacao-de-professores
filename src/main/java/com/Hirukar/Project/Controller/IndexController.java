@@ -35,11 +35,12 @@ public class IndexController {
     public ModelAndView index(@AuthenticationPrincipal UserDetails userDetails){
         if(userDetails==null)
             return new ModelAndView("index");
+        ModelAndView mv = new ModelAndView("index");
         switch(userDetails.getAuthorities().toArray()[0].toString()){
-            case "PROFESSOR":return new ModelAndView("menuProfessor");
-            case "COORDENADOR":return new ModelAndView("menuCoordenador");
-            case "SUPERVISOR":return new ModelAndView("menuSupervisor");
+            case "PROFESSOR":return new ModelAndView("redirect:/menuProfessor");
+            case "COORDENADOR":return new ModelAndView("redirect:/menuCoordenador");
+            case "SUPERVISOR":return new ModelAndView("redirect:/menuSupervisor");
         }
-        return new ModelAndView("index");
+        return mv;
     }
 }

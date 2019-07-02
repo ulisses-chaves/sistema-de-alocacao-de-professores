@@ -26,6 +26,8 @@ public abstract class ProfessorDAO {
             rs = stmt.executeQuery();
             if(rs.next())
                 prof = new Professor(rs);
+            else
+                prof = new Professor();
         }catch(ClassNotFoundException | SQLException e){
             throw e;
         }finally{

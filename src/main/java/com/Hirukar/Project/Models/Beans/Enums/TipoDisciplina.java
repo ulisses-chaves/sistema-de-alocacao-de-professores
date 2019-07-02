@@ -10,7 +10,7 @@ package com.Hirukar.Project.Models.Beans.Enums;
  * @author RODEMARCK
  */
 public enum TipoDisciplina {
-    OBRIGATORIA(0),OPTATIVA(1),EXTERNA(2),ELETIVA(3);
+    OBRIGATORIA(0),OPTATIVA(1),ELETIVA(2);
     private final int value;
     public int getValue(){
         return value;
@@ -19,8 +19,7 @@ public enum TipoDisciplina {
         switch(n){
             case 0: return TipoDisciplina.OBRIGATORIA;
             case 1: return TipoDisciplina.OPTATIVA;
-            case 2: return TipoDisciplina.EXTERNA;
-            case 3: return TipoDisciplina.ELETIVA;
+            case 2: return TipoDisciplina.ELETIVA;
         }
        return TipoDisciplina.OBRIGATORIA;
     }

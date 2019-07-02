@@ -11,7 +11,7 @@ import static junit.framework.TestCase.assertEquals;
 @SpringBootTest
 
 public class CadastrarControllerTest {
-    CadastrarController t = new CadastrarController();
+   /* CadastrarController t = new CadastrarController();
 
     @Test
     public void cadastrarTest(){
@@ -20,5 +20,5 @@ public class CadastrarControllerTest {
         assertEquals(s,"cadastroProfessor");
         assertEquals(r,"cadastroDisciplina");
     }
-
+*/
 }
