@@ -1,13 +1,15 @@
+
 $(function(){
     $('#formularioDisciplina').submit(function(){
         var dados = $('#formularioDisciplina').serialize();
-        $.post('/fazerCadastroDisciplina',dados)
+        alert('sexo!!!');
+        /*$.post('/fazerCadastroDisciplina',dados)
             .done(function (data, textStatus, jqXHR) {
-                window.history.back();
+                alert("foi")
             })
             .fail(function (xhr, status, error) {
                 alert(xhr.responseText);
-            })
+            })*/
         
         return false;
     });
