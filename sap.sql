@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 02, 2019 at 01:21 PM
+-- Generation Time: Jul 03, 2019 at 03:56 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -61,20 +61,44 @@ CREATE TABLE IF NOT EXISTS `curso` (
 DROP TABLE IF EXISTS `disciplina`;
 CREATE TABLE IF NOT EXISTS `disciplina` (
   `ID` int(5) NOT NULL AUTO_INCREMENT,
-  `Tipo` enum('Obrigatoria','Externa','Optativa') NOT NULL,
-  `Area` enum('ARC','FC','ENSISO') DEFAULT NULL,
   `Codigo` varchar(10) NOT NULL,
   `Nome` varchar(100) NOT NULL,
+  `Area` enum('ARC','FC','ENSISO','EXTERNA') DEFAULT NULL,
+  `Tipo` enum('OBRIGATORIA','OPTATIVA','ELETIVA') DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Nome` (`Nome`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `disciplina`
 --
 
-INSERT INTO `disciplina` (`ID`, `Tipo`, `Area`, `Codigo`, `Nome`) VALUES
-(1, 'Obrigatoria', 'ARC', '06418', 'ÁLGEBRA VETORIAL E LINEAR PARA COMPUTAÇÃO');
+INSERT INTO `disciplina` (`ID`, `Codigo`, `Nome`, `Area`, `Tipo`) VALUES
+(1, '06418', 'ÁLGEBRA VETORIAL E LINEAR PARA COMPUTAÇÃO', 'EXTERNA', 'OBRIGATORIA'),
+(2, '06507', 'CÁLCULO NI', 'EXTERNA', 'OBRIGATORIA'),
+(3, '14044', 'INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO', 'ENSISO', 'OBRIGATORIA'),
+(4, '14117', 'INTRODUÇÃO À PROGRAMAÇÃO I', 'ENSISO', 'OBRIGATORIA'),
+(5, '14203', 'MATEMÁTICA DISCRETA I', 'FC', 'OBRIGATORIA'),
+(6, '06214', 'ALGORITMOS E ESTRUTURAS DE DADOS', 'ENSISO', 'OBRIGATORIA'),
+(7, '06508', 'CÁLCULO NII', 'EXTERNA', 'OBRIGATORIA'),
+(8, '14118', 'INTRODUÇÃO À PROGRAMAÇÃO II', 'ENSISO', 'OBRIGATORIA'),
+(9, '14204', 'MATEMÁTICA DISCRETA II', 'FC', 'OBRIGATORIA'),
+(10, '14112', 'METODOLOGIA CIENTÍFICA APLICADA À COMPUTAÇÃO', 'ENSISO', 'OBRIGATORIA'),
+(11, '14063', 'CIRCUITOS DIGITAIS', 'ARC', 'OBRIGATORIA'),
+(12, '06243', 'ESTATÍSTICA EXPLORATÓRIA I', 'EXTERNA', 'OBRIGATORIA'),
+(13, '06325', 'FÍSICA APLICADA À COMPUTAÇÃO', 'EXTERNA', 'OBRIGATORIA'),
+(14, '14087', 'PROJETO E ANÁLISE DE ALGORITMOS', 'ENSISO', 'OBRIGATORIA'),
+(15, '06223', 'TEORIA DA COMPUTAÇÃO', 'FC', 'OBRIGATORIA'),
+(16, '14064', 'ARQUITETURA E ORGANIZAÇÃO DE COMPUTADORES', 'ARC', 'OBRIGATORIA'),
+(17, '14088', 'BANCO DE DADOS S', 'ENSISO', 'OBRIGATORIA'),
+(18, '06226', 'ENGENHARIA DE SOFTWARE', 'ENSISO', 'OBRIGATORIA'),
+(19, '06252', 'PARADIGMAS DE PROGRAMAÇÃO', 'FC', 'OBRIGATORIA'),
+(20, '14058', 'REDES DE COMPUTADORES', 'ARC', 'OBRIGATORIA'),
+(21, '14090', 'COMPILADORES', 'ARC', 'OBRIGATORIA'),
+(22, '14074', 'INTELIGÊNCIA ARTIFICIAL', 'FC', 'OBRIGATORIA'),
+(23, '06251', 'PROJETO DE DESENVOLVIMENTO DE SOFTWARE', 'ENSISO', 'OBRIGATORIA'),
+(24, '14059', 'SISTEMAS DISTRIBUÍDOS', 'ARC', 'OBRIGATORIA'),
+(25, '14065', 'SISTEMAS OPERACIONAIS', 'ARC', 'OBRIGATORIA');
 
 -- --------------------------------------------------------
 
@@ -91,22 +115,6 @@ CREATE TABLE IF NOT EXISTS `horario_disciplinas` (
   PRIMARY KEY (`ID`),
   KEY `horario_disciplinas_fk_ibfk_1` (`FK_ID_disciplinas`),
   KEY `horario_disciplinas_fk_ibfk_2` (`FK_ID_slots`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `hora_aula`
---
-
-DROP TABLE IF EXISTS `hora_aula`;
-CREATE TABLE IF NOT EXISTS `hora_aula` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `dia_da_semana` enum('SEGUNDA','TERCA','QUARTA','QUINTA','SEXTA') NOT NULL,
-  `hora` int(11) NOT NULL,
-  `FK_ID_slots` int(11) NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `hora_aula_fk_ibfk_2` (`FK_ID_slots`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

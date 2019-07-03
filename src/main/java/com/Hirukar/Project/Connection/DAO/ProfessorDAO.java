@@ -47,9 +47,7 @@ public abstract class ProfessorDAO {
                 "SELECT * FROM professor WHERE 1"
         );
         rs = stmt.executeQuery();
-        System.out.println("catando no bd");
         while(rs.next()){
-            System.out.println("*");
             profesores.add(new Professor(rs));
         }
         

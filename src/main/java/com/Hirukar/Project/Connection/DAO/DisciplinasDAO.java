@@ -116,4 +116,8 @@ public abstract class DisciplinasDAO {
         DatabaseConnection.getInstance().close(con, rs, stmt);
         return s;
     }
+
+    public static void atualiza(String nome, Disciplina__ disciplina) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

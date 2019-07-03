@@ -20,6 +20,10 @@ import java.util.List;
  * @author RODEMARCK
  */
 public class Disciplina__ {
+
+    public static ArrayList<Disciplina__> listar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private int ID;
     private String nome;
     private String cor;

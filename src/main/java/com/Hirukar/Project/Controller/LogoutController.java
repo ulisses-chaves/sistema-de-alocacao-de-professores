@@ -11,6 +11,6 @@ public class LogoutController {
     public String deslogar(HttpSession session){
         System.out.println("deslogando");
         session.invalidate();
-        return "redirect: /";
+        return "redirect:/";
     }
 }
