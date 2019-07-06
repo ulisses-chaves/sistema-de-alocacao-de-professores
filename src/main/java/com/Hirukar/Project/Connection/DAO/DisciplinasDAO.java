@@ -107,7 +107,7 @@ public abstract class DisciplinasDAO {
     
     
     
-    public static Slots getSlots(int id) throws ClassNotFoundException,SQLException{
+    public static Slots getSlots(int id) throws ClassNotFoundException,SQLException {
         Connection con = DatabaseConnection.getInstance().getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;

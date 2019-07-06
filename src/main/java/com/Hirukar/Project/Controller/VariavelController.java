@@ -84,7 +84,5 @@ public class VariavelController {
     public void deleteDisciplina(Disciplina disciplina){
         //
     }
-    
-   
-     
+
 }

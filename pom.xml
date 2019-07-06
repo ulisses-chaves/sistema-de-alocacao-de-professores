@@ -49,10 +49,13 @@
             <version>3.3.1</version>
         </dependency>
         <dependency>
+<<<<<<< HEAD
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
         </dependency>
         <dependency>
+=======
+>>>>>>> 51eee38cd00788acbce0292c385f72ed15004a16
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
