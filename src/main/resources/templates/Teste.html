@@ -19,6 +19,11 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </head>
     <body>
+    <script>
+        $.get("/professores",function (arr) {
+            alert("recebi:"+arr);
+        })
+    </script>
         <!--tabela editavel (arrasta e sota) refente a discplinas-->
        <!-- <div class="view-disciplina" id="div-disciplinas">
             <div id="navegacao-disciplina">
@@ -48,9 +53,8 @@
            <div class="container-disciplinas">
                 <div th:each="naoNulo,I: ${slots.naoNulos}" th:if="${naoNulo}" th:id="'y'+${I.index}" class="linha-disciplina">
                     <div th:each="dia,I2 : ${slots.horarios}" th:id="'divx'+${I2.index}+'y'+${I.index}" class="espaco-disciplina" ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <div class="disciplina" ondblclick="dblclickDisicplina(event)"  draggable="true" ondragstart="drag(event)" th:style="'background-color:'+${dia.espacos[I.index].cor}+';'" th:id="'x'+${I2.index}+'y'+${I.index}" th:attr="data-slot=${I.index},data-codigo=${dia.espacos[I.index].codigo},data-cor=${dia.espacos[I.index].cor},data-nome=${dia.espacos[I.index].nome},data-turma=${dia.espacos[I.index].turma},data-tipo=${dia.espacos[I.index].tipo},data-area=${dia.espacos[I.index].area},data-curso=${dia.espacos[I.index].curso},data-periodo=${dia.espacos[I.index].periodo}">
-                            <label class="text" th:id="'lbl'+${I2.index}+'y'+${I.index}" ondblclick="dblclickDisicplinaText(event)">Disciplina:</label><span class="text" th:id="'spn'+${I2.index}+'y'+${I.index}" th:text="${dia.espacos[I.index].nome}" ></span>
-                            <label class="text cod" th:id="'lbl'+${I2.index}+'y'+${I.index}" ondblclick="dblclickDisicplinaText(event)">codigo:</label><span class="text" ondblclick="dblclickDisicplinaText(event)" th:id="'spn'+${I.index}+'y'+${I.index}" th:text="${dia.espacos[I.index].codigo}"></span><br>
+                        <div class="disciplina" ondblclick="dblclickDisicplina(event)"  draggable="true" ondragstart="drag(event)" th:style="'background-color:'+${dia.espacos[I.index].cor}+';'" th:id="'x'+${I2.index}+'y'+${I.index}" >
+                            <span class="text" th:id="'spn'+${I2.index}+'y'+${I.index}" th:text="${dia.espacos[I.index].nome}" ></span>
                         </div>
                     </div>      
                 </div>   

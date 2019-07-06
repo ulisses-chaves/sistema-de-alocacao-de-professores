@@ -24,7 +24,9 @@ hr{
 	color: #ebe9e9;
 	border-radius: 3px;
 }
-
+span{
+    font-size: 10px;
+}
 .container-horarios{
     width: 120px;
     float: left;

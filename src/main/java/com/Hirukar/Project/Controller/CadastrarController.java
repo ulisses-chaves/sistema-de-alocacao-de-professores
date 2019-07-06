@@ -7,7 +7,7 @@ package com.Hirukar.Project.Controller;
 
 import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
 import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
-import com.Hirukar.Project.Models.Beans.Disciplina__;
+import com.Hirukar.Project.Models.Beans.Disciplina;
 import com.Hirukar.Project.Models.Beans.Enums.Area;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
@@ -41,31 +41,5 @@ public class CadastrarController {
         if(userDetails == null  || userDetails.getAuthorities().toArray()[0].toString().equals(""))
             return "redirect:/";
         return "cadastroDisciplina";
-    }
-    
-   @RequestMapping(value = "/fazerCadastroProfessor", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public ResponseEntity<String> fazerCadastroProfessor(String nome,String login,String senha,String email,String codigo,String area,String tipo){
-        System.out.println("cadastra um ze chamado:"+nome);
-        Professor prof = new Professor(codigo, nome, Area.valueOf(area.toUpperCase()), login, new BCryptPasswordEncoder().encode(senha), TipoUsuario.valueOf(tipo.toUpperCase()));
-        try{
-            ProfessorDAO.cadastrar(prof);
-            return new ResponseEntity<>("Cadastro realizado com sucesso!",HttpStatus.OK);
-        }catch(ClassNotFoundException | SQLException e){
-            System.out.println(e.getMessage());
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_ACCEPTABLE);
-        }
-    }
-    
-    
-    
-    @RequestMapping(value = "/fazerCadastroDisciplina", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public ResponseEntity<String> fazerCadastroDisciplina(String disciplina, String codigo,String area,String tipo){
-        Disciplina__ d = new Disciplina__(disciplina,codigo,TipoDisciplina.valueOf(tipo),Area.valueOf(area));
-    	try{
-    		DisciplinasDAO.cadastrar(d);
-            return new ResponseEntity<>("Registrado com sucesso",HttpStatus.OK);
-        }catch(Exception e){
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_ACCEPTABLE);
-        }
     }
 }

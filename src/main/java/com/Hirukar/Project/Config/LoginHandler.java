@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 /**
  *
  * @author RODEMARCK
- */
+*/
 @Component
 public class LoginHandler implements ApplicationListener<AuthenticationSuccessEvent> {
 

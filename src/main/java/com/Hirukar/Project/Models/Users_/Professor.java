@@ -1,7 +1,7 @@
 package com.Hirukar.Project.Models.Users_;
 
 import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
-import com.Hirukar.Project.Models.Beans.Disciplina__;
+import com.Hirukar.Project.Models.Beans.Disciplina;
 import com.Hirukar.Project.Models.Beans.Enums.Area;
 import com.Hirukar.Project.Models.Beans.Enums.TipoUsuario;
 import java.io.*;
@@ -9,15 +9,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class Professor {
+public class Professor implements Serializable{
     private String CPF;
     private String nome;
     private Area area;
     private String login;
     private String senha;
     private TipoUsuario cargo;
-    private Disciplina__ preferencia1;
-    private Disciplina__ preferencia2;
+    private Disciplina preferencia1;
+    private Disciplina preferencia2;
     
     public Professor(ResultSet rs) throws SQLException, ClassNotFoundException{
         this.CPF = rs.getString("professor.CPF");
@@ -34,6 +34,7 @@ public class Professor {
     public Professor(){
         this.login = "";
         this.senha = "";
+        this.CPF = "";
         this.cargo = TipoUsuario.PROFESSOR;
     }
     public Professor(String CPF, String nome, Area area, String login, String senha, TipoUsuario cargo) {
@@ -77,19 +78,19 @@ public class Professor {
         this.cargo = cargo;
     }
 
-    public Disciplina__ getPreferencia1() {
+    public Disciplina getPreferencia1() {
         return preferencia1;
     }
 
-    public void setPreferencia1(Disciplina__ preferencia1) {
+    public void setPreferencia1(Disciplina preferencia1) {
         this.preferencia1 = preferencia1;
     }
 
-    public Disciplina__ getPreferencia2() {
+    public Disciplina getPreferencia2() {
         return preferencia2;
     }
 
-    public void setPreferencia2(Disciplina__ preferencia2) {
+    public void setPreferencia2(Disciplina preferencia2) {
         this.preferencia2 = preferencia2;
     }
 

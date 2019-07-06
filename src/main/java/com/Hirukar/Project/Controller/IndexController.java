@@ -5,10 +5,12 @@
  */
 package com.Hirukar.Project.Controller;
 
+import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
 import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
 import com.Hirukar.Project.Models.Beans.Enums.Cursos;
 import com.Hirukar.Project.Models.Beans.Horarios__;
 import com.Hirukar.Project.Models.Beans.Slots;
+import com.Hirukar.Project.ProjectApplication;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -33,14 +35,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndexController {
     @RequestMapping("/")
     public ModelAndView index(@AuthenticationPrincipal UserDetails userDetails){
-        if(userDetails==null)
+       if(userDetails==null)
             return new ModelAndView("index");
-        ModelAndView mv = new ModelAndView("index");
         switch(userDetails.getAuthorities().toArray()[0].toString()){
             case "PROFESSOR":return new ModelAndView("redirect:/menuProfessor");
             case "COORDENADOR":return new ModelAndView("redirect:/menuCoordenador");
             case "SUPERVISOR":return new ModelAndView("redirect:/menuSupervisor");
         }
-        return mv;
+        return new ModelAndView("index");
     }
 }

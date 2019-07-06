@@ -11,35 +11,27 @@ package com.Hirukar.Project.Models.Beans;
  */
 public class HorariosDia {
 
-    private Disciplina__[] espacos = new Disciplina__[15];
-    private String s = "sou gay";
+    private Disciplina[] espacos = new Disciplina[15];
 
-    public String getS() {
-        return s;
-    }
-
-    public void setS(String s) {
-        this.s = s;
-    }
 
     public HorariosDia() {
         //for(int x=0;x<15;x++)
-        //    espacos[x] = new Disciplina__();
+        //    espacos[x] = new Disciplina();
     }
 
-    public HorariosDia(boolean naoNulo, Disciplina__... espacos) {
+    public HorariosDia(boolean naoNulo, Disciplina... espacos) {
         this.espacos = espacos;
     }
 
-    public void setEspacoDisciplina(int t, Disciplina__ d) {
+    public void setEspacoDisciplina(int t, Disciplina d) {
         this.espacos[t - 7] = d;
     }
 
-    public Disciplina__[] getEspacos() {
+    public Disciplina[] getEspacos() {
         return espacos;
     }
 
-    public void setEspacos(Disciplina__[] espacos) {
+    public void setEspacos(Disciplina[] espacos) {
         this.espacos = espacos;
     }
 

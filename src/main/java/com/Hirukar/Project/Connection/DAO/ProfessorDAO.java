@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public abstract class ProfessorDAO {
     
@@ -41,17 +40,20 @@ public abstract class ProfessorDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         ArrayList<Professor> profesores = new ArrayList<>();
-        
-        con = DatabaseConnection.getInstance().getConnection();
-        stmt = con.prepareStatement(
-                "SELECT * FROM professor WHERE 1"
-        );
-        rs = stmt.executeQuery();
-        while(rs.next()){
-            profesores.add(new Professor(rs));
+        try {
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "SELECT * FROM professor WHERE 1"
+            );
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                profesores.add(new Professor(rs));
+            }
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally {
+            DatabaseConnection.getInstance().close(con, rs, stmt);
         }
-        
-        DatabaseConnection.getInstance().close(con, rs, stmt);
         return profesores;
     }
     
@@ -73,9 +75,9 @@ public abstract class ProfessorDAO {
             );
             stmt.setString(1, professor.getCPF());
             stmt.setString(2, professor.getNome());
-            stmt.setString(3, professor.getArea().name());
             stmt.setString(4, professor.getLogin());
             stmt.setString(5, professor.getSenha());
+            stmt.setString(3, professor.getArea().name());
             stmt.setString(6, professor.getCargo().name());
 
             stmt.execute();

@@ -6,7 +6,7 @@
 package com.Hirukar.Project.Connection.DAO;
 
 import com.Hirukar.Project.Connection.ConnectionFactory.DatabaseConnection;
-import com.Hirukar.Project.Models.Beans.Disciplina__;
+import com.Hirukar.Project.Models.Beans.Disciplina;
 import com.Hirukar.Project.Models.Beans.Horarios__;
 import com.Hirukar.Project.Models.Beans.Slots;
 import java.sql.Connection;
@@ -36,11 +36,11 @@ public abstract class DisciplinasDAO {
         return horarios;
     }
     
-    public static Disciplina__ getDisciplina(int id) throws ClassNotFoundException,SQLException{
+    public static Disciplina getDisciplina(int id) throws ClassNotFoundException,SQLException{
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        Disciplina__ d = null;
+        Disciplina d = null;
         con = DatabaseConnection.getInstance().getConnection();
         
         
@@ -50,7 +50,7 @@ public abstract class DisciplinasDAO {
     }
     
     
-    public static void cadastrar(Disciplina__ d) throws ClassNotFoundException,SQLException{
+    public static void cadastrar(Disciplina d) throws ClassNotFoundException,SQLException{
         Connection con = null;
         PreparedStatement stmt = null;
         
@@ -79,11 +79,11 @@ public abstract class DisciplinasDAO {
     }
     
     
-    public static ArrayList<Disciplina__> listar()  throws ClassNotFoundException,SQLException {
+    public static ArrayList<Disciplina> listar()  throws ClassNotFoundException,SQLException {
     	Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        ArrayList<Disciplina__> disciplinas = new ArrayList<>();
+        ArrayList<Disciplina> disciplinas = new ArrayList<>();
         
         try{
             con = DatabaseConnection.getInstance().getConnection();
@@ -92,7 +92,7 @@ public abstract class DisciplinasDAO {
             );
             rs = stmt.executeQuery();
             while(rs.next())
-            	disciplinas.add(new Disciplina__(rs));
+            	disciplinas.add(new Disciplina(rs));
             
         }catch(ClassNotFoundException | SQLException e){
             throw e;
@@ -117,7 +117,7 @@ public abstract class DisciplinasDAO {
         return s;
     }
 
-    public static void atualiza(String nome, Disciplina__ disciplina) {
+    public static void atualiza(String nome, Disciplina disciplina) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

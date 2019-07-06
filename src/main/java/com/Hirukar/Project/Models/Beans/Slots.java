@@ -42,20 +42,12 @@ public class Slots {
         });
     }
 
-    public Slots() {
-       /* defineHorario();
+    public Slots() throws ClassNotFoundException, SQLException {
+        defineHorario();
         this.ID = 0;
         horariosDisciplinas = new ArrayList<HorarioDisciplinas>();
-        ArrayList<Disciplina__> a = new ArrayList<>();
-        /*a.add(new Disciplina__("prog", "011236", "red", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA));
-        a.add(new Disciplina__("disc", "011236", "blue", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA));
-        a.add(new Disciplina__("calc", "011236", "pink", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA));
-        a.add(new Disciplina__("intr", "011236", "purple", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA));
-        a.add(new Disciplina__("alge", "011236", "yelow", Cursos.BCC, Area.ARC, TipoDisciplina.OBRIGATORIA));*/
+        ArrayList<Disciplina> a = DisciplinasDAO.listar();
         
-        
-        
-        /*
         horariosDisciplinas.add(new HorarioDisciplinas(1, 1, a.get(0), DiasDaSemana.SEGUNDA, DiasDaSemana.QUINTA, 14, 16));
         horariosDisciplinas.add(new HorarioDisciplinas(2, 2, a.get(1), DiasDaSemana.SEGUNDA, DiasDaSemana.QUARTA, 16, 14));
         horariosDisciplinas.add(new HorarioDisciplinas(3, 3, a.get(2), DiasDaSemana.TERCA, DiasDaSemana.SEXTA, 14, 16));
@@ -69,9 +61,18 @@ public class Slots {
             horarios[t.getDia1().getValue()].setEspacoDisciplina(t.getHorario1(), t.getDisciplina());
             horarios[t.getDia2().getValue()].setEspacoDisciplina(t.getHorario2(), t.getDisciplina());
         });
-        verificaNulos();*/
+        verificaNulos();
     }
 
+    public void troca(Disciplina d1, Disciplina d2){
+        for(HorarioDisciplinas h : this.horariosDisciplinas){
+            if(h.getDisciplina().equals(d1))
+                h.setDisciplina(d2);
+            else if(h.getDisciplina().equals(d2))
+                h.setDisciplina(d1);
+        }
+    }
+    
     public int getID() {
         return ID;
     }
@@ -96,8 +97,8 @@ public class Slots {
         HorarioDisciplinas h1 = horariosDisciplinas.get(n1);
         HorarioDisciplinas h2 = horariosDisciplinas.get(n2);
 
-        Disciplina__ d2 = h2.getDisciplina();
-        Disciplina__ d1 = h1.getDisciplina();
+        Disciplina d2 = h2.getDisciplina();
+        Disciplina d1 = h1.getDisciplina();
 
         horarios[h1.getDia1().getValue()].setEspacoDisciplina(h1.getHorario1(), d2);
         horarios[h1.getDia2().getValue()].setEspacoDisciplina(h1.getHorario2(), d2);

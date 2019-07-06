@@ -18,7 +18,7 @@ import java.sql.Time;
 public class HorarioDisciplinas {
     private int ID;
     private int numero;
-    private Disciplina__ disciplina;
+    private Disciplina disciplina;
     private DiasDaSemana dia1;   
     private DiasDaSemana dia2;   
     private int horario1;
@@ -34,7 +34,7 @@ public class HorarioDisciplinas {
         this.horario2 = rs.getInt("horario_disciplinas.horario2");
     }
 
-    public HorarioDisciplinas(int ID, int numero, Disciplina__ disciplina, DiasDaSemana dia1, DiasDaSemana dia2, int horario1, int horario2) {
+    public HorarioDisciplinas(int ID, int numero, Disciplina disciplina, DiasDaSemana dia1, DiasDaSemana dia2, int horario1, int horario2) {
         this.ID = ID;
         this.numero = numero;
         this.disciplina = disciplina;
@@ -62,11 +62,11 @@ public class HorarioDisciplinas {
         this.numero = numero;
     }
 
-    public Disciplina__ getDisciplina() {
+    public Disciplina getDisciplina() {
         return disciplina;
     }
 
-    public void setDisciplina(Disciplina__ disciplina) {
+    public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
     }
 

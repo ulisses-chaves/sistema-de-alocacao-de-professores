@@ -24,7 +24,7 @@ public class Horarios__ {
     private int periodo;
     private Slots slot;
     private Cursos curso;
-    private Disciplina__[] disciplinas = new Disciplina__[6];
+    private Disciplina[] disciplinas = new Disciplina[6];
     
     public Horarios__(){    
         this.id = 0;
@@ -47,7 +47,7 @@ public class Horarios__ {
     
     
     
-    public Disciplina__ get(Object index){
+    public Disciplina get(Object index){
         return disciplinas[Integer.parseInt(""+index)];
     }
     
@@ -67,11 +67,11 @@ public class Horarios__ {
         this.curso = curso;
     }
 
-    public Disciplina__[] getDisciplinas() {
+    public Disciplina[] getDisciplinas() {
         return disciplinas;
     }
 
-    public void setDisciplinas(Disciplina__[] disciplinas) {
+    public void setDisciplinas(Disciplina[] disciplinas) {
         this.disciplinas = disciplinas;
     }
     

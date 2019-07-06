@@ -19,9 +19,9 @@ import java.util.List;
  *
  * @author RODEMARCK
  */
-public class Disciplina__ {
+public class Disciplina {
 
-    public static ArrayList<Disciplina__> listar() {
+    public static ArrayList<Disciplina> listar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     private int ID;
@@ -30,7 +30,7 @@ public class Disciplina__ {
     private String codigo;
     private TipoDisciplina tipo;
     private Area area;
-    List<Disciplina__> preRequisito;
+    List<Disciplina> preRequisito;
     
     
     public boolean remover(int n){
@@ -38,16 +38,16 @@ public class Disciplina__ {
     }
    
 
-    public Disciplina__(ResultSet rs) throws SQLException {
+    public Disciplina(ResultSet rs) throws SQLException {
         this.nome = rs.getString("disciplina.Nome");
         this.codigo = rs.getString("disciplina.Codigo");
-        this.tipo = TipoDisciplina.valueOf(rs.getString("disciplina.Nome").toUpperCase());
-        this.area = Area.valueOf(rs.getString("disciplina.Nome").toUpperCase());
+        this.tipo = TipoDisciplina.valueOf(rs.getString("disciplina.Tipo").toUpperCase());
+        this.area = Area.valueOf(rs.getString("disciplina.Area").toUpperCase());
     }
     
     
 
-    public Disciplina__(String nome, String codigo, TipoDisciplina tipo, Area area) {
+    public Disciplina(String nome, String codigo, TipoDisciplina tipo, Area area) {
 		super();
 		this.nome = nome;
 		this.codigo = codigo;
@@ -96,11 +96,11 @@ public class Disciplina__ {
     }
 
 
-    public List<Disciplina__> getPreRequisito() {
+    public List<Disciplina> getPreRequisito() {
         return preRequisito;
     }
 
-    public void setPreRequisito(List<Disciplina__> preRequisito) {
+    public void setPreRequisito(List<Disciplina> preRequisito) {
         this.preRequisito = preRequisito;
     }
 

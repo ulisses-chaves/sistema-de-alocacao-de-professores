@@ -5,7 +5,7 @@
  */
 package com.Hirukar.Project.Controller;
 
-import com.Hirukar.Project.Models.Beans.Disciplina__;
+import com.Hirukar.Project.Models.Beans.Disciplina;
 import com.Hirukar.Project.Models.Beans.Enums.Area;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,16 +29,4 @@ public class AlocarProfessorController {
         mv.addObject("aulas", new ArrayList<>());
         return mv;
     }
-    
-    /*@RequestMapping(value="/atualizarAulas", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public String requisicao(ModelMap map,Area area){
-        List<Disciplina__> v = new ArrayList<>();
-        Disciplina__.inicializar().forEach((t) -> {
-            if(t.getArea() == area || t.getArea() == Area.FLUTUANTE)
-                v.add(t);
-        });
-        map.addAttribute("aulas", v);
-        return "alocarProfessor :: #aulinhas";
-    }*/
-    
 }
