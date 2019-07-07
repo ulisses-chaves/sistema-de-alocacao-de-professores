@@ -13,35 +13,6 @@
     <link rel="stylesheet" href="css/regras-style.css">
     
     <style>
-        .bold{
-            font-weight: bold;
-        }
-        table {
-            font-family: Arial, Helvetica, sans-serif, sans-serif;
-            border-collapse: collapse;
-            width: 1200px;
-        }
-        th {
-            border: 1px solid #5f6366;
-            text-align: center;
-            padding: 8px;
-            background-color: #333333;
-        }
-        tr:nth-child(even) {
-            background-color: #ffffff;
-            text-align: center;
-        }
-        td {
-            font-family: Arial, Helvetica, sans-serif, #000000;
-            text-align: center;
-            background-color: #747373;
-        }
-        #tabela{
-            margin-top: 100px
-        }
-        #botao{
-            margin-top: 100px;
-        }
     </style>
 
 </head>
@@ -67,38 +38,69 @@
             </div> 
         </div>
     </div >
-    <h1 class="text-center mt-5" style="color: #343a40">Lista de Preferência dos Professores</h1>
-    <div class="my-5">
-        <table class="m-auto" id="tabela">
-            <thead>
-                <tr>
-                    <th>Nome do Professor</th>
-                    <th>Primeira escolha</th>
-                    <th>Segunda escolha</th>
-                </tr>        
-            </thead>
-            <tbody id="tabela">
+    <div class="container">
+        <h1 class="text-center mt-5" style="color: #343a40">Lista de Preferência dos Professores</h1>
+        <hr>
+        <div class="my-5 row text-center">
+            <div class="col" style="color: #343a40">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nome do Professor</th>
+                            <th>Primeira escolha</th>
+                            <th>Segunda escolha</th>
+                        </tr>        
+                    </thead>
+                    <tbody id="tabela">
 
-            </tbody>
-        </table>
-    </div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <div id="botao", align="center">
-            <a class="btn btn-dark" href="/menuSupervisor">Voltar</a>
+            <div id="botao", align="center">
+                <a class="btn btn-dark" href="/menuSupervisor">Voltar</a>
+            </div>
         </div>
     </div>
-
-
-    <div class="footer">
-        <div class="linha">
-            <footer>
-                <div class="coluna col12">
-                    <a href="https://fabricahirukar.wixsite.com/fabrica" target="_blank">
-                        <img src="/img/hirukar-logo.png" alt="">
-                    </a>
-                    <span>&copy; Desenvolvido pela fábrica Hirukar</span>
+    
+    <div style="background: #ebe9e9">
+        <div class="mt-5 container">
+            <div class="row"> 
+                <div class="col text-center">
+                    <ul style="list-style: none; color: #343a40; font-size: 18px">
+                        <li class="py-3">
+                            <a href="https://www.google.com.br/maps/place/CEAGRI+II+-+UFRPE/@-8.0173167,-34.9451001,18z/data=!4m13!1m7!3m6!1s0x7ab198c8d19c725:0xc7a824121be91cf9!2sPra%C3%A7a+Farias+Neves+-+Dois+Irm%C3%A3os,+Recife+-+PE,+52171-011!3b1!8m2!3d-8.0159496!4d-34.9438563!3m4!1s0x7ab198c1040db71:0xeefd7d59b3a40ce6!8m2!3d-8.0175513!4d-34.9443199" target="_blank">
+                                <img style="width: 40px" src="/img/localização.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <span><strong>UFRPE</strong></span>
+                        </li>
+                        <li>
+                            <span>Praça Farias Neves, 2</span>
+                        </li>
+                        <li>
+                            <span>Dois Irmãos, Recife</span>
+                        </li>
+                        <li>
+                            <span>PE, 52171-900</span>
+                        </li>
+                    </ul>
+                </div>   
+                <div class="col text-center">
+                    <ul style="list-style: none">
+                        <li class="mb-3 mt-5">
+                            <a href="https://fabricahirukar.wixsite.com/fabrica" target="_blank">
+                                <img style="width: 50px" src="/img/hirukar-logo.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <span style="color: #343a40; font-size: 18px">&copy; Desenvolvido pela fábrica Hirukar</span>
+                        </li>
+                    </ul>
                 </div>
-            </footer>
+            </div>
         </div>
     </div>
     <script src="/js/jquery.min.js"></script>

@@ -5,10 +5,10 @@ var disciplinas = new Array ();
 window.onload = function () {
     $.ajax({
         type:'GET',
-        url:'', //rota que recebe um array de objetos de todas as disciplinas cadastradas
+        url:'variavel/disciplinas', //rota que recebe um array de objetos de todas as disciplinas cadastradas
         success: function (responseText, textStatus, jqXHR) {
             var corpoTabela = document.querySelector ("#tabelaEsquerda");
-            disciplinas = responseText.data;
+            var disciplinas = responseText;
             for (let index = 0; index <= disciplinas.length; index++) {
                 var linha = document.createElement("tr");
                 var campoDisciplina = document.createElement("td");
@@ -16,7 +16,7 @@ window.onload = function () {
                 var campoTipo = document.createElement("td");
                 var campoButao = document.createElement("td");
                 var textoDisciplina = document.createTextNode (disciplinas[index].nome);
-                var textoCurso = document.createTextNode (disciplinas[index].curso);
+                var textoCurso = document.createTextNode (disciplinas[index].area);
                 var textoTipo = document.createTextNode (disciplinas[index].tipo);
                 var butao = document.createElement ("button");
 
@@ -53,6 +53,9 @@ window.onload = function () {
             }
         },
         error: function (xhr, status, error) {
+            console.log (error)
+            console.log (status)
+            console.log (xhr.responseText)
             alert('>>'+xhr.responseText);
         }
     });
@@ -77,11 +80,11 @@ function preencherTabelaPrimeira () {
             campoDisciplinaEscolhida.style.display = 'none'
         })
 
-        campoDisciplinaEscolhida.appendChild (textoDisciplinaEscolhida);
         campoButaoTirar.appendChild (butaoTirar);
+        campoDisciplinaEscolhida.appendChild (textoDisciplinaEscolhida);
 
-        linha.appendChild (campoDisciplinaEscolhida);
         linha.appendChild (campoButaoTirar);
+        linha.appendChild (campoDisciplinaEscolhida);
         corpoTabelaEscolhida.appendChild (linha);
     }
 }
@@ -105,11 +108,11 @@ function preencherTabelaSegunda () {
             campoDisciplinaEscolhida.style.display = 'none'
         })
 
-        campoDisciplinaEscolhida.appendChild (textoDisciplinaEscolhida);
         campoButaoTirar.appendChild (butaoTirar);
+        campoDisciplinaEscolhida.appendChild (textoDisciplinaEscolhida);
 
-        linha.appendChild (campoDisciplinaEscolhida);
         linha.appendChild (campoButaoTirar);
+        linha.appendChild (campoDisciplinaEscolhida);
         corpoTabelaEscolhida.appendChild (linha);
     }
 }
