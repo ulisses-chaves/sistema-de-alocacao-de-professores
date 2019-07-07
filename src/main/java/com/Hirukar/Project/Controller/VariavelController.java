@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,10 +34,16 @@ public class VariavelController {
     }
      
      
-    @RequestMapping(value="/variavel/professores", method = RequestMethod.PUT, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public void putProfessores(String cpf,String nome, String area,String login, String senha, String tipo) throws ClassNotFoundException, SQLException{
-        Professor p = new Professor(cpf, nome, Area.valueOf(area.toUpperCase()), login, senha, TipoUsuario.valueOf(tipo.toUpperCase()));
-        ProfessorDAO.cadastrar(p);
+    @RequestMapping(value="/variavel/professores", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public ResponseEntity<String> putProfessores(String cpf,String nome, String area,String login, String senha, String tipo) throws ClassNotFoundException, SQLException{
+        System.out.println("chamei");
+        Professor p = new Professor(cpf, nome, Area.valueOf(area.toUpperCase()), login,new BCryptPasswordEncoder().encode(senha), TipoUsuario.valueOf(tipo.toUpperCase()));
+        try {
+            ProfessorDAO.cadastrar(p);
+            return new ResponseEntity<>("Registrado com sucesso",HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
+        }
     }
     
     
@@ -62,15 +69,16 @@ public class VariavelController {
     }
      
      
-    @RequestMapping(value="/variavel/disciplinas", method = RequestMethod.PUT)
+    @RequestMapping(value="/variavel/disciplinas", method = RequestMethod.POST)
     public ResponseEntity<String> putDisciplina(String disciplina, String codigo,String area,String tipo) throws ClassNotFoundException, SQLException{
         System.out.println("sexo anal");
         Disciplina d = new Disciplina(disciplina,codigo,TipoDisciplina.valueOf(tipo),Area.valueOf(area));
     	try{
-    		DisciplinasDAO.cadastrar(d);
+            System.out.println(d);
+            DisciplinasDAO.cadastrar(d);
             return new ResponseEntity<>("Registrado com sucesso",HttpStatus.OK);
         }catch(Exception e){
-            return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
     }
     

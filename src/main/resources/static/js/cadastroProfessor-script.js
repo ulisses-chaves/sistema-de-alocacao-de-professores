@@ -1,9 +1,8 @@
 $(function(){
     $('#formCadastro').submit(function(){
-        console.log('submetendo no seu cu');
         var dados = $('#formCadastro').serialize();
         console.log(dados);
-        $.post('/fazerCadastroProfessor',dados)
+        $.post('/variavel/professores',dados)
             .done(function (){
                     alert('foi')
             })
