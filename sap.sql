@@ -1,10 +1,9 @@
-CREATE DATABASE  IF NOT EXISTS `sap` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `sap`;
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
 --
-<<<<<<< HEAD
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 06, 2019 at 11:21 PM
+-- Generation Time: Jul 07, 2019 at 06:27 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -13,31 +12,24 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-=======
--- Host: 127.0.0.1    Database: sap
--- ------------------------------------------------------
--- Server version	5.5.5-10.1.30-MariaDB
->>>>>>> 51eee38cd00788acbce0292c385f72ed15004a16
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `sap`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `afastamento`
 --
 
 DROP TABLE IF EXISTS `afastamento`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `afastamento` (
+CREATE TABLE IF NOT EXISTS `afastamento` (
   `Tipo` enum('Pessoal','Saude') NOT NULL,
   `Data_inicio` date NOT NULL,
   `Data_Termino` date DEFAULT NULL,
@@ -45,51 +37,38 @@ CREATE TABLE `afastamento` (
   `FK_CPF_professor` int(11) NOT NULL,
   PRIMARY KEY (`FK_CPF_professor`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `afastamento`
---
-
-LOCK TABLES `afastamento` WRITE;
-/*!40000 ALTER TABLE `afastamento` DISABLE KEYS */;
-/*!40000 ALTER TABLE `afastamento` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `curso`
 --
 
 DROP TABLE IF EXISTS `curso`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `curso` (
+CREATE TABLE IF NOT EXISTS `curso` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(30) NOT NULL,
+  `nome` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `sigla` varchar(10) NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `curso`
 --
 
-LOCK TABLES `curso` WRITE;
-/*!40000 ALTER TABLE `curso` DISABLE KEYS */;
-/*!40000 ALTER TABLE `curso` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `curso` (`ID`, `nome`, `sigla`) VALUES
+(1, 'Bacharel em Ciências da Computação', 'BCC');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `disciplina`
 --
 
 DROP TABLE IF EXISTS `disciplina`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `disciplina` (
+CREATE TABLE IF NOT EXISTS `disciplina` (
   `ID` int(5) NOT NULL AUTO_INCREMENT,
-<<<<<<< HEAD
   `Codigo` varchar(10) NOT NULL,
   `Nome` varchar(100) NOT NULL,
   `Area` enum('ARC','FC','ENSISO','EXTERNA') DEFAULT NULL,
@@ -97,22 +76,11 @@ CREATE TABLE `disciplina` (
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Nome` (`Nome`)
 ) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
-=======
-  `Tipo` enum('Obrigatoria','Externa','Optativa') NOT NULL,
-  `Codigo` varchar(10) NOT NULL,
-  `Nome` varchar(100) NOT NULL,
-  `Area` enum('ARC','FC','ENSISO','EXTERNA') DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `Nome` (`Nome`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
->>>>>>> 51eee38cd00788acbce0292c385f72ed15004a16
 
 --
 -- Dumping data for table `disciplina`
 --
 
-<<<<<<< HEAD
 INSERT INTO `disciplina` (`ID`, `Codigo`, `Nome`, `Area`, `Tipo`) VALUES
 (1, '06418', 'ÁLGEBRA VETORIAL E LINEAR PARA COMPUTAÇÃO', 'EXTERNA', 'OBRIGATORIA'),
 (2, '06507', 'CÁLCULO NI', 'EXTERNA', 'OBRIGATORIA'),
@@ -141,125 +109,156 @@ INSERT INTO `disciplina` (`ID`, `Codigo`, `Nome`, `Area`, `Tipo`) VALUES
 (25, '14065', 'SISTEMAS OPERACIONAIS', 'ARC', 'OBRIGATORIA');
 
 -- --------------------------------------------------------
-=======
-LOCK TABLES `disciplina` WRITE;
-/*!40000 ALTER TABLE `disciplina` DISABLE KEYS */;
-/*!40000 ALTER TABLE `disciplina` ENABLE KEYS */;
-UNLOCK TABLES;
->>>>>>> 51eee38cd00788acbce0292c385f72ed15004a16
 
 --
 -- Table structure for table `horario_disciplinas`
 --
 
 DROP TABLE IF EXISTS `horario_disciplinas`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `horario_disciplinas` (
+CREATE TABLE IF NOT EXISTS `horario_disciplinas` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `numero` int(11) NOT NULL,
   `FK_ID_disciplinas` int(11) NOT NULL,
-  `FK_ID_slots` int(11) NOT NULL,
+  `FK_ID_periodo` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `horario_disciplinas_fk_ibfk_1` (`FK_ID_disciplinas`),
-  KEY `horario_disciplinas_fk_ibfk_2` (`FK_ID_slots`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  KEY `horario_disciplinas_fkibk_2` (`FK_ID_periodo`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
-<<<<<<< HEAD
-=======
 -- Dumping data for table `horario_disciplinas`
 --
 
-LOCK TABLES `horario_disciplinas` WRITE;
-/*!40000 ALTER TABLE `horario_disciplinas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `horario_disciplinas` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `horario_disciplinas` (`ID`, `numero`, `FK_ID_disciplinas`, `FK_ID_periodo`) VALUES
+(1, 1, 1, 1),
+(2, 2, 2, 1),
+(3, 3, 3, 1),
+(4, 4, 4, 1),
+(5, 5, 5, 1),
+(6, 1, 6, 2),
+(7, 2, 7, 2),
+(8, 3, 8, 2),
+(9, 4, 9, 2),
+(10, 5, 10, 2),
+(11, 1, 11, 3),
+(12, 2, 12, 3),
+(13, 3, 13, 3),
+(14, 4, 14, 3),
+(15, 5, 15, 3),
+(16, 1, 16, 4),
+(17, 2, 17, 4),
+(18, 3, 18, 4),
+(19, 4, 19, 4),
+(20, 5, 20, 4);
+
+-- --------------------------------------------------------
 
 --
->>>>>>> 51eee38cd00788acbce0292c385f72ed15004a16
+-- Table structure for table `hora_aula`
+--
+
+DROP TABLE IF EXISTS `hora_aula`;
+CREATE TABLE IF NOT EXISTS `hora_aula` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `dia_da_semana` enum('SEGUNDA','TERCA','QUARTA','QUINTA','SEXTA') NOT NULL,
+  `numero` int(11) DEFAULT '0',
+  `hora_inicio` int(11) NOT NULL,
+  `FK_ID_slot` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `hora_aula_FKIBK_1` (`FK_ID_slot`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hora_aula`
+--
+
+INSERT INTO `hora_aula` (`ID`, `dia_da_semana`, `numero`, `hora_inicio`, `FK_ID_slot`) VALUES
+(1, 'SEGUNDA', 1, 14, 1),
+(2, 'SEGUNDA', 1, 15, 1),
+(3, 'SEGUNDA', 2, 16, 1),
+(4, 'SEGUNDA', 2, 17, 1),
+(5, 'TERCA', 3, 14, 1),
+(6, 'TERCA', 3, 15, 1),
+(7, 'TERCA', 4, 16, 1),
+(8, 'TERCA', 4, 17, 1),
+(9, 'QUARTA', 2, 14, 1),
+(10, 'QUARTA', 2, 15, 1),
+(11, 'QUARTA', 5, 16, 1),
+(12, 'QUARTA', 5, 17, 1),
+(13, 'QUINTA', 4, 14, 1),
+(14, 'QUINTA', 4, 15, 1),
+(15, 'QUINTA', 1, 16, 1),
+(16, 'QUINTA', 1, 17, 1),
+(17, 'SEXTA', 5, 14, 1),
+(18, 'SEXTA', 5, 15, 1),
+(19, 'SEXTA', 3, 16, 1),
+(20, 'SEXTA', 3, 17, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ministra`
 --
 
 DROP TABLE IF EXISTS `ministra`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ministra` (
+CREATE TABLE IF NOT EXISTS `ministra` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `FK_CPF_professor` int(11) NOT NULL,
   `FK_ID_disciplina` int(5) NOT NULL,
-  PRIMARY KEY (`FK_CPF_professor`,`FK_ID_disciplina`),
-  KEY `FK_ID_disciplina` (`FK_ID_disciplina`)
+  PRIMARY KEY (`ID`),
+  KEY `ministra_fkibk_1` (`FK_CPF_professor`),
+  KEY `ministra_fkibk_2` (`FK_ID_disciplina`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `ministra`
---
-
-LOCK TABLES `ministra` WRITE;
-/*!40000 ALTER TABLE `ministra` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ministra` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `periodo`
 --
 
 DROP TABLE IF EXISTS `periodo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `periodo` (
+CREATE TABLE IF NOT EXISTS `periodo` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `FK_ID_curso` int(11) NOT NULL,
   `FK_ID_slot` int(11) NOT NULL,
+  `n_periodo` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `horario_disciplinas_idfk_1` (`FK_ID_curso`),
   KEY `horario_disciplinas_idfk_2` (`FK_ID_slot`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `periodo`
 --
 
-LOCK TABLES `periodo` WRITE;
-/*!40000 ALTER TABLE `periodo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `periodo` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `periodo` (`ID`, `FK_ID_curso`, `FK_ID_slot`, `n_periodo`) VALUES
+(1, 1, 1, 1),
+(2, 1, 1, 2),
+(3, 1, 1, 3),
+(4, 1, 1, 4);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `prerequisito`
 --
 
 DROP TABLE IF EXISTS `prerequisito`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `prerequisito` (
+CREATE TABLE IF NOT EXISTS `prerequisito` (
   `FK_ID_disciplina` int(5) NOT NULL,
   `FK_ID_disciplina_pre` int(5) NOT NULL,
   PRIMARY KEY (`FK_ID_disciplina`,`FK_ID_disciplina_pre`),
   KEY `FK_ID_disciplina_pre` (`FK_ID_disciplina_pre`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `prerequisito`
---
-
-LOCK TABLES `prerequisito` WRITE;
-/*!40000 ALTER TABLE `prerequisito` DISABLE KEYS */;
-/*!40000 ALTER TABLE `prerequisito` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `professor`
 --
 
 DROP TABLE IF EXISTS `professor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `professor` (
+CREATE TABLE IF NOT EXISTS `professor` (
   `CPF` int(11) NOT NULL,
   `Nome` varchar(40) NOT NULL,
   `Area` enum('FC','Arc','Ensiso') NOT NULL,
@@ -273,47 +272,39 @@ CREATE TABLE `professor` (
   KEY `FK_Disciplina_Preferencia_1` (`FK_Disciplina_Preferencia_1`),
   KEY `FK_Disciplina_Preferencia_2` (`FK_Disciplina_Preferencia_2`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `professor`
 --
 
-LOCK TABLES `professor` WRITE;
-/*!40000 ALTER TABLE `professor` DISABLE KEYS */;
-INSERT INTO `professor` VALUES (1232,'NOME','Ensiso',NULL,NULL,'prof','PROFESSOR','$2a$10$NktDIbpJMyAv2yNzuipqzu4kSGy.8jYtYVsRV140MAyR8VSrvlRR.'),(1234,'rodemarck','Ensiso',NULL,NULL,'rode','PROFESSOR','$2a$10$xu8K04NpPutppxYwdgLrcuFAF3ptgyCsEKSRMP6WF7F.Wy0UnRo4i');
-/*!40000 ALTER TABLE `professor` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `professor` (`CPF`, `Nome`, `Area`, `FK_Disciplina_Preferencia_1`, `FK_Disciplina_Preferencia_2`, `login`, `cargo`, `senha`) VALUES
+(1232, 'NOME', 'Ensiso', NULL, NULL, 'prof', 'PROFESSOR', '$2a$10$NktDIbpJMyAv2yNzuipqzu4kSGy.8jYtYVsRV140MAyR8VSrvlRR.'),
+(1234, 'rodemarck', 'Ensiso', NULL, NULL, 'rode', 'PROFESSOR', '$2a$10$xu8K04NpPutppxYwdgLrcuFAF3ptgyCsEKSRMP6WF7F.Wy0UnRo4i');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `slots`
 --
 
 DROP TABLE IF EXISTS `slots`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `slots` (
+CREATE TABLE IF NOT EXISTS `slots` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `tipo_slot` varchar(45) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `tipo_slot` (`tipo_slot`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `slots`
 --
 
-LOCK TABLES `slots` WRITE;
-/*!40000 ALTER TABLE `slots` DISABLE KEYS */;
-/*!40000 ALTER TABLE `slots` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `slots` (`ID`, `tipo_slot`) VALUES
+(1, 'padrao'),
+(2, 'um_ai'),
+(3, 'outro_ai');
+COMMIT;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-07-02 17:56:13

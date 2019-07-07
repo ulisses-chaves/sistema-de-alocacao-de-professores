@@ -2,12 +2,11 @@ package com.Hirukar.Project.Models.Users_;
 
 import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
 import com.Hirukar.Project.Models.Beans.Disciplina;
-import com.Hirukar.Project.Models.Beans.Enums.Area;
-import com.Hirukar.Project.Models.Beans.Enums.TipoUsuario;
+import com.Hirukar.Project.Models.Enums.Area;
+import com.Hirukar.Project.Models.Enums.TipoUsuario;
 import java.io.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class Professor implements Serializable{
     private String CPF;

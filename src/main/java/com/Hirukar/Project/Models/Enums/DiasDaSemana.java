@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Hirukar.Project.Models.Beans.Enums;
+package com.Hirukar.Project.Models.Enums;
 
 /**
  *
  * @author RODEMARCK
  */
 public enum DiasDaSemana {
-    SEGUNDA(0),TERCA(1),QUARTA(2),QUINTA(3),SEXTA(4),SABADO(5);
+    SEGUNDA(0),TERCA(1),QUARTA(2),QUINTA(3),SEXTA(4);
     
     private final int value;
     
@@ -18,14 +18,14 @@ public enum DiasDaSemana {
         this.value = value;
     }
     
-    public static DiasDaSemana getDia(String value){
-        switch(value.toUpperCase()){
-            case "SEGUNDA": return SEGUNDA;
-            case "TERCA": return TERCA;
-            case "QUARTA": return QUARTA;
-            case "QUINTA": return QUINTA;
-            case "SEXTA": return SEXTA;
-            case "SABADO": return SABADO;
+    public static DiasDaSemana valueOf(int value){
+
+        switch(value){
+            case 0: return SEGUNDA;
+            case 1: return TERCA;
+            case 2: return QUARTA;
+            case 3: return QUINTA;
+            case 4: return SEXTA;
         }
         return null;
     }

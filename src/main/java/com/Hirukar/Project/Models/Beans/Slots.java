@@ -6,16 +6,11 @@
 package com.Hirukar.Project.Models.Beans;
 
 import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
-import com.Hirukar.Project.Models.Beans.Enums.Area;
-import com.Hirukar.Project.Models.Beans.Enums.Cursos;
-import com.Hirukar.Project.Models.Beans.Enums.DiasDaSemana;
-import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
+import com.Hirukar.Project.Models.Enums.DiasDaSemana;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  *
@@ -30,6 +25,7 @@ public class Slots {
     private final String[] tempo = new String[15];
 
     public Slots(ResultSet rs) throws SQLException, ClassNotFoundException {
+
         horariosDisciplinas = new ArrayList<HorarioDisciplinas>();
         this.ID = rs.getInt("slots.ID");
         ArrayList<HorarioDisciplinas> h = new ArrayList<>();

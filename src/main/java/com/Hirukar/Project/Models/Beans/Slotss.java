@@ -19,18 +19,35 @@ import java.util.List;
 public class Slotss {
     
     private final int id;
+    private String tipo;
     private Slot[] slots = new Slot[15];
+    private HoraAula[] horaAulas;
     
-    public Slotss(ResultSet rs) throws SQLException{
-        if(!rs.next())
-            throw new SQLException("critical error @Slots:Constructor");
-        
-        this.id = rs.getInt("Slots.id");
-        for(Slot s : this.slots)
-            s = new Slot(rs);
-        
+    public Slotss(ResultSet rs) throws SQLException, ClassNotFoundException {
+        this.id = rs.getInt("slots.ID");
+        this.tipo = rs.getString("slots.tipo_slot");
+        for(Slot s : this.slots) {
+            s = new Slot();
+            s.setUsado(false);
+        }
+
+        this.horaAulas = DisciplinasDAO.getHorariosAula(id);
+        for(HoraAula h : this.horaAulas)
+            if(h.getNumero() != 0)
+                slots[h.getHora_inicio()].getDias()[h.getHora_inicio()] = h.getNumero();
+        for(int x=0; x<15; x++){
+            boolean check = false;
+            for(int i : this.slots[x].getDias())
+                if(i != 0)
+                    check = true;
+            if(check){
+                this.slots[x].setHora((x<10?"0":"") + x +":00 - " +((x+1)<10?"0":"") + (x+1));
+            }
+        }
+
     }
-    
+
+
 
     public Slotss() {
         id = 0;
@@ -99,17 +116,6 @@ public class Slotss {
         String hora;
         private int [] dias = {0,0,0,0,0};
         
-        public Slot(ResultSet rs) throws SQLException{
-            String texto;
-            hora = rs.getString("Sub_slot.hora");
-            usado = (1 == rs.getShort("Sub_slot.usado"));
-            texto = rs.getString("Sub_slot.hora");
-            for(int x=0;x<5;x++)
-                dias[x] = Integer.parseInt(""+texto.charAt(x));
-            if(!rs.next())
-                throw new SQLException("critical error @Sub_slot:Constructor");
-        }
-        
         public Slot(){
         }
         public void print(){
@@ -120,6 +126,7 @@ public class Slotss {
         public Slot(int ... v){
             this.dias = v;
         }
+
         public boolean isUsado() {
             return usado;
         }

@@ -6,10 +6,9 @@
 package com.Hirukar.Project.Models.Beans;
 
 import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
-import com.Hirukar.Project.Models.Beans.Enums.DiasDaSemana;
+import com.Hirukar.Project.Models.Enums.DiasDaSemana;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 
 /**
  *
@@ -28,8 +27,8 @@ public class HorarioDisciplinas {
         this.ID = rs.getInt("horario_disciplinas.ID");
         this.numero = rs.getInt("horario_disciplinas.numero");
         this.disciplina = DisciplinasDAO.getDisciplina(rs.getInt("horario_disciplinas.FK_ID_disciplinas"));
-        this.dia1 = DiasDaSemana.getDia(rs.getString("horario_disciplinas.dia1"));
-        this.dia2 = DiasDaSemana.getDia(rs.getString("horario_disciplinas.dia2"));
+        this.dia1 = DiasDaSemana.valueOf(rs.getString("horario_disciplinas.dia1"));
+        this.dia2 = DiasDaSemana.valueOf(rs.getString("horario_disciplinas.dia2"));
         this.horario1 = rs.getInt("horario_disciplinas.horario1");
         this.horario2 = rs.getInt("horario_disciplinas.horario2");
     }

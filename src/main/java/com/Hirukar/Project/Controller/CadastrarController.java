@@ -5,26 +5,10 @@
  */
 package com.Hirukar.Project.Controller;
 
-import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
-import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
-import com.Hirukar.Project.Models.Beans.Disciplina;
-import com.Hirukar.Project.Models.Beans.Enums.Area;
-import com.Hirukar.Project.Models.Beans.Enums.Cursos;
-import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
-import com.Hirukar.Project.Models.Beans.Enums.TipoUsuario;
-import com.Hirukar.Project.Models.Users_.Professor;
-import java.sql.SQLException;
-import java.util.concurrent.ExecutionException;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  *

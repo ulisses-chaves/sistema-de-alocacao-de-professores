@@ -5,10 +5,9 @@
  */
 package com.Hirukar.Project.Controller;
 
-import com.Hirukar.Project.Models.Beans.Horarios__;
+import com.Hirukar.Project.Models.Beans.HorariosCurso;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -24,25 +23,26 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class  DisciplinaController {
-    static Horarios__ h = new Horarios__();
     static boolean esq = true,dir = true;
     
-    public Horarios__[] init(){
-        Horarios__ horarios[] = new Horarios__[5];
-        for(Horarios__ h : horarios)
-            h = new Horarios__();
+    public HorariosCurso[] init() throws SQLException, ClassNotFoundException {
+        HorariosCurso horarios[] = new HorariosCurso[5];
+        for(HorariosCurso h : horarios)
+            h = new HorariosCurso();
         
         return horarios;
     }
     @RequestMapping("/disciplinas")
-    public ModelAndView disciplinas() throws IllegalAccessException{
+    public ModelAndView disciplinas() throws IllegalAccessException, SQLException, ClassNotFoundException {
+        HorariosCurso h = new HorariosCurso();
         ModelAndView mv = new ModelAndView("disciplinas");
         mv.addObject("h", h);
         return mv;
     }
     
     @RequestMapping(value="/atualizarSlots", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public String atualizarSlots(ModelMap map) throws IllegalAccessException{
+    public String atualizarSlots(ModelMap map) throws IllegalAccessException,SQLException, ClassNotFoundException {
+        HorariosCurso h = new HorariosCurso();
         map.addAttribute("h", h);
         map.addAttribute("esq", esq);
         map.addAttribute("dir", dir);
@@ -60,7 +60,8 @@ public class  DisciplinaController {
     }
     
     @RequestMapping(value = "/alterarSlots", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public ResponseEntity<String> alterarSlots(int n1,int n2) throws SQLException{
+    public ResponseEntity<String> alterarSlots(int n1,int n2) throws SQLException, ClassNotFoundException {
+        HorariosCurso h = new HorariosCurso();
         System.out.println("\n.\n.{\nn1:"+n1+"\nn2:"+n2+"\n}");
         h.troca(n1, n2);
         return new ResponseEntity<>("OK",HttpStatus.OK);

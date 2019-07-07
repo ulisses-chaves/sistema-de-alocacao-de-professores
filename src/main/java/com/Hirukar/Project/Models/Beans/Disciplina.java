@@ -5,14 +5,11 @@
  */
 package com.Hirukar.Project.Models.Beans;
 
-import com.Hirukar.Project.Models.Beans.Enums.Area;
-import static com.Hirukar.Project.Models.Beans.Enums.Area.EXTERNA;
-import com.Hirukar.Project.Models.Beans.Enums.Cursos;
-import com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina;
+import com.Hirukar.Project.Models.Enums.Area;
+import com.Hirukar.Project.Models.Enums.TipoDisciplina;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
