@@ -1,5 +1,7 @@
 var origin = "";
 var info = new Array(8);
+var idCurso;
+var nPeriodo;
 $(function () {
 
     $.fn.troca = function (other) {
@@ -8,25 +10,35 @@ $(function () {
         if ($(other).attr('class').includes('text'))
             other = $(other).parent().parent();
         if ($(other).attr('class') == 'espaco-disciplina') {
-            var a = $(this).children().attr('data-slot');
-            var b = $(other).children().attr('data-slot');
-            var dados= {n1:a,n2:b}
-            $.post('/alterarSlots', dados)
+            var a = $(this).children().attr('data-numero');
+            var b = $(other).children().attr('data-numero');
+            var dados={
+                idCurso:idCurso,
+                nPeriodo:nPeriodo,
+                n1:a,
+                n2:b
+            };
+            var parametros = {
+                idCurso:idCurso,
+                nPeriodo:nPeriodo
+            };
+            $.post('/alterarSlots',dados)
                     .done(function () {
-                        $.get('/atualizarSlots', function (fragment) {
+                        $.get('/atualizarSlots',parametros)
+                            .done(function (fragment) {
                             $('#div-disciplinas').replaceWith(fragment);
                         }).fail(function (erros) {
                             alert('troca get ' + erros);
                         });
-                    }).fail(function (erros) {
-                alert('troca post ' + erros);
-            });
+                    })
+                .fail(function (erros) {
+                    alert('troca post ' + erros);
+                });
         } else
             console.log('other class is:' + $(other).attr('class'));
     };
 
     $('#modal-disciplina').on('show.bs.modal', function (event) {
-        console.log('printando');
         var modal = $(this);
         modal.find('.modal-title').text('informações da disciplina');
         modal.find('.modal-body #modal-nome').val(info[0]);
@@ -40,9 +52,14 @@ $(function () {
     });
 
     $(document).ready(function () {
-        $.get('/atualizarSlots',function (fragment) {
-            $('#conteudo').replaceWith(fragment);
-        });
+        var parametros = {
+            idCurso:1,
+            nPeriodo:1
+        };
+        $.get('/atualizarSlots', parametros)
+            .done(function (fragment) {
+                $('#conteudo').replaceWith(fragment);
+            });
     });
 });
 
@@ -58,12 +75,13 @@ function dblclickDisicplina(event){
     let a = $('#' + event.target.id);
     showDisciplinaModal(a);
 }
+
 function dblclickDisicplinaText(event){
     let a = $('#' + event.target.id);
     showDisciplinaModal($(a).parent());
 }
+
 function showDisciplinaModal(a) {
-    console.log('dbl');
     info[0] = $(a).data('nome');
     info[1] = $(a).data('codigo');
     info[2] = $(a).data('turma');
@@ -72,11 +90,32 @@ function showDisciplinaModal(a) {
     info[5] = $(a).data('area');
     info[6] = $(a).data('curso');
     info[7] = $(a).data('periodo');
-    console.log('puxando modal');
     $('#modal-disciplina').modal('show');
 }
 
+function mudaPeriodo(v) {
+    var i = parseInt(v);
+    var parametros = {
+        idCurso:idCurso,
+        nPeriodo:i
+    };
+    $.get('/atualizarSlots', parametros)
+        .done(function (fragment) {
+            $('#div-disciplinas').replaceWith(fragment);
+        });
+}
 
+function mudaCurso(v) {
+    var i = parseInt(v);
+    var parametros = {
+        idCurso:i,
+        nPeriodo:1
+    };
+    $.get('/atualizarSlots', parametros)
+        .done(function (fragment) {
+            $('#div-disciplinas').replaceWith(fragment);
+        });
+}
 
 function allowDrop(ev) {
     ev.preventDefault();

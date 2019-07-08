@@ -180,8 +180,10 @@ public abstract class DisciplinasDAO {
             rs = stmt.executeQuery();
             while(rs.next())
                 array.add(new HorarioDisciplinas(rs));
+            array.sort((o1, o2) -> o2.getNumero()-o1.getNumero());
             hd = new HorarioDisciplinas[array.size()];
-            hd = array.toArray(hd);
+            for(int x=0;x<array.size();x++)
+                hd[x] = array.get(x);
         }catch(ClassNotFoundException | SQLException e){
             throw e;
         }finally{
@@ -219,5 +221,81 @@ public abstract class DisciplinasDAO {
 
     public static Cursos getCurso(int idCurso) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static  int getIdHorarioDisciplina(int idCurso, int nPeriodo, int numero)  throws ClassNotFoundException, SQLException{
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int id = 1;
+        try{
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "SELECT horario_disciplinas.ID FROM `horario_disciplinas` \n" +
+                            "\tINNER JOIN periodo\n" +
+                            "    ON horario_disciplinas.FK_ID_periodo=periodo.ID\n" +
+                            "    \tINNER JOIN curso\n" +
+                            "        ON periodo.FK_ID_curso=curso.ID\n" +
+                            "WHERE curso.ID=? AND periodo.n_periodo=? AND horario_disciplinas.numero=?"
+            );
+            stmt.setInt(1,idCurso);
+            stmt.setInt(2,nPeriodo);
+            stmt.setInt(3,numero);
+            rs = stmt.executeQuery();
+            if(rs.next())
+                id = rs.getInt("horario_disciplinas.ID");
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally        {
+            DatabaseConnection.getInstance().close(con, stmt);
+        }
+        return id;
+    }
+
+    public static void atualizaSlots(int idSlot,int numero)  throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement stmt = null;
+        int idn1=1,idn2=1;
+        try{
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                            "UPDATE horario_disciplinas\n" +
+                                    "   SET horario_disciplinas.numero=?\n" +
+                                    "WHERE horario_disciplinas.ID=?"
+            );
+            stmt.setInt(1,numero);
+            stmt.setInt(2,idSlot);
+            stmt.execute();
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally        {
+            DatabaseConnection.getInstance().close(con, stmt);
+        }
+    }
+
+    public static ArrayList<Integer> listarPeriodos(int idCurso) throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList<Integer> periodos = new ArrayList<>();
+        try{
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "SELECT periodo.n_periodo FROM periodo\n" +
+                            "\tINNER JOIN curso\n" +
+                            "    ON periodo.FK_ID_curso=curso.ID\n" +
+                            "WHERE curso.ID=?\n" +
+                            "\tORDER BY periodo.n_periodo ASC"
+            );
+            stmt.setInt(1,idCurso);
+            rs = stmt.executeQuery();
+            while (rs.next())
+                periodos.add(rs.getInt("periodo.n_periodo"));
+        }catch (ClassNotFoundException | SQLException e){
+            throw e;
+        }finally {
+            DatabaseConnection.getInstance().close(con, stmt);
+        }
+        return  periodos;
     }
 }

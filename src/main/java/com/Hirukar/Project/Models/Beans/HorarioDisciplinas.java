@@ -35,8 +35,10 @@ public class HorarioDisciplinas {
         this.disciplina = disciplina;
 
     }
-    
-    
+
+    public int getFK_ID_periodo() {
+        return FK_ID_periodo;
+    }
 
     public int getID() {
         return ID;
@@ -77,5 +79,15 @@ public class HorarioDisciplinas {
     public void setCor(String cor) {
         this.cor = cor;
     }
-    
+
+    @Override
+    public String toString() {
+        return "HorarioDisciplinas{" +
+                "ID=" + ID +
+                ", numero=" + numero +
+                ", disciplina=" + disciplina +
+                ", FK_ID_periodo=" + FK_ID_periodo +
+                ", cor='" + cor + '\'' +
+                '}';
+    }
 }

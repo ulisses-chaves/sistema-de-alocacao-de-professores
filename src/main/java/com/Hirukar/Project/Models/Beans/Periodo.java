@@ -10,6 +10,8 @@ import com.Hirukar.Project.Models.Enums.Cursos;
 import java.sql.ResultSet;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 /**
@@ -39,11 +41,12 @@ public class Periodo {
     }
     
     public HorarioDisciplinas getHorarioDisciplina(int numero){
-        for(HorarioDisciplinas h : this.horarioDisciplinas){
-            if(h.getNumero() == numero)
-                return h;
-        }
-        return null;
+        for(HorarioDisciplinas hd : this.horarioDisciplinas)
+            if(hd.getNumero() == numero)
+                return hd;
+        HorarioDisciplinas h = this.horarioDisciplinas[numero-1];
+        return h;
+
     }
 
     public int getId() {
@@ -60,8 +63,8 @@ public class Periodo {
     
     
     
-    public Disciplina get(String index){
-        return horarioDisciplinas[Integer.parseInt(index)-1].getDisciplina();
+    public Disciplina get(int index){
+        return horarioDisciplinas[index-1].getDisciplina();
     }
     
     public Slotss getSlot() {

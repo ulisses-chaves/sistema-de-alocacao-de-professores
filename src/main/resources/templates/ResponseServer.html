@@ -1,5 +1,5 @@
     ﻿<!DOCTYPE html>
-<html   lang="pt-br">
+    <html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,12 +16,22 @@
     <body>
         <!--tabela editavel (arrasta e sota) refente a discplinas-->
         <div class="view-disciplina" id="div-disciplinas">
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+
+                idCurso = /*[[${h.curso.value}]]*/ '1';
+                nPeriodo = /*[[${h.nPeriodo}]]*/ '1';
+                /*]]>*/
+            </script>
             <div id="navegacao-disciplina">
                 <img  th:if="${h.periodo}>0" style="float: left;" src="/img/seta-esquerda.png" width="50" height="50" alt="">
                 <img th:if="${h.periodo}<9" style="float: right;" src="/img/seta-direita.png" width="50" height="50" alt=""><!--<9"-->
                 <span id="curso" class="dadosTabela" th:text="'Curso:'+${h.curso}"></span>
-                <span id="periodo" class="dadosTabela" th:text="'Período:'+${h.periodo}" ></span>
-                
+                <span id="periodo" class="dadosTabela" th:text="'Período:'+${h.nPeriodo}" ></span>
+                <select id="todos-periodos">
+                    <option th:each="i : ${p}" th:value="${i}" th:text="${i}" th:selected="${i==h.nPeriodo}" th:onclick="'mudaPeriodo(\''+${i}+'\');'"></option>
+                </select>
+
             </div>
             <div class="container-horarios">
                 <div th:each="slots,slotsIndex : ${h.slot.slots}" th:if="${slots.usado}" class="horario">
@@ -31,15 +41,13 @@
             <div class="container-disciplinas">
                 <div th:each="slots,slotsIndex : ${h.slot.slots}" th:if="${slots.usado}" th:id="'y'+${slotsIndex.index}" class="linha-disciplina" >
                     <div  th:each="i,iIndex : ${slots.dias}" th:id="'divx'+${iIndex.index}+'y'+${slotsIndex.index}" class="espaco-disciplina" ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <div class="disciplina" th:style="'background-color:'+${h.get(i).cor}+';'" ondblclick="dblclickDisicplina(event)" th:id="'x'+${iIndex.index}+'y'+${slotsIndex.index}" th:attr="data-slot=${i},data-codigo=${h.get(i).codigo},data-cor=${h.get(i).cor},data-nome=${h.get(i).nome},data-turma=${h.get(i).turma},data-tipo=${h.get(i).tipo},data-area=${h.get(i).area},data-curso=${h.get(i).curso},data-periodo=${h.get(i).periodo}" draggable="true" ondragstart="drag(event)">
-                            <label class="text cod" th:id="'lbl'+${iIndex.index}+'y'+${slotsIndex.index}" ondblclick="dblclickDisicplinaText(event)">codigo:</label><span class="text" th:id="'spn'+${iIndex.index}+'y'+${slotsIndex.index}" th:text="${h.get(i).codigo}" ondblclick="dblclickDisicplinaText(event)"></span><br>
-                            <label class="text" th:id="'lbl'+${iIndex.index}+'y'+${slotsIndex.index}" ondblclick="dblclickDisicplinaText(event)">turma:</label><span class="text" th:id="'spn'+${iIndex.index}+'y'+${slotsIndex.index}" th:text="${h.get(i).turma}" ondblclick="dblclickDisicplinaText(event)"></span>
+                        <div class="disciplina" th:style="'background-color:'+${h.getHorarioDisciplina(i).cor}+';'" ondblclick="dblclickDisicplina(event)" th:id="'x'+${iIndex.index}+'y'+${slotsIndex.index}"  draggable="true" ondragstart="drag(event)" th:attr="data-numero=${i}">
+                            <span class="text" th:id="'spn'+${iIndex.index}+'y'+${slotsIndex.index}" th:text="${h.getHorarioDisciplina(i).disciplina.nome}" ondblclick="dblclickDisicplinaText(event)"></span><br>
                         </div>
-                    </div>      
-                </div>   
+                    </div>
+                </div>
             </div>
         </div>
-
 
 
 
