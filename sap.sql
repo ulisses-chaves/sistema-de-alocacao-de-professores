@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 07, 2019 at 06:27 AM
+-- Generation Time: Jul 08, 2019 at 10:41 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -120,6 +120,7 @@ CREATE TABLE IF NOT EXISTS `horario_disciplinas` (
   `numero` int(11) NOT NULL,
   `FK_ID_disciplinas` int(11) NOT NULL,
   `FK_ID_periodo` int(11) NOT NULL,
+  `cor` varchar(15) DEFAULT 'white',
   PRIMARY KEY (`ID`),
   KEY `horario_disciplinas_fk_ibfk_1` (`FK_ID_disciplinas`),
   KEY `horario_disciplinas_fkibk_2` (`FK_ID_periodo`)
@@ -129,27 +130,27 @@ CREATE TABLE IF NOT EXISTS `horario_disciplinas` (
 -- Dumping data for table `horario_disciplinas`
 --
 
-INSERT INTO `horario_disciplinas` (`ID`, `numero`, `FK_ID_disciplinas`, `FK_ID_periodo`) VALUES
-(1, 1, 1, 1),
-(2, 2, 2, 1),
-(3, 3, 3, 1),
-(4, 4, 4, 1),
-(5, 5, 5, 1),
-(6, 1, 6, 2),
-(7, 2, 7, 2),
-(8, 3, 8, 2),
-(9, 4, 9, 2),
-(10, 5, 10, 2),
-(11, 1, 11, 3),
-(12, 2, 12, 3),
-(13, 3, 13, 3),
-(14, 4, 14, 3),
-(15, 5, 15, 3),
-(16, 1, 16, 4),
-(17, 2, 17, 4),
-(18, 3, 18, 4),
-(19, 4, 19, 4),
-(20, 5, 20, 4);
+INSERT INTO `horario_disciplinas` (`ID`, `numero`, `FK_ID_disciplinas`, `FK_ID_periodo`, `cor`) VALUES
+(1, 1, 1, 1, '#373a07'),
+(2, 2, 2, 1, '#700202'),
+(3, 3, 3, 1, '#144b03'),
+(4, 4, 4, 1, '#9e6105'),
+(5, 5, 5, 1, '#140458'),
+(6, 1, 6, 2, '#373a07'),
+(7, 3, 7, 2, '#700202'),
+(8, 2, 8, 2, '#144b03'),
+(9, 4, 9, 2, '#9e6105'),
+(10, 5, 10, 2, '#140458'),
+(11, 1, 11, 3, '#373a07'),
+(12, 2, 12, 3, '#700202'),
+(13, 3, 13, 3, '#144b03'),
+(14, 4, 14, 3, '#9e6105'),
+(15, 5, 15, 3, '#140458'),
+(16, 1, 16, 4, '#373a07'),
+(17, 2, 17, 4, '#700202'),
+(18, 3, 18, 4, '#144b03'),
+(19, 4, 19, 4, '#9e6105'),
+(20, 5, 20, 4, '#140458');
 
 -- --------------------------------------------------------
 
@@ -279,7 +280,8 @@ CREATE TABLE IF NOT EXISTS `professor` (
 
 INSERT INTO `professor` (`CPF`, `Nome`, `Area`, `FK_Disciplina_Preferencia_1`, `FK_Disciplina_Preferencia_2`, `login`, `cargo`, `senha`) VALUES
 (1232, 'NOME', 'Ensiso', NULL, NULL, 'prof', 'PROFESSOR', '$2a$10$NktDIbpJMyAv2yNzuipqzu4kSGy.8jYtYVsRV140MAyR8VSrvlRR.'),
-(1234, 'rodemarck', 'Ensiso', NULL, NULL, 'rode', 'PROFESSOR', '$2a$10$xu8K04NpPutppxYwdgLrcuFAF3ptgyCsEKSRMP6WF7F.Wy0UnRo4i');
+(1234, 'rodemarck', 'Ensiso', NULL, NULL, 'rode', 'PROFESSOR', '$2a$10$xu8K04NpPutppxYwdgLrcuFAF3ptgyCsEKSRMP6WF7F.Wy0UnRo4i'),
+(12323, '123123412321', 'Arc', NULL, NULL, '432423123', 'COORDENADOR', 'QWERT');
 
 -- --------------------------------------------------------
 
