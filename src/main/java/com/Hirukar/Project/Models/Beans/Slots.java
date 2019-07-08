@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author RODEMARCK
  */
 public class Slots {
-
+/*
     private int ID;
     private ArrayList<HorarioDisciplinas> horariosDisciplinas;
     private final HorariosDia[] horarios = new HorariosDia[5];
@@ -38,28 +38,7 @@ public class Slots {
         });
     }
 
-    public Slots() throws ClassNotFoundException, SQLException {
-        defineHorario();
-        this.ID = 0;
-        horariosDisciplinas = new ArrayList<HorarioDisciplinas>();
-        ArrayList<Disciplina> a = DisciplinasDAO.listar();
-        
-        horariosDisciplinas.add(new HorarioDisciplinas(1, 1, a.get(0), DiasDaSemana.SEGUNDA, DiasDaSemana.QUINTA, 14, 16));
-        horariosDisciplinas.add(new HorarioDisciplinas(2, 2, a.get(1), DiasDaSemana.SEGUNDA, DiasDaSemana.QUARTA, 16, 14));
-        horariosDisciplinas.add(new HorarioDisciplinas(3, 3, a.get(2), DiasDaSemana.TERCA, DiasDaSemana.SEXTA, 14, 16));
-        horariosDisciplinas.add(new HorarioDisciplinas(4, 4, a.get(3), DiasDaSemana.TERCA, DiasDaSemana.QUINTA, 16, 14));
-        horariosDisciplinas.add(new HorarioDisciplinas(5, 5, a.get(4), DiasDaSemana.QUARTA, DiasDaSemana.SEXTA, 16, 14));
-
-        for (int x = 0; x < 5; x++) {
-            horarios[x] = new HorariosDia();
-        }
-        horariosDisciplinas.forEach((t) -> {
-            horarios[t.getDia1().getValue()].setEspacoDisciplina(t.getHorario1(), t.getDisciplina());
-            horarios[t.getDia2().getValue()].setEspacoDisciplina(t.getHorario2(), t.getDisciplina());
-        });
-        verificaNulos();
-    }
-
+   
     public void troca(Disciplina d1, Disciplina d2){
         for(HorarioDisciplinas h : this.horariosDisciplinas){
             if(h.getDisciplina().equals(d1))
@@ -131,5 +110,5 @@ public class Slots {
     public String[] getTempo() {
         return tempo;
     }
-
+*/
 }

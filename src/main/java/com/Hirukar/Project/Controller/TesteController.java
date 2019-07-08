@@ -5,6 +5,8 @@
  */
 package com.Hirukar.Project.Controller;
 
+import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
+import com.Hirukar.Project.Models.Beans.Periodo;
 import com.Hirukar.Project.Models.Beans.Slots;
 import java.sql.SQLException;
 import org.springframework.stereotype.Controller;
@@ -21,15 +23,8 @@ public class TesteController {
     @RequestMapping("teste")
     public ModelAndView teste() throws ClassNotFoundException, SQLException{
         ModelAndView mv = new ModelAndView("Teste");
-        Slots slot = new Slots();
-        mv.addObject("slots", slot);
-        
-        
+        Periodo p = DisciplinasDAO.getPeriodo(1, 1);
+        mv.addObject("h", p);
         return mv;
     }
-    
-    /*@RequestMapping("/slotss")
-    public Slots vai(){
-        return new Slots();
-    }*/
 }

@@ -18,29 +18,22 @@ public class HorarioDisciplinas {
     private int ID;
     private int numero;
     private Disciplina disciplina;
-    private DiasDaSemana dia1;   
-    private DiasDaSemana dia2;   
-    private int horario1;
-    private int horario2;
-
+    private int FK_ID_periodo;
+    private String cor;
+    
     public HorarioDisciplinas(ResultSet rs) throws SQLException, ClassNotFoundException {
         this.ID = rs.getInt("horario_disciplinas.ID");
         this.numero = rs.getInt("horario_disciplinas.numero");
+        this.cor = rs.getString("horario_disciplinas.cor");
+        this.FK_ID_periodo = rs.getInt("horario_disciplinas.FK_ID_periodo");
         this.disciplina = DisciplinasDAO.getDisciplina(rs.getInt("horario_disciplinas.FK_ID_disciplinas"));
-        this.dia1 = DiasDaSemana.valueOf(rs.getString("horario_disciplinas.dia1"));
-        this.dia2 = DiasDaSemana.valueOf(rs.getString("horario_disciplinas.dia2"));
-        this.horario1 = rs.getInt("horario_disciplinas.horario1");
-        this.horario2 = rs.getInt("horario_disciplinas.horario2");
     }
 
-    public HorarioDisciplinas(int ID, int numero, Disciplina disciplina, DiasDaSemana dia1, DiasDaSemana dia2, int horario1, int horario2) {
+    public HorarioDisciplinas(int ID, int numero, Disciplina disciplina) {
         this.ID = ID;
         this.numero = numero;
         this.disciplina = disciplina;
-        this.dia1 = dia1;
-        this.dia2 = dia2;
-        this.horario1 = horario1;
-        this.horario2 = horario2;
+
     }
     
     
@@ -69,36 +62,20 @@ public class HorarioDisciplinas {
         this.disciplina = disciplina;
     }
 
-    public DiasDaSemana getDia1() {
-        return dia1;
+    public int getFK_ID_slot() {
+        return FK_ID_periodo;
     }
 
-    public void setDia1(DiasDaSemana dia1) {
-        this.dia1 = dia1;
+    public void setFK_ID_slot(int FK_ID_slot) {
+        this.FK_ID_periodo = FK_ID_slot;
     }
 
-    public DiasDaSemana getDia2() {
-        return dia2;
+    public String getCor() {
+        return cor;
     }
 
-    public void setDia2(DiasDaSemana dia2) {
-        this.dia2 = dia2;
-    }
-
-    public int getHorario1() {
-        return horario1;
-    }
-
-    public void setHorario1(int horario1) {
-        this.horario1 = horario1;
-    }
-
-    public int getHorario2() {
-        return horario2;
-    }
-
-    public void setHorario2(int horario2) {
-        this.horario2 = horario2;
+    public void setCor(String cor) {
+        this.cor = cor;
     }
     
 }

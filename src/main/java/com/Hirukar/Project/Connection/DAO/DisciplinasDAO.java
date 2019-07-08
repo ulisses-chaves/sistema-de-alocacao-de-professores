@@ -8,8 +8,11 @@ package com.Hirukar.Project.Connection.DAO;
 import com.Hirukar.Project.Connection.ConnectionFactory.DatabaseConnection;
 import com.Hirukar.Project.Models.Beans.Disciplina;
 import com.Hirukar.Project.Models.Beans.HoraAula;
-import com.Hirukar.Project.Models.Beans.HorariosCurso;
+import com.Hirukar.Project.Models.Beans.HorarioDisciplinas;
+import com.Hirukar.Project.Models.Beans.Periodo;
 import com.Hirukar.Project.Models.Beans.Slots;
+import com.Hirukar.Project.Models.Beans.Slotss;
+import com.Hirukar.Project.Models.Enums.Cursos;
 import com.Hirukar.Project.Models.Enums.DiasDaSemana;
 
 import java.sql.Connection;
@@ -24,123 +27,189 @@ import java.util.ArrayList;
  */
 public abstract class DisciplinasDAO {
 
-    
-    public static HorariosCurso getHorario(int id)  throws ClassNotFoundException,SQLException{
-        Connection con = DatabaseConnection.getInstance().getConnection();
+    public static Periodo getPeriodo(int idCurso, int nPeriodo) throws ClassNotFoundException, SQLException {
+        Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        HorariosCurso horarios = null;
-        
-        
-        
-        DatabaseConnection.getInstance().close(con, rs, stmt);
+        Periodo horarios = null;
+        try {
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "SELECT * FROM slots\n"
+                    + "	INNER JOIN periodo\n"
+                    + "	ON periodo.FK_ID_slot=slots.ID\n"
+                    + "    	INNER JOIN curso\n"
+                    + "           ON periodo.FK_ID_curso=curso.ID\n"
+                    + "WHERE curso.ID=? AND periodo.n_periodo=?"
+            );
+            stmt.setInt(1, idCurso);
+            stmt.setInt(2, nPeriodo);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                horarios = new Periodo(rs);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            throw e;
+        } finally {
+            DatabaseConnection.getInstance().close(con, rs, stmt);
+        }
         return horarios;
     }
-    
-    public static Disciplina getDisciplina(int id) throws ClassNotFoundException,SQLException{
+
+    public static Disciplina getDisciplina(int idDisciplina) throws ClassNotFoundException, SQLException {
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Disciplina d = null;
-        con = DatabaseConnection.getInstance().getConnection();
-        
-        
-        
-        DatabaseConnection.getInstance().close(con, rs, stmt);
-        return d;
-    }
-    
-    
-    public static void cadastrar(Disciplina d) throws ClassNotFoundException,SQLException{
-        Connection con = null;
-        PreparedStatement stmt = null;
-        
         try{
             con = DatabaseConnection.getInstance().getConnection();
             stmt = con.prepareStatement(
-                        "insert into disciplina \n"+
-			"	(Nome,Tipo,Area,Codigo) \n"+
-			"values \n"+
-			"	(?,?,?,?)"
+                    "SELECT * FROM `disciplina` \n" +
+                    "WHERE disciplina.ID=?"
+            );
+            stmt.setInt(1, idDisciplina);
+            rs = stmt.executeQuery();
+            if(rs.next())
+                d = new Disciplina(rs);
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally{
+            DatabaseConnection.getInstance().close(con, rs, stmt);
+        }
+        return d;
+    }
+
+    public static void cadastrar(Disciplina d) throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement stmt = null;
+
+        try {
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "insert into disciplina \n"
+                    + "	(Nome,Tipo,Area,Codigo) \n"
+                    + "values \n"
+                    + "	(?,?,?,?)"
             );
             stmt.setString(1, d.getNome());
             stmt.setString(2, d.getTipo().name());
             stmt.setString(3, d.getArea().name());
             stmt.setString(4, d.getCodigo());
             stmt.execute();
-            
-            
-        }catch(ClassNotFoundException | SQLException e){
+
+        } catch (ClassNotFoundException | SQLException e) {
             throw e;
-        }finally{
+        } finally {
             DatabaseConnection.getInstance().close(con, stmt);
         }
-        
-        
+
     }
-    
-    
-    public static ArrayList<Disciplina> listar()  throws ClassNotFoundException,SQLException {
-    	Connection con = null;
+
+    public static ArrayList<Disciplina> listar() throws ClassNotFoundException, SQLException {
+        Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         ArrayList<Disciplina> disciplinas = new ArrayList<>();
-        
-        try{
+
+        try {
             con = DatabaseConnection.getInstance().getConnection();
             stmt = con.prepareStatement(
                     "select * from disciplina where 1"
             );
             rs = stmt.executeQuery();
-            while(rs.next())
-            	disciplinas.add(new Disciplina(rs));
-            
-        }catch(ClassNotFoundException | SQLException e){
+            while (rs.next()) {
+                disciplinas.add(new Disciplina(rs));
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
             throw e;
-        }finally{
-            DatabaseConnection.getInstance().close(con, rs , stmt);
+        } finally {
+            DatabaseConnection.getInstance().close(con, rs, stmt);
         }
         return disciplinas;
     }
 
-    public static HoraAula[] getHorariosAula(int id) throws ClassNotFoundException,SQLException {
+    public static HoraAula[] getHorariosAula(int idSlots) throws ClassNotFoundException, SQLException {
         HoraAula[] ha = null;
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         ArrayList<HoraAula> array = new ArrayList<>();
-        try{
+        try {
             con = DatabaseConnection.getInstance().getConnection();
             stmt = con.prepareStatement(
-                    "SELECT * FROM hora_aula\n" +
-                    "\tINNER JOIN slots\n" +
-                    "   \tON hora_aula.FK_ID_slot=slots.ID\n" +
-                    "WHERE slots.ID=?"
+                    "SELECT * FROM hora_aula\n"
+                    + "\tINNER JOIN slots\n"
+                    + "   \tON hora_aula.FK_ID_slot=slots.ID\n"
+                    + "WHERE slots.ID=?"
             );
+            stmt.setInt(1, idSlots);
             rs = stmt.executeQuery();
-            array.add(HoraAula.nulo);
-            while (rs.next())
+            while (rs.next()) {
                 array.add(new HoraAula(rs));
+            }
             ha = new HoraAula[array.size()];
             ha = array.toArray(ha);
 
-        }catch(ClassNotFoundException | SQLException e){
+        } catch (ClassNotFoundException | SQLException e) {
             throw e;
-        }finally {
+        } finally {
             DatabaseConnection.getInstance().close(con, rs, stmt);
         }
 
         return ha;
     }
-    
-    
-    public static Slots getSlots(int id) throws ClassNotFoundException,SQLException {
-        Connection con = DatabaseConnection.getInstance().getConnection();
+    public static HorarioDisciplinas[] getHorarioDisciplinas(int idCurso,int nPeriodo) throws ClassNotFoundException, SQLException {
+        HorarioDisciplinas[] hd = null;
+        ArrayList<HorarioDisciplinas> array = new ArrayList<>();
+        Connection con = null;
         PreparedStatement stmt = null;
-        ResultSet rs = null;
-        Slots s = null;
-        
-        DatabaseConnection.getInstance().close(con, rs, stmt);
+        ResultSet rs  = null;
+        try{
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "SELECT * FROM `horario_disciplinas` \n" +
+                    "	INNER JOIN periodo\n" +
+                    "    ON horario_disciplinas.FK_ID_periodo=periodo.ID\n" +
+                    "    	INNER JOIN curso\n" +
+                    "           ON periodo.FK_ID_curso=curso.ID\n" +
+                    "WHERE curso.ID=? AND periodo.n_periodo=?"
+            );
+            stmt.setInt(1, idCurso);
+            stmt.setInt(2, nPeriodo);
+            rs = stmt.executeQuery();
+            while(rs.next())
+                array.add(new HorarioDisciplinas(rs));
+            hd = new HorarioDisciplinas[array.size()];
+            hd = array.toArray(hd);
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally{
+            DatabaseConnection.getInstance().close(con, rs, stmt);
+        }
+        return hd;
+    }
+
+    public static Slotss getSlots(int id) throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        Slotss s = null;
+        PreparedStatement stmt = null;
+        ResultSet rs  = null;
+        try {
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "SELECT * FROM slots\n" +
+                    "WHERE slots.ID=?"
+            );
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+            if(rs.next())
+                s = new Slotss(rs);
+        } catch (ClassNotFoundException | SQLException e) {
+            throw e;
+        }finally        {
+            DatabaseConnection.getInstance().close(con, rs, stmt);
+        }
         return s;
     }
 
@@ -148,44 +217,7 @@ public abstract class DisciplinasDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public static void init() throws SQLException, ClassNotFoundException {
-        Connection con = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-
-        try{
-            con = DatabaseConnection.getInstance().getConnection();
-            String sql = "INSERT INTO hora_aula\n" +
-                    "\t(dia_da_semana,hora_inicio,numero,FK_ID_slot)\n" +
-                    "VALUES \n";
-            for(int x=0;x<20;x++){
-                sql+="(?,?,?,?)" + (x==19? "": ",\n");
-            }
-            stmt = con.prepareStatement(
-                    sql
-            );
-            int[] aulas = new int[]{
-                    1, 2,
-                    3, 4,
-                    2, 5,
-                    4, 1,
-                    5, 3
-            };
-            int i = 1;
-            for(int x=0; x<20; x++){
-                stmt.setString(i++,DiasDaSemana.valueOf(Math.floorDiv(x,4)).name());
-                stmt.setInt(i++,14+(x%4));
-                stmt.setInt(i++,aulas[Math.floorDiv(x,2)]);
-                stmt.setInt(i++,1);
-
-            }
-           stmt.execute();
-
-
-        }catch(ClassNotFoundException | SQLException e){
-            throw e;
-        }finally{
-            DatabaseConnection.getInstance().close(con, rs , stmt);
-        }
+    public static Cursos getCurso(int idCurso) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -5,7 +5,7 @@
  */
 package com.Hirukar.Project.Controller;
 
-import com.Hirukar.Project.Models.Beans.HorariosCurso;
+import com.Hirukar.Project.Models.Beans.Periodo;
 import java.sql.SQLException;
 
 import org.springframework.http.HttpStatus;
@@ -25,16 +25,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class  DisciplinaController {
     static boolean esq = true,dir = true;
     
-    public HorariosCurso[] init() throws SQLException, ClassNotFoundException {
-        HorariosCurso horarios[] = new HorariosCurso[5];
-        for(HorariosCurso h : horarios)
-            h = new HorariosCurso();
+    public Periodo[] init() throws SQLException, ClassNotFoundException {
+        Periodo horarios[] = new Periodo[5];
+        for(Periodo h : horarios)
+            h = new Periodo();
         
         return horarios;
     }
     @RequestMapping("/disciplinas")
     public ModelAndView disciplinas() throws IllegalAccessException, SQLException, ClassNotFoundException {
-        HorariosCurso h = new HorariosCurso();
+        Periodo h = new Periodo();
         ModelAndView mv = new ModelAndView("disciplinas");
         mv.addObject("h", h);
         return mv;
@@ -42,7 +42,7 @@ public class  DisciplinaController {
     
     @RequestMapping(value="/atualizarSlots", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public String atualizarSlots(ModelMap map) throws IllegalAccessException,SQLException, ClassNotFoundException {
-        HorariosCurso h = new HorariosCurso();
+        Periodo h = new Periodo();
         map.addAttribute("h", h);
         map.addAttribute("esq", esq);
         map.addAttribute("dir", dir);
@@ -61,7 +61,7 @@ public class  DisciplinaController {
     
     @RequestMapping(value = "/alterarSlots", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> alterarSlots(int n1,int n2) throws SQLException, ClassNotFoundException {
-        HorariosCurso h = new HorariosCurso();
+        Periodo h = new Periodo();
         System.out.println("\n.\n.{\nn1:"+n1+"\nn2:"+n2+"\n}");
         h.troca(n1, n2);
         return new ResponseEntity<>("OK",HttpStatus.OK);

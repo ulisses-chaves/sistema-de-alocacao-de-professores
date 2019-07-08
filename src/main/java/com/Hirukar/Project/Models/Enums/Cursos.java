@@ -10,7 +10,7 @@ package com.Hirukar.Project.Models.Enums;
  * @author RODEMARCK
  */
 public enum Cursos {
-    BCC(0),LC(1),BSI(2);
+    BCC(1),LC(2),BSI(3);
     
     private final int value;
     public int getValue(){
@@ -18,9 +18,9 @@ public enum Cursos {
     }
     public static Cursos getCurso(int v){
         switch(v){
-            case 0: return Cursos.BCC;
-            case 1: return Cursos.LC;
-            case 2: return Cursos.BSI;
+            case 1: return Cursos.BCC;
+            case 2: return Cursos.LC;
+            case 3: return Cursos.BSI;
         }
         return Cursos.BCC;
     }

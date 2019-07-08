@@ -26,25 +26,42 @@ public class Slotss {
     public Slotss(ResultSet rs) throws SQLException, ClassNotFoundException {
         this.id = rs.getInt("slots.ID");
         this.tipo = rs.getString("slots.tipo_slot");
-        for(Slot s : this.slots) {
-            s = new Slot();
-            s.setUsado(false);
+        for(int x=0;x<15;x++){
+            this.slots[x] = new Slot();
+            this.slots[x].setUsado(false);
         }
 
         this.horaAulas = DisciplinasDAO.getHorariosAula(id);
-        for(HoraAula h : this.horaAulas)
-            if(h.getNumero() != 0)
-                slots[h.getHora_inicio()].getDias()[h.getHora_inicio()] = h.getNumero();
-        for(int x=0; x<15; x++){
-            boolean check = false;
-            for(int i : this.slots[x].getDias())
-                if(i != 0)
-                    check = true;
-            if(check){
-                this.slots[x].setHora((x<10?"0":"") + x +":00 - " +((x+1)<10?"0":"") + (x+1));
-            }
+        for(HoraAula h : this.horaAulas){
+            int x = h.getHora_inicio();
+            slots[x-7].getDias()[h.getDiasDaSemana().getValue()] = h.getNumero();
+            slots[x-7].setUsado(true);
+            slots[x-7].setHora((x<10?"0":"") + x +":00 - " +((x+1)<10?"0":"") + (x+1) +":00");
         }
+        /*for(int x=0; x<15; x++){
+            boolean check = false;
+            for(int i=0; i<5;i++)
+                if(this.slots[x].getDias()[i] != 0)
+                    check = true;
+            
+            if(check)
+                this.slots[x].setHora((x<10?"0":"") + x +":00 - " +((x+1)<10?"0":"") + (x+1));
+            else
+                System.out.println("vacuo em "+x);
+        }*/
+        
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public HoraAula[] getHoraAulas() {
+        return horaAulas;
     }
 
 

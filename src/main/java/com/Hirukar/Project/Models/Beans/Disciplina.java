@@ -17,23 +17,18 @@ import java.util.List;
  * @author RODEMARCK
  */
 public class Disciplina {
-
-    public static ArrayList<Disciplina> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     private int ID;
     private String nome;
-    private String cor;
     private String codigo;
     private TipoDisciplina tipo;
     private Area area;
     List<Disciplina> preRequisito;
     
-    
     public boolean remover(int n){
         return this.area == Area.getArea(n);
     }
    
+
 
     public Disciplina(ResultSet rs) throws SQLException {
         this.nome = rs.getString("disciplina.Nome");
@@ -67,13 +62,6 @@ public class Disciplina {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
-    }
-    public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
     }
 
     public TipoDisciplina getTipo() {
