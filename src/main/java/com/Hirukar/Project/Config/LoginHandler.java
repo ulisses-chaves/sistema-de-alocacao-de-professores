@@ -15,10 +15,16 @@ import org.springframework.stereotype.Component;
 */
 @Component
 public class LoginHandler implements ApplicationListener<AuthenticationSuccessEvent> {
-
+    
     @Override
     public void onApplicationEvent(AuthenticationSuccessEvent e) {
         System.out.println("loguei!!!!");
     }
+        
+        
+        
+    
+    
+    
     
 }

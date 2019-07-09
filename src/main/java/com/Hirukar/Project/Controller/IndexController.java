@@ -5,6 +5,7 @@
  */
 package com.Hirukar.Project.Controller;
 
+import javax.servlet.http.HttpSession;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,13 +20,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndexController {
     @RequestMapping("/")
     public ModelAndView index(@AuthenticationPrincipal UserDetails userDetails){
-       /*if(userDetails==null)
+       if(userDetails==null)
             return new ModelAndView("index");
         switch(userDetails.getAuthorities().toArray()[0].toString()){
             case "PROFESSOR":return new ModelAndView("redirect:/menuProfessor");
             case "COORDENADOR":return new ModelAndView("redirect:/menuCoordenador");
             case "SUPERVISOR":return new ModelAndView("redirect:/menuSupervisor");
-        }*/
+        }
         return new ModelAndView("index");
     }
 }

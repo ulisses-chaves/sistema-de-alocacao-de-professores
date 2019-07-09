@@ -14,7 +14,7 @@ public abstract class ProfessorDAO {
         Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        Professor prof = null;
+        Professor prof = new Professor();
         try{
             con = DatabaseConnection.getInstance().getConnection();
             stmt = con.prepareStatement(
@@ -25,8 +25,6 @@ public abstract class ProfessorDAO {
             rs = stmt.executeQuery();
             if(rs.next())
                 prof = new Professor(rs);
-            else
-                prof = new Professor();
         }catch(ClassNotFoundException | SQLException e){
             throw e;
         }finally{

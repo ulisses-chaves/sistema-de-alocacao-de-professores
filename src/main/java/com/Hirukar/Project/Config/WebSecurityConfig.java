@@ -5,6 +5,7 @@
  */
 package com.Hirukar.Project.Config;
 
+import com.Hirukar.Project.Models.Enums.TipoUsuario;
 import com.Hirukar.Project.Models.Users_.Detalhes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -44,6 +45,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         http
             .authorizeRequests()
                 .antMatchers(ARTEFATOS)
+                    .permitAll()
+                /*.antMatchers(
+                        "/alocarProfessor",
+                        "/cadastroDisciplina",
+                        "/preferencias",
+                        "/disciplinas",
+                        "/atualizarSlots",
+                        "/getModalDisciplina",
+                        "/getBotaoNavegacaoDisciplina",
+                        "/alterarSlots",
+                        "/historicoAlocacao",
+                        "/listaPreferencias",
+                        "/menuCoordenador",
+                        "/menuProfessor",
+                        "/menuSupervisor",
+                        "/regras",
+                        "/variavel/professores",
+                        "/variavel/disciplinas",
+                        "/verificarAlocacoes")
+                    .authenticated()*/
+                .antMatchers("/listaPreferencias","/historicoAlocacao")
+                    .hasAnyRole(TipoUsuario.PROFESSOR.name())
+                .antMatchers("/cadastroProfessor","/sobre")
                     .permitAll()
             .and()
             .formLogin()

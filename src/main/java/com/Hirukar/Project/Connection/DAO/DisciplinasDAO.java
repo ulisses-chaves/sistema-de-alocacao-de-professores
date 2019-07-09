@@ -298,4 +298,24 @@ public abstract class DisciplinasDAO {
         }
         return  periodos;
     }
+    
+    public static void trocaDisciplina(int idHorarioDisciplina, int idDiscplina) throws ClassNotFoundException, SQLException{
+        Connection con = null;
+        PreparedStatement stmt = null;
+        try{
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "UPDATE horario_disciplinas\n" +
+                    "   SET FK_ID_disciplinas=?\n" +
+                    "WHERE horario_disciplinas.ID=?"
+            );
+            stmt.setInt(1, idDiscplina);
+            stmt.setInt(2, idHorarioDisciplina);
+            stmt.execute();
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally{
+            DatabaseConnection.getInstance().close(con, stmt);
+        }
+    }
 }

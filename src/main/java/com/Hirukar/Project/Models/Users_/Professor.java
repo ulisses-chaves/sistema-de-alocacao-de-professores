@@ -31,9 +31,9 @@ public class Professor implements Serializable{
                 null : DisciplinasDAO.getDisciplina(rs.getInt("professor.FK_Disciplina_Preferencia_2"));
     }
     public Professor(){
-        this.login = "";
-        this.senha = "";
-        this.CPF = "";
+        this.login = " ";
+        this.senha = " ";
+        this.CPF = " ";
         this.cargo = TipoUsuario.PROFESSOR;
     }
     public Professor(String CPF, String nome, Area area, String login, String senha, TipoUsuario cargo) {
