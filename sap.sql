@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 10, 2019 at 06:27 AM
+-- Generation Time: Jul 10, 2019 at 12:12 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -211,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `ministra` (
   KEY `ministra_fkibk_1` (`FK_CPF_professor`),
   KEY `ministra_fkibk_2` (`FK_ID_disciplina`),
   KEY `FK_ID_periodo` (`FK_ID_periodo`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ministra`
@@ -219,7 +219,10 @@ CREATE TABLE IF NOT EXISTS `ministra` (
 
 INSERT INTO `ministra` (`ID`, `FK_CPF_professor`, `FK_ID_disciplina`, `FK_ID_periodo`) VALUES
 (1, 1232, 1, 1),
-(2, 1232, 2, 2);
+(2, 1232, 6, 2),
+(3, 1232, 11, 3),
+(4, 1234, 3, 1),
+(5, 1234, 7, 2);
 
 -- --------------------------------------------------------
 
@@ -290,7 +293,7 @@ CREATE TABLE IF NOT EXISTS `professor` (
 --
 
 INSERT INTO `professor` (`CPF`, `Nome`, `Area`, `FK_Disciplina_Preferencia_1`, `FK_Disciplina_Preferencia_2`, `login`, `cargo`, `senha`) VALUES
-(1232, 'NOME', 'Ensiso', NULL, NULL, 'prof', 'PROFESSOR', '$2a$10$NktDIbpJMyAv2yNzuipqzu4kSGy.8jYtYVsRV140MAyR8VSrvlRR.'),
+(1232, 'NOME', 'Ensiso', 1, 2, 'prof', 'PROFESSOR', '$2a$10$NktDIbpJMyAv2yNzuipqzu4kSGy.8jYtYVsRV140MAyR8VSrvlRR.'),
 (1234, 'rodemarck', 'Ensiso', NULL, NULL, 'rode', 'PROFESSOR', '$2a$10$xu8K04NpPutppxYwdgLrcuFAF3ptgyCsEKSRMP6WF7F.Wy0UnRo4i'),
 (12323, '123123412321', 'Arc', NULL, NULL, 'user', 'COORDENADOR', '$2a$10$ZFxD1QzFYlf/olqvnx.TVuVfk96FFE06PCXWb63eOPQr/zXl5FNQi'),
 (123123, 'prof1', 'Arc', NULL, NULL, 'prof1', 'COORDENADOR', '$2a$10$uzcu0GNZSimDLT5EPox7kex4/T60tczWk9GacyzdTlOBENYgNDJry'),

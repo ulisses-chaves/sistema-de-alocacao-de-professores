@@ -50,8 +50,12 @@ public class  DisciplinaController {
     public String atualizarSlots(int idCurso, int nPeriodo, ModelMap map) throws IllegalAccessException,SQLException, ClassNotFoundException {
         Periodo h = DisciplinasDAO.getPeriodo(idCurso, nPeriodo);
         ArrayList<Integer> p = DisciplinasDAO.listarPeriodos(1);
-        ArrayList<Professor> profesores = ProfessorDAO.listar();
-        
+        System.out.println("hm...");
+        ArrayList<Professor> profesores = new ArrayList<>();
+        try{
+        profesores = ProfessorDAO.listarProfessoresAptos(20191);
+        }catch(ClassNotFoundException | SQLException e){e.printStackTrace();}
+        System.out.println("é aqui????");
         ArrayList<Disciplina> disciplinas = DisciplinasDAO.listar();
         ArrayList<Professor> profesoresARC = new ArrayList<>();
         ArrayList<Professor> profesoresFC = new ArrayList<>();

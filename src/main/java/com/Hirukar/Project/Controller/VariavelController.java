@@ -42,7 +42,7 @@ public class VariavelController {
         try {
             ProfessorDAO.cadastrar(p);
             return new ResponseEntity<>("Registrado com sucesso",HttpStatus.OK);
-        }catch(Exception e){
+        }catch(ClassNotFoundException | SQLException e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
     }
@@ -77,7 +77,7 @@ public class VariavelController {
             System.out.println(d);
             DisciplinasDAO.cadastrar(d);
             return new ResponseEntity<>("Registrado com sucesso",HttpStatus.OK);
-        }catch(Exception e){
+        }catch(ClassNotFoundException | SQLException e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
     }
@@ -116,7 +116,7 @@ public class VariavelController {
             System.out.println(d);
             DisciplinasDAO.cadastrar(d);
             return new ResponseEntity<>("Registrado com sucesso",HttpStatus.OK);
-        }catch(Exception e){
+        }catch(ClassNotFoundException | SQLException e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
     }
@@ -132,6 +132,15 @@ public class VariavelController {
         //
     }
 
+    @RequestMapping(value="/variavel/preferencia", method = RequestMethod.POST)
+    public ResponseEntity<String> definirPreferencia(int cpf, int idDisciplina1, int idDisciplina2){
+        try{
+            ProfessorDAO.definirPreferencia(cpf, idDisciplina1, idDisciplina2);
+            return new ResponseEntity<>("Registrado com sucesso",HttpStatus.OK);
+        }catch(ClassNotFoundException | SQLException e){
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
+        }
+    }
 
 
 }

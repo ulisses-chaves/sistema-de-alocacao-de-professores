@@ -10,8 +10,6 @@ import com.Hirukar.Project.Models.Enums.Cursos;
 import java.sql.ResultSet;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 
 /**
@@ -23,6 +21,7 @@ public class Periodo {
     private int nPeriodo;
     private Slotss slot;
     private Cursos curso;
+    private int anoLetivo;
     private HorarioDisciplinas[] horarioDisciplinas;
     
     public Periodo() throws SQLException, ClassNotFoundException {
@@ -38,6 +37,7 @@ public class Periodo {
         this.curso = Cursos.getCurso(rs.getInt("periodo.FK_ID_curso"));
         this.slot = DisciplinasDAO.getSlots(rs.getInt("periodo.FK_ID_slot"));
         this.horarioDisciplinas = DisciplinasDAO.getHorarioDisciplinas(this.curso.getValue(), nPeriodo);
+        this.anoLetivo = rs.getInt("periodo.ano_letivo");
     }
     
     public HorarioDisciplinas getHorarioDisciplina(int numero){
@@ -115,5 +115,14 @@ public class Periodo {
     public void setHorarioDisciplinas(HorarioDisciplinas[] horarioDisciplinas) {
         this.horarioDisciplinas = horarioDisciplinas;
     }
+
+    public int getAnoLetivo() {
+        return anoLetivo;
+    }
+
+    public void setAnoLetivo(int anoLetivo) {
+        this.anoLetivo = anoLetivo;
+    }
+    
     
 }

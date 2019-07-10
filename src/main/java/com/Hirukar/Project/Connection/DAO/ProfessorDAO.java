@@ -132,6 +132,8 @@ public abstract class ProfessorDAO {
         stmt.execute();
         DatabaseConnection.getInstance().close(con, stmt);
     }
+    
+    
     public static Professor getPeloID(int professorID) throws SQLException, ClassNotFoundException {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -154,5 +156,64 @@ public abstract class ProfessorDAO {
             DatabaseConnection.getInstance().close(con, rs, stmt);
         }
         return prof;
+    }
+    
+    public static ArrayList<Professor> listarProfessoresAptos(int anoLetivo) throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList<Professor> profesores = new ArrayList<>();
+        try {
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "select * from professor as P\n" +
+                    "where 1 and 3> (SELECT COUNT(*) FROM disciplina\n" +
+                    "            INNER JOIN ministra\n" +
+                    "            ON ministra.FK_ID_disciplina=disciplina.ID\n" +
+                    "                INNER JOIN periodo\n" +
+                    "                ON ministra.FK_ID_periodo=periodo.ID\n" +
+                    "                    INNER JOIN professor\n" +
+                    "                    ON ministra.FK_CPF_professor=professor.CPF\n" +
+                    "        WHERE periodo.ano_letivo=? AND professor.CPF=P.CPF)"
+            );
+            stmt.setInt(1, anoLetivo);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                profesores.add(new Professor(rs));
+            }
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally {
+            DatabaseConnection.getInstance().close(con, rs, stmt);
+        }
+        return profesores;
+    }
+
+    public static void definirPreferencia(int cpf, int idDisciplina1, int idDisciplina2)  throws ClassNotFoundException, SQLException{
+        Connection con = null;
+        PreparedStatement stmt = null;
+        
+        try{
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "UPDATE professor\n" +
+                    "SET \n" +
+                    "	FK_Disciplina_Preferencia_1=?\n" +
+                            (idDisciplina2!=0 ? ",	FK_Disciplina_Preferencia_2=?\n" : "") +
+                    "WHERE professor.CPF=?"
+            );
+            stmt.setInt(1, idDisciplina1);
+            if(idDisciplina2!=0){
+                stmt.setInt(2, idDisciplina2);
+                stmt.setInt(3, cpf);
+            }
+            else
+                stmt.setInt(2, cpf);
+            stmt.execute();
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally {
+            DatabaseConnection.getInstance().close(con, stmt);
+        }
     }
 }

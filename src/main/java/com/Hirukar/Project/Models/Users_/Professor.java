@@ -19,16 +19,21 @@ public class Professor implements Serializable{
     private Disciplina preferencia2;
     
     public Professor(ResultSet rs) throws SQLException, ClassNotFoundException{
-        this.CPF = rs.getString("professor.CPF");
-        this.nome = rs.getString("professor.Nome");
-        this.area = Area.valueOf(rs.getString("professor.Area").toUpperCase());
-        this.login = rs.getString("professor.Login");
-        this.senha = rs.getString("professor.senha");
-        this.cargo = TipoUsuario.valueOf(rs.getString("professor.cargo").toUpperCase());
-        this.preferencia1 = rs.getInt("professor.FK_Disciplina_Preferencia_1") == 0 ? 
-                null : DisciplinasDAO.getDisciplina(rs.getInt("professor.FK_Disciplina_Preferencia_1"));
-        this.preferencia2 = rs.getInt("professor.FK_Disciplina_Preferencia_2") == 0 ? 
-                null : DisciplinasDAO.getDisciplina(rs.getInt("professor.FK_Disciplina_Preferencia_2"));
+        String prof = "professor";
+        try{this.CPF = rs.getString("professor.CPF");
+        }catch(SQLException e){
+            prof = "P";
+            this.CPF = rs.getString("P.CPF");
+        }
+        this.nome = rs.getString(prof+".Nome");
+        this.area = Area.valueOf(rs.getString(prof+".Area").toUpperCase());
+        this.login = rs.getString(prof+".Login");
+        this.senha = rs.getString(prof+".senha");
+        this.cargo = TipoUsuario.valueOf(rs.getString(prof+".cargo").toUpperCase());
+        this.preferencia1 = rs.getInt(prof+".FK_Disciplina_Preferencia_1") == 0 ? 
+                null : DisciplinasDAO.getDisciplina(rs.getInt(prof+".FK_Disciplina_Preferencia_1"));
+        this.preferencia2 = rs.getInt(prof+".FK_Disciplina_Preferencia_2") == 0 ? 
+                null : DisciplinasDAO.getDisciplina(rs.getInt(prof+".FK_Disciplina_Preferencia_2"));
     }
     public Professor(){
         this.login = " ";
