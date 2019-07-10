@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 08, 2019 at 10:41 PM
+-- Generation Time: Jul 10, 2019 at 06:27 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -133,8 +133,8 @@ CREATE TABLE IF NOT EXISTS `horario_disciplinas` (
 INSERT INTO `horario_disciplinas` (`ID`, `numero`, `FK_ID_disciplinas`, `FK_ID_periodo`, `cor`) VALUES
 (1, 1, 1, 1, '#373a07'),
 (2, 2, 2, 1, '#700202'),
-(3, 3, 3, 1, '#144b03'),
-(4, 4, 4, 1, '#9e6105'),
+(3, 4, 3, 1, '#144b03'),
+(4, 3, 4, 1, '#9e6105'),
 (5, 5, 5, 1, '#140458'),
 (6, 1, 6, 2, '#373a07'),
 (7, 3, 7, 2, '#700202'),
@@ -206,10 +206,20 @@ CREATE TABLE IF NOT EXISTS `ministra` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `FK_CPF_professor` int(11) NOT NULL,
   `FK_ID_disciplina` int(5) NOT NULL,
+  `FK_ID_periodo` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `ministra_fkibk_1` (`FK_CPF_professor`),
-  KEY `ministra_fkibk_2` (`FK_ID_disciplina`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  KEY `ministra_fkibk_2` (`FK_ID_disciplina`),
+  KEY `FK_ID_periodo` (`FK_ID_periodo`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ministra`
+--
+
+INSERT INTO `ministra` (`ID`, `FK_CPF_professor`, `FK_ID_disciplina`, `FK_ID_periodo`) VALUES
+(1, 1232, 1, 1),
+(2, 1232, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -223,6 +233,7 @@ CREATE TABLE IF NOT EXISTS `periodo` (
   `FK_ID_curso` int(11) NOT NULL,
   `FK_ID_slot` int(11) NOT NULL,
   `n_periodo` int(11) NOT NULL,
+  `ano_letivo` int(10) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `horario_disciplinas_idfk_1` (`FK_ID_curso`),
   KEY `horario_disciplinas_idfk_2` (`FK_ID_slot`)
@@ -232,11 +243,11 @@ CREATE TABLE IF NOT EXISTS `periodo` (
 -- Dumping data for table `periodo`
 --
 
-INSERT INTO `periodo` (`ID`, `FK_ID_curso`, `FK_ID_slot`, `n_periodo`) VALUES
-(1, 1, 1, 1),
-(2, 1, 1, 2),
-(3, 1, 1, 3),
-(4, 1, 1, 4);
+INSERT INTO `periodo` (`ID`, `FK_ID_curso`, `FK_ID_slot`, `n_periodo`, `ano_letivo`) VALUES
+(1, 1, 1, 1, 20191),
+(2, 1, 1, 2, 20191),
+(3, 1, 1, 3, 20191),
+(4, 1, 1, 4, 20191);
 
 -- --------------------------------------------------------
 
@@ -281,7 +292,9 @@ CREATE TABLE IF NOT EXISTS `professor` (
 INSERT INTO `professor` (`CPF`, `Nome`, `Area`, `FK_Disciplina_Preferencia_1`, `FK_Disciplina_Preferencia_2`, `login`, `cargo`, `senha`) VALUES
 (1232, 'NOME', 'Ensiso', NULL, NULL, 'prof', 'PROFESSOR', '$2a$10$NktDIbpJMyAv2yNzuipqzu4kSGy.8jYtYVsRV140MAyR8VSrvlRR.'),
 (1234, 'rodemarck', 'Ensiso', NULL, NULL, 'rode', 'PROFESSOR', '$2a$10$xu8K04NpPutppxYwdgLrcuFAF3ptgyCsEKSRMP6WF7F.Wy0UnRo4i'),
-(12323, '123123412321', 'Arc', NULL, NULL, '432423123', 'COORDENADOR', 'QWERT');
+(12323, '123123412321', 'Arc', NULL, NULL, 'user', 'COORDENADOR', '$2a$10$ZFxD1QzFYlf/olqvnx.TVuVfk96FFE06PCXWb63eOPQr/zXl5FNQi'),
+(123123, 'prof1', 'Arc', NULL, NULL, 'prof1', 'COORDENADOR', '$2a$10$uzcu0GNZSimDLT5EPox7kex4/T60tczWk9GacyzdTlOBENYgNDJry'),
+(123223, 'prof2', 'FC', NULL, NULL, 'prof2', 'PROFESSOR', '$2a$10$zKTnYGKaRbb4Pn6HDdIutuQT1n37hBkWLrzsxfRbrDhWkpaz8PsPi');
 
 -- --------------------------------------------------------
 

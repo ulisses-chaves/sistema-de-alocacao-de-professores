@@ -8,6 +8,7 @@ package com.Hirukar.Project.Controller;
 import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
 import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
 import com.Hirukar.Project.Models.Beans.Disciplina;
+import com.Hirukar.Project.Models.Beans.Ministra;
 import com.Hirukar.Project.Models.Enums.Area;
 import com.Hirukar.Project.Models.Enums.TipoDisciplina;
 import com.Hirukar.Project.Models.Enums.TipoUsuario;
@@ -71,7 +72,6 @@ public class VariavelController {
      
     @RequestMapping(value="/variavel/disciplinas", method = RequestMethod.POST)
     public ResponseEntity<String> putDisciplina(String disciplina, String codigo,String area,String tipo) throws ClassNotFoundException, SQLException{
-        System.out.println("sexo anal");
         Disciplina d = new Disciplina(disciplina,codigo,TipoDisciplina.valueOf(tipo),Area.valueOf(area));
     	try{
             System.out.println(d);
@@ -92,5 +92,46 @@ public class VariavelController {
     public void deleteDisciplina(Disciplina disciplina){
         //
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @RequestMapping(value="/variavel/ministra", method = RequestMethod.GET)
+    public ArrayList<Ministra> getAlocacoes(int anoLetivo,int cpf) throws ClassNotFoundException, SQLException{
+        return DisciplinasDAO.listarAlocacoes(anoLetivo, cpf);
+    }
+     
+     
+    @RequestMapping(value="/variavel/ministra", method = RequestMethod.POST)
+    public ResponseEntity<String> postAlocacoes(String disciplina, String codigo,String area,String tipo) throws ClassNotFoundException, SQLException{
+        Disciplina d = new Disciplina(disciplina,codigo,TipoDisciplina.valueOf(tipo),Area.valueOf(area));
+    	try{
+            System.out.println(d);
+            DisciplinasDAO.cadastrar(d);
+            return new ResponseEntity<>("Registrado com sucesso",HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
+        }
+    }
+    
+    
+    @RequestMapping(value="/variavel/ministra", method = RequestMethod.PATCH)
+    public void patchAlocacoes(String nome,Disciplina disciplina) throws ClassNotFoundException, SQLException{
+        DisciplinasDAO.atualiza(nome, disciplina);
+    }
+    
+    @RequestMapping(value="/variavel/ministra", method = RequestMethod.DELETE)
+    public void deleteAlocacoes(Disciplina disciplina){
+        //
+    }
+
+
 
 }

@@ -34,7 +34,7 @@ public abstract class ProfessorDAO {
     }
     
     public static ArrayList<Professor> listar() throws ClassNotFoundException, SQLException {
-        Connection con = DatabaseConnection.getInstance().getConnection();
+        Connection con = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         ArrayList<Professor> profesores = new ArrayList<>();
@@ -131,5 +131,28 @@ public abstract class ProfessorDAO {
         );
         stmt.execute();
         DatabaseConnection.getInstance().close(con, stmt);
+    }
+    public static Professor getPeloID(int professorID) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Professor prof = new Professor();
+        try{
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "SELECT * FROM professor " +
+                    "WHERE professor.CPF=?"
+            );
+            stmt.setInt(1, professorID);
+            rs = stmt.executeQuery();
+            if(rs.next())
+                prof = new Professor(rs);
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+            
+        }finally{
+            DatabaseConnection.getInstance().close(con, rs, stmt);
+        }
+        return prof;
     }
 }

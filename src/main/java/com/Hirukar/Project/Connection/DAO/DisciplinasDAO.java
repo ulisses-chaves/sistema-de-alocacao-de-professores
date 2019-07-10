@@ -9,11 +9,11 @@ import com.Hirukar.Project.Connection.ConnectionFactory.DatabaseConnection;
 import com.Hirukar.Project.Models.Beans.Disciplina;
 import com.Hirukar.Project.Models.Beans.HoraAula;
 import com.Hirukar.Project.Models.Beans.HorarioDisciplinas;
+import com.Hirukar.Project.Models.Beans.Ministra;
 import com.Hirukar.Project.Models.Beans.Periodo;
-import com.Hirukar.Project.Models.Beans.Slots;
 import com.Hirukar.Project.Models.Beans.Slotss;
 import com.Hirukar.Project.Models.Enums.Cursos;
-import com.Hirukar.Project.Models.Enums.DiasDaSemana;
+import com.Hirukar.Project.Models.Users_.Professor;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -317,5 +317,36 @@ public abstract class DisciplinasDAO {
         }finally{
             DatabaseConnection.getInstance().close(con, stmt);
         }
+    }
+
+    public static ArrayList<Ministra> listarAlocacoes(int anoLetivo, int cpf) throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList<Ministra> historico = new ArrayList<>();
+        try {
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "select * from disciplina\n" +
+                    "   inner join ministra\n" +
+                    "   on ministra.FK_ID_disciplina=disciplina.ID\n" +
+                    "       inner join professor\n" +
+                    "       on professor.CPF=ministra.FK_CPF_professor\n" +
+                    "           inner join periodo\n" +
+                    "           on ministra.FK_ID_periodo=periodo.ID\n" +
+                    "where  periodo.ano_letivo=? and professor.CPF=?"
+            );
+            stmt.setInt(1, anoLetivo);
+            stmt.setInt(2, cpf);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                historico.add(new Ministra(rs));
+            }
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally {
+            DatabaseConnection.getInstance().close(con, rs, stmt);
+        }
+        return historico;
     }
 }
