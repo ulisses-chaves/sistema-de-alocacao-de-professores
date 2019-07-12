@@ -5,6 +5,9 @@
  */
 package com.Hirukar.Project.Controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -12,9 +15,12 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author RODEMARCK
  */
+@Controller
 public class MenuProfessorController {
-    @RequestMapping("/menuProfesso")
-    public ModelAndView menuProfesso(){
-        return new ModelAndView("menuProfesso");
+    @RequestMapping("/menuProfessor")
+    public ModelAndView menuProfesso(@AuthenticationPrincipal UserDetails userDetails){
+        if(userDetails == null  || userDetails.getAuthorities().toArray()[0].toString().equals(""))
+            return new ModelAndView("redirect:/");
+        return new ModelAndView("menuProfessor");
     }
 }

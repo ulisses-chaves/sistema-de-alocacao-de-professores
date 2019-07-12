@@ -5,11 +5,17 @@
  */
 package com.Hirukar.Project.Controller;
 
-import com.Hirukar.Project.Connection.DAO.UserDAO;
-import com.Hirukar.Project.Models.Beans.Horarios__;
+import com.Hirukar.Project.Connection.DAO.DisciplinasDAO;
+import com.Hirukar.Project.Connection.DAO.ProfessorDAO;
+import com.Hirukar.Project.Models.Beans.Disciplina;
+import com.Hirukar.Project.Models.Beans.HorarioDisciplinas;
+import com.Hirukar.Project.Models.Beans.Periodo;
+import com.Hirukar.Project.Models.Enums.Area;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
+
+import com.Hirukar.Project.Models.Enums.Cursos;
+import com.Hirukar.Project.Models.Users_.Professor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -25,29 +31,54 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class  DisciplinaController {
-    static Horarios__ h = new Horarios__();
     static boolean esq = true,dir = true;
     
-    public Horarios__[] init(){
-        Horarios__ horarios[] = new Horarios__[5];
-        for(Horarios__ h : horarios)
-            h = new Horarios__();
+    public Periodo[] init() throws SQLException, ClassNotFoundException {
+        Periodo horarios[] = new Periodo[5];
+        for(Periodo h : horarios)
+            h = new Periodo();
         
         return horarios;
     }
     @RequestMapping("/disciplinas")
-    public ModelAndView disciplinas() throws IllegalAccessException{
+    public ModelAndView disciplinas() throws IllegalAccessException, SQLException, ClassNotFoundException {
         ModelAndView mv = new ModelAndView("disciplinas");
-        mv.addObject("h", h);
         return mv;
     }
     
     @RequestMapping(value="/atualizarSlots", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public String atualizarSlots(ModelMap map) throws IllegalAccessException{
+    public String atualizarSlots(int idCurso, int nPeriodo, ModelMap map) throws IllegalAccessException,SQLException, ClassNotFoundException {
+        Periodo h = DisciplinasDAO.getPeriodo(idCurso, nPeriodo);
+        ArrayList<Integer> p = DisciplinasDAO.listarPeriodos(1);
+        System.out.println("hm...");
+        ArrayList<Professor> profesores = new ArrayList<>();
+        try{
+        profesores = ProfessorDAO.listarProfessoresAptos(20191);
+        }catch(ClassNotFoundException | SQLException e){e.printStackTrace();}
+        System.out.println("é aqui????");
+        ArrayList<Disciplina> disciplinas = DisciplinasDAO.listar();
+        ArrayList<Professor> profesoresARC = new ArrayList<>();
+        ArrayList<Professor> profesoresFC = new ArrayList<>();
+        ArrayList<Professor> profesoresENSISO = new ArrayList<>();
+        
+        profesoresARC.addAll(profesores);
+        profesoresFC.addAll(profesores);
+        profesoresENSISO.addAll(profesores);
+        profesoresARC.removeIf((t) -> t.getArea().getValue() != Area.ARC.getValue());
+        profesoresFC.removeIf((t) -> t.getArea().getValue() != Area.FC.getValue());
+        profesoresENSISO.removeIf((t) -> t.getArea().getValue() != Area.ENSISO.getValue());
+        
+        for(HorarioDisciplinas hd : h.getHorarioDisciplinas())
+            disciplinas.remove(hd.getDisciplina());
+        
         map.addAttribute("h", h);
-        map.addAttribute("esq", esq);
-        map.addAttribute("dir", dir);
-        return "ResponseServer :: #div-disciplinas";
+        map.addAttribute("prof",profesores);
+        map.addAttribute("prof_ARC",profesoresARC);
+        map.addAttribute("prof_FC",profesoresFC);
+        map.addAttribute("prof_ENSISO",profesoresENSISO);
+        map.addAttribute("disciplinas",disciplinas);
+        map.addAttribute("p", p);
+        return "ResponseServer :: #corpo";
     }
     
     @RequestMapping(value="/getModalDisciplina", method = RequestMethod.GET, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
@@ -61,22 +92,34 @@ public class  DisciplinaController {
     }
     
     @RequestMapping(value = "/alterarSlots", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public ResponseEntity<String> alterarSlots(int n1,int n2) throws SQLException{
-        System.out.println("\n.\n.{\nn1:"+n1+"\nn2:"+n2+"\n}");
-        if(h.troca(n1, n2))
+    public ResponseEntity<String> alterarSlots(int idCurso, int nPeriodo, int n1,int n2) {
+        try{
+            int idN1 = DisciplinasDAO.getIdHorarioDisciplina(idCurso,nPeriodo,n1);
+            int idN2 = DisciplinasDAO.getIdHorarioDisciplina(idCurso,nPeriodo,n2);
+            DisciplinasDAO.atualizaSlots(idN1,n2);
+            DisciplinasDAO.atualizaSlots(idN2,n1);
             return new ResponseEntity<>("OK",HttpStatus.OK);
-        else
-            return new ResponseEntity<>("troca não realizada",HttpStatus.BAD_REQUEST);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>("",HttpStatus.NOT_ACCEPTABLE);
+        }
+    }
+    
+    @RequestMapping(value = "/trocarDiscplina" , method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public ResponseEntity<String> salvar(int idCurso, int nPeriodo, int numero, int IDNovaDisciplina){
+        try{
+            int idHorario = DisciplinasDAO.getIdHorarioDisciplina(idCurso, nPeriodo, numero);
+            DisciplinasDAO.trocaDisciplina(idHorario, IDNovaDisciplina);
+            return new ResponseEntity<>("OK",HttpStatus.OK);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>("",HttpStatus.NOT_ACCEPTABLE);
+        }
     }
 
-    @RequestMapping(value = "/horarios", method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
-    public ResponseEntity<String> formLogin(String login,String senha) throws SQLException{
-        UserDAO dao = new UserDAO();
-        ResponseEntity<String> re = null;
-        System.out.println("login:"+login+";  senha:"+senha);
-        if(dao.logar(login, senha) != null) 
-            return new ResponseEntity<>("logado",HttpStatus.OK);
-        return new ResponseEntity<>("login ou senha invalidos",HttpStatus.BAD_REQUEST);
-    }
+    /*@RequestMapping(value = "/alocarProfessor"  , method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    public ResponseEntity<String> alocar(String cpf){
+        return new ResponseEntity<>("",HttpStatus.NOT_ACCEPTABLE);
+    }*/
 }
 ;

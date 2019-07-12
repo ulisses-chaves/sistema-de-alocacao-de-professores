@@ -1,0 +1,11 @@
+border{
+    
+   text-align: center;
+    
+    padding: 3px;
+    float: left;
+    margin: 5px;
+    border: #d4dcde 1px solid;
+    width: 180px;
+    height: 248px;
+}

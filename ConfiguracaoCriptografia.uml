@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.Hirukar.Project.Config.ConfiguracaoCriptografia</OriginalElement>
+  <nodes>
+    <node x="770.180446623091" y="612.0">com.Hirukar.Project.Models.Users_.Professor</node>
+    <node x="2909.7741966230915" y="729.0">org.springframework.security.core.userdetails.UserDetailsService</node>
+    <node x="2596.0646241830073" y="906.0">com.Hirukar.Project.Controller.MenuCoordenadorController</node>
+    <node x="417.12500000000045" y="408.0">com.Hirukar.Project.Models.Beans.HorariosDia</node>
+    <node x="1176.5241966230913" y="1033.0">com.Hirukar.Project.Config.ConfiguracaoCriptografia</node>
+    <node x="4373.064624183007" y="906.0">org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter</node>
+    <node x="360.5333741830069" y="77.0">java.lang.Enum</node>
+    <node x="361.0345452069662" y="261.0">com.Hirukar.Project.Models.Beans.Disciplina</node>
+    <node x="4487.564624183007" y="612.0">org.springframework.security.config.annotation.SecurityConfigurer</node>
+    <node x="3885.0646241830073" y="906.0">com.Hirukar.Project.Controller.ListaPreferenciaController</node>
+    <node x="482.12500000000045" y="505.0">com.Hirukar.Project.Connection.DAO.DisciplinasDAO</node>
+    <node x="1002.3783632897578" y="505.0">com.Hirukar.Project.Models.Beans.Enums.TipoUsuario</node>
+    <node x="3251.0646241830073" y="906.0">com.Hirukar.Project.Controller.MenuProfessorController</node>
+    <node x="285.5000408496734" y="612.0">com.Hirukar.Project.Models.Beans.HorarioDisciplinas</node>
+    <node x="1746.064624183007" y="906.0">com.Hirukar.Project.Controller.RegasController</node>
+    <node x="81.47504084967318" y="408.0">com.Hirukar.Project.Models.Beans.Horarios__</node>
+    <node x="1321.3887118736332" y="612.0">org.springframework.context.ApplicationListener</node>
+    <node x="2075.5" y="470.7500000000001">com.Hirukar.Project.ProjectApplication</node>
+    <node x="4129.064624183007" y="906.0">org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity</node>
+    <node x="1287.064624183007" y="906.0">org.springframework.web.bind.annotation.RestController</node>
+    <node x="978.7499319172091" y="0.0">java.io.Serializable</node>
+    <node x="4545.314624183007" y="505.0">org.springframework.security.config.annotation.SecurityBuilder</node>
+    <node x="1157.5658632897578" y="505.0">java.util.EventListener</node>
+    <node x="495.2928376906266" y="1033.0">com.Hirukar.Project.Controller.VariavelController</node>
+    <node x="904.6250000000005" y="729.0">com.Hirukar.Project.Connection.DAO.ProfessorDAO</node>
+    <node x="61.87504084967327" y="261.0">com.Hirukar.Project.Models.Beans.Enums.Cursos</node>
+    <node x="1995.189624183007" y="729.0">org.springframework.stereotype.Controller</node>
+    <node x="1310.5658632897578" y="505.0">java.lang.FunctionalInterface</node>
+    <node x="2429.0646241830073" y="906.0">com.Hirukar.Project.Controller.SobreController</node>
+    <node x="3474.0646241830073" y="906.0">com.Hirukar.Project.Controller.LogoutController</node>
+    <node x="2993.0646241830073" y="906.0">com.Hirukar.Project.Controller.VerificarAlocacoesController</node>
+    <node x="3648.0646241830073" y="906.0">com.Hirukar.Project.Controller.AlocarProfessorController</node>
+    <node x="4427.314624183007" y="729.0">org.springframework.core.annotation.Order</node>
+    <node x="2065.0" y="393.7500000000001">org.springframework.boot.autoconfigure.SpringBootApplication</node>
+    <node x="1628.064624183007" y="906.0">com.Hirukar.Project.Models.Users_.Detalhes</node>
+    <node x="2833.0646241830073" y="906.0">com.Hirukar.Project.Controller.MenuSupervisor</node>
+    <node x="1377.3887118736332" y="729.0">com.Hirukar.Project.Config.LoginHandler</node>
+    <node x="2979.4282543572936" y="1033.0">com.Hirukar.Project.Config.WebSecurityConfig</node>
+    <node x="4524.314624183007" y="729.0">org.springframework.security.config.annotation.web.WebSecurityConfigurer</node>
+    <node x="2178.0646241830073" y="906.0">com.Hirukar.Project.Controller.HistoricoAlocacaoController</node>
+    <node x="1471.1687908496735" y="77.0">org.springframework.context.ApplicationEvent</node>
+    <node x="647.2000408496735" y="184.0">com.Hirukar.Project.Models.Beans.Enums.Area</node>
+    <node x="708.6250000000005" y="906.0">com.Hirukar.Project.Controller.CadastrarController</node>
+    <node x="1556.814624183007" y="612.0">org.springframework.stereotype.Component</node>
+    <node x="781.2928376906266" y="408.0">com.Hirukar.Project.Connection.ConnectionFactory.DatabaseConnection</node>
+    <node x="1447.064624183007" y="906.0">org.springframework.security.config.annotation.web.configuration.EnableWebSecurity</node>
+    <node x="322.0333741830069" y="0.0">java.lang.Comparable</node>
+    <node x="259.125" y="505.0">com.Hirukar.Project.Models.Beans.Enums.DiasDaSemana</node>
+    <node x="45.125" y="906.0">com.Hirukar.Project.Controller.DisciplinaController</node>
+    <node x="1543.906181917209" y="1033.0">com.Hirukar.Project.Controller.IndexController</node>
+    <node x="284.0345452069662" y="184.0">com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina</node>
+    <node x="1913.064624183007" y="906.0">com.Hirukar.Project.Controller.DefenirPreferenciasController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.Hirukar.Project.Models.Users_.Professor" target="java.io.Serializable">
+      <point x="19.6875" y="-13.5" />
+      <point x="842.367946623091" y="572.0" />
+      <point x="973.4595043572933" y="572.0" />
+      <point x="973.4595043572933" y="57.0" />
+      <point x="1041.749931917209" y="57.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.Horarios__" target="com.Hirukar.Project.Models.Beans.Enums.Cursos">
+      <point x="-44.80000000000001" y="-13.5" />
+      <point x="92.67504084967322" y="388.0" />
+      <point x="82.87504084967327" y="388.0" />
+      <point x="-21.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.CadastrarController" target="com.Hirukar.Project.Connection.DAO.DisciplinasDAO">
+      <point x="-61.25" y="-13.5" />
+      <point x="734.8750000000005" y="826.0" />
+      <point x="557.6250000000005" y="826.0" />
+      <point x="557.6250000000005" y="592.0" />
+      <point x="569.6250000000005" y="592.0" />
+      <point x="17.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.VariavelController" target="com.Hirukar.Project.Models.Beans.Disciplina">
+      <point x="-58.80000000000007" y="-13.5" />
+      <point x="520.4928376906265" y="1003.0" />
+      <point x="237.625" y="1003.0" />
+      <point x="237.625" y="368.0" />
+      <point x="385.5345452069662" y="368.0" />
+      <point x="-31.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.LogoutController" target="org.springframework.stereotype.Controller">
+      <point x="0.0" y="-13.5" />
+      <point x="3551.0646241830073" y="806.0" />
+      <point x="2087.1896241830073" y="806.0" />
+      <point x="36.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Users_.Professor" target="com.Hirukar.Project.Models.Beans.Disciplina">
+      <point x="-19.6875" y="-13.5" />
+      <point x="802.992946623091" y="572.0" />
+      <point x="661.6250000000005" y="572.0" />
+      <point x="661.6250000000005" y="308.0" />
+      <point x="469.5345452069662" y="308.0" />
+      <point x="52.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Users_.Detalhes" target="com.Hirukar.Project.Connection.DAO.ProfessorDAO">
+      <point x="-36.75" y="-13.5" />
+      <point x="1640.314624183007" y="826.0" />
+      <point x="1009.6250000000005" y="826.0" />
+      <point x="42.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.Disciplina" target="com.Hirukar.Project.Models.Beans.Enums.Area">
+      <point x="14.0" y="-13.5" />
+      <point x="431.0345452069662" y="231.0" />
+      <point x="653.0333741830069" y="231.0" />
+      <point x="-29.16666666666663" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.CadastrarController" target="com.Hirukar.Project.Models.Beans.Enums.TipoUsuario">
+      <point x="61.25" y="-13.5" />
+      <point x="857.3750000000005" y="836.0" />
+      <point x="1086.1283632897578" y="836.0" />
+      <point x="1086.1283632897578" y="592.0" />
+      <point x="1076.7533632897578" y="592.0" />
+      <point x="14.875" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Config.LoginHandler" target="org.springframework.context.ApplicationListener">
+      <point x="-31.5" y="-13.5" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="org.springframework.context.ApplicationEvent" target="java.io.Serializable">
+      <point x="0.0" y="-13.5" />
+      <point x="1548.1687908496735" y="57.0" />
+      <point x="1083.749931917209" y="57.0" />
+      <point x="42.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Users_.Detalhes" target="org.springframework.security.core.userdetails.UserDetailsService">
+      <point x="36.75" y="-13.5" />
+      <point x="1713.814624183007" y="886.0" />
+      <point x="2951.7741966230915" y="886.0" />
+      <point x="-42.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.DisciplinaController" target="com.Hirukar.Project.Models.Beans.Horarios__">
+      <point x="22.75" y="-13.5" />
+      <point x="158.875" y="886.0" />
+      <point x="128.3374319172092" y="886.0" />
+      <point x="128.3374319172092" y="485.0" />
+      <point x="151.47504084967318" y="485.0" />
+      <point x="14.0" y="13.5" />
+    </edge>
+    <edge source="org.springframework.security.config.annotation.SecurityConfigurer" target="org.springframework.security.config.annotation.SecurityBuilder">
+      <point x="0.0" y="-13.5" />
+      <point x="4571.564624183007" y="592.0" />
+      <point x="4582.064624183007" y="592.0" />
+      <point x="-36.75" y="13.5" />
+    </edge>
+    <edge source="java.lang.Enum" target="java.lang.Enum">
+      <point x="-29.16666666666663" y="13.5" />
+      <point x="366.3667075163403" y="124.0" />
+      <point x="340.5333741830069" y="124.0" />
+      <point x="340.5333741830069" y="90.5" />
+      <point x="-35.0" y="-0.0" />
+    </edge>
+    <edge source="org.springframework.context.ApplicationListener" target="java.lang.FunctionalInterface">
+      <point x="0.0" y="-13.5" />
+      <point x="1408.8887118736332" y="592.0" />
+      <point x="1398.0658632897578" y="592.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.SobreController" target="org.springframework.stereotype.Controller">
+      <point x="0.0" y="-13.5" />
+      <point x="2502.5646241830073" y="856.0" />
+      <point x="2047.189624183007" y="856.0" />
+      <point x="-4.0" y="13.5" />
+    </edge>
+    <edge source="org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter" target="org.springframework.core.annotation.Order">
+      <point x="0.0" y="-13.5" />
+      <point x="4492.064624183007" y="886.0" />
+      <point x="4465.814624183007" y="886.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.Enums.TipoUsuario" target="java.lang.Enum">
+      <point x="0.0" y="-13.5" />
+      <point x="1061.8783632897578" y="475.0" />
+      <point x="959.7928376906266" y="475.0" />
+      <point x="959.7928376906266" y="154.0" />
+      <point x="424.70004084967354" y="154.0" />
+      <point x="29.16666666666663" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.CadastrarController" target="com.Hirukar.Project.Models.Users_.Professor">
+      <point x="26.25" y="-13.5" />
+      <point x="822.3750000000005" y="836.0" />
+      <point x="819.1250000000005" y="836.0" />
+      <point x="819.1250000000005" y="699.0" />
+      <point x="807.680446623091" y="699.0" />
+      <point x="-15.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.VariavelController" target="com.Hirukar.Project.Models.Users_.Professor">
+      <point x="25.200000000000045" y="-13.5" />
+      <point x="604.4928376906266" y="973.0" />
+      <point x="894.1250000000005" y="973.0" />
+      <point x="894.1250000000005" y="689.0" />
+      <point x="822.680446623091" y="689.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="java.lang.Enum" target="java.lang.Comparable">
+      <point x="-17.5" y="-13.5" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.MenuSupervisor" target="org.springframework.stereotype.Controller">
+      <point x="0.0" y="-13.5" />
+      <point x="2903.0646241830073" y="836.0" />
+      <point x="2063.1896241830073" y="836.0" />
+      <point x="12.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.IndexController" target="org.springframework.web.bind.annotation.RestController">
+      <point x="0.0" y="-13.5" />
+      <point x="1617.406181917209" y="1003.0" />
+      <point x="1392.064624183007" y="1003.0" />
+      <point x="35.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Config.WebSecurityConfig" target="org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter">
+      <point x="60.375" y="-13.5" />
+      <point x="3120.3032543572936" y="1013.0" />
+      <point x="4492.064624183007" y="1013.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Connection.DAO.DisciplinasDAO" target="com.Hirukar.Project.Models.Beans.Horarios__">
+      <point x="-52.5" y="-13.5" />
+      <point x="499.62500000000045" y="455.0" />
+      <point x="179.47504084967318" y="455.0" />
+      <point x="42.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.DefenirPreferenciasController" target="org.springframework.stereotype.Controller">
+      <point x="2.2737367544323206E-13" y="-13.5" />
+      <point x="2035.5646241830073" y="876.0" />
+      <point x="2031.189624183007" y="876.0" />
+      <point x="-20.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina" target="java.lang.Enum">
+      <point x="0.0" y="-13.5" />
+      <point x="354.0345452069662" y="164.0" />
+      <point x="401.3667075163403" y="164.0" />
+      <point x="5.833333333333314" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.HorariosDia" target="com.Hirukar.Project.Models.Beans.Disciplina">
+      <point x="39.66666666666663" y="-13.5" />
+      <point x="516.2916666666671" y="368.0" />
+      <point x="427.5345452069662" y="368.0" />
+      <point x="10.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.AlocarProfessorController" target="org.springframework.stereotype.Controller">
+      <point x="0.0" y="-13.5" />
+      <point x="3756.5646241830073" y="796.0" />
+      <point x="2095.1896241830073" y="796.0" />
+      <point x="44.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.Horarios__" target="com.Hirukar.Project.Models.Beans.Disciplina">
+      <point x="0.0" y="-13.5" />
+      <point x="137.47504084967318" y="338.0" />
+      <point x="364.5345452069662" y="338.0" />
+      <point x="-52.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Users_.Detalhes" target="org.springframework.stereotype.Component">
+      <point x="12.25" y="-13.5" />
+      <point x="1689.314624183007" y="806.0" />
+      <point x="1558.270833333334" y="806.0" />
+      <point x="1558.270833333334" y="709.0" />
+      <point x="1609.314624183007" y="709.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.Enums.DiasDaSemana" target="java.lang.Enum">
+      <point x="0.0" y="-13.5" />
+      <point x="322.125" y="465.0" />
+      <point x="0.0" y="465.0" />
+      <point x="0.0" y="144.0" />
+      <point x="378.0333741830069" y="144.0" />
+      <point x="-17.5" y="13.5" />
+    </edge>
+    <edge source="org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter" target="org.springframework.security.config.annotation.web.WebSecurityConfigurer">
+      <point x="79.33333333333303" y="-13.5" />
+      <point x="4571.39795751634" y="886.0" />
+      <point x="4618.814624183007" y="886.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.VerificarAlocacoesController" target="org.springframework.stereotype.Controller">
+      <point x="0.0" y="-13.5" />
+      <point x="3112.0646241830073" y="826.0" />
+      <point x="2071.1896241830073" y="826.0" />
+      <point x="20.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Config.WebSecurityConfig" target="org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity">
+      <point x="20.125" y="-13.5" />
+      <point x="3080.0532543572936" y="1003.0" />
+      <point x="4241.064624183007" y="1003.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.VariavelController" target="com.Hirukar.Project.Connection.DAO.ProfessorDAO">
+      <point x="42.0" y="-13.5" />
+      <point x="621.2928376906266" y="983.0" />
+      <point x="967.6250000000005" y="983.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.CadastrarController" target="com.Hirukar.Project.Connection.DAO.ProfessorDAO">
+      <point x="43.75" y="-13.5" />
+      <point x="839.8750000000005" y="826.0" />
+      <point x="925.6250000000005" y="826.0" />
+      <point x="-42.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.Enums.Area" target="java.lang.Enum">
+      <point x="0.0" y="-13.5" />
+      <point x="682.2000408496735" y="164.0" />
+      <point x="413.0333741830069" y="164.0" />
+      <point x="17.5" y="13.5" />
+    </edge>
+    <edge source="org.springframework.web.bind.annotation.RestController" target="org.springframework.stereotype.Controller">
+      <point x="0.0" y="-13.5" />
+      <point x="1357.064624183007" y="866.0" />
+      <point x="2015.189624183007" y="866.0" />
+      <point x="-36.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Config.ConfiguracaoCriptografia" target="org.springframework.security.config.annotation.web.configuration.EnableWebSecurity">
+      <point x="0.0" y="-13.5" />
+      <point x="1281.5241966230913" y="1013.0" />
+      <point x="1487.314624183007" y="1013.0" />
+      <point x="-40.25" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Users_.Professor" target="com.Hirukar.Project.Models.Beans.Enums.TipoUsuario">
+      <point x="45.9375" y="-13.5" />
+      <point x="868.617946623091" y="592.0" />
+      <point x="1047.0033632897578" y="592.0" />
+      <point x="-14.875" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.RegasController" target="org.springframework.stereotype.Controller">
+      <point x="0.0" y="-13.5" />
+      <point x="1819.564624183007" y="876.0" />
+      <point x="2023.189624183007" y="876.0" />
+      <point x="-28.0" y="13.5" />
+    </edge>
+    <edge source="org.springframework.context.ApplicationListener" target="java.util.EventListener">
+      <point x="-58.33333333333326" y="-13.5" />
+      <point x="1350.5553785403" y="592.0" />
+      <point x="1224.0658632897578" y="592.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.VariavelController" target="com.Hirukar.Project.Models.Beans.Enums.TipoUsuario">
+      <point x="58.799999999999955" y="-13.5" />
+      <point x="638.0928376906265" y="993.0" />
+      <point x="1165.7845452069664" y="993.0" />
+      <point x="1165.7845452069664" y="592.0" />
+      <point x="1106.5033632897578" y="592.0" />
+      <point x="44.625" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.CadastrarController" target="com.Hirukar.Project.Models.Beans.Enums.Area">
+      <point x="-8.75" y="-13.5" />
+      <point x="787.3750000000005" y="796.0" />
+      <point x="683.6250000000005" y="796.0" />
+      <point x="683.6250000000005" y="241.0" />
+      <point x="688.0333741830069" y="241.0" />
+      <point x="5.833333333333371" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.MenuCoordenadorController" target="org.springframework.stereotype.Controller">
+      <point x="0.0" y="-13.5" />
+      <point x="2704.5646241830073" y="846.0" />
+      <point x="2055.1896241830073" y="846.0" />
+      <point x="4.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.VariavelController" target="org.springframework.web.bind.annotation.RestController">
+      <point x="75.60000000000002" y="-13.5" />
+      <point x="654.8928376906266" y="1003.0" />
+      <point x="1322.064624183007" y="1003.0" />
+      <point x="-35.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Config.WebSecurityConfig" target="com.Hirukar.Project.Models.Users_.Detalhes">
+      <point x="-20.125" y="-13.5" />
+      <point x="3039.8032543572936" y="983.0" />
+      <point x="1677.064624183007" y="983.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.HorarioDisciplinas" target="com.Hirukar.Project.Models.Beans.Disciplina">
+      <point x="33.60000000000002" y="-13.5" />
+      <point x="403.1000408496734" y="592.0" />
+      <point x="406.6250000000002" y="592.0" />
+      <point x="-10.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Config.LoginHandler" target="org.springframework.stereotype.Component">
+      <point x="31.5" y="-13.5" />
+      <point x="1471.8887118736332" y="699.0" />
+      <point x="1574.314624183007" y="699.0" />
+      <point x="-35.0" y="13.5" />
+    </edge>
+    <edge source="org.springframework.security.config.annotation.web.WebSecurityConfigurer" target="org.springframework.security.config.annotation.SecurityBuilder">
+      <point x="47.25" y="-13.5" />
+      <point x="4666.064624183007" y="592.0" />
+      <point x="4655.564624183007" y="592.0" />
+      <point x="36.75" y="13.5" />
+    </edge>
+    <edge source="java.lang.Enum" target="java.io.Serializable">
+      <point x="17.5" y="-13.5" />
+      <point x="413.0333741830069" y="47.0" />
+      <point x="999.7499319172091" y="47.0" />
+      <point x="-42.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.DisciplinaController" target="org.springframework.stereotype.Controller">
+      <point x="68.25" y="-13.5" />
+      <point x="204.375" y="846.0" />
+      <point x="1999.189624183007" y="846.0" />
+      <point x="-52.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Config.WebSecurityConfig" target="org.springframework.security.config.annotation.web.configuration.EnableWebSecurity">
+      <point x="-60.375" y="-13.5" />
+      <point x="2999.5532543572936" y="993.0" />
+      <point x="1567.814624183007" y="993.0" />
+      <point x="40.25" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.CadastrarController" target="com.Hirukar.Project.Models.Beans.Disciplina">
+      <point x="-43.75" y="-13.5" />
+      <point x="752.3750000000005" y="816.0" />
+      <point x="632.6250000000005" y="816.0" />
+      <point x="632.6250000000005" y="338.0" />
+      <point x="448.5345452069662" y="338.0" />
+      <point x="31.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Connection.DAO.ProfessorDAO" target="com.Hirukar.Project.Connection.ConnectionFactory.DatabaseConnection">
+      <point x="42.0" y="-13.5" />
+      <point x="1009.6250000000005" y="709.0" />
+      <point x="991.8783632897578" y="709.0" />
+      <point x="991.8783632897578" y="485.0" />
+      <point x="907.2928376906266" y="485.0" />
+      <point x="42.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.VariavelController" target="com.Hirukar.Project.Connection.DAO.DisciplinasDAO">
+      <point x="-25.200000000000045" y="-13.5" />
+      <point x="554.0928376906265" y="1013.0" />
+      <point x="546.6250000000005" y="1013.0" />
+      <point x="546.6250000000005" y="592.0" />
+      <point x="534.6250000000005" y="592.0" />
+      <point x="-17.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Connection.DAO.DisciplinasDAO" target="com.Hirukar.Project.Models.Beans.Disciplina">
+      <point x="-17.5" y="-13.5" />
+      <point x="534.6250000000005" y="485.0" />
+      <point x="546.6250000000005" y="485.0" />
+      <point x="546.6250000000005" y="358.0" />
+      <point x="434.5345452069662" y="358.0" />
+      <point x="17.5" y="13.5" />
+    </edge>
+    <edge source="org.springframework.context.ApplicationListener" target="org.springframework.context.ApplicationEvent">
+      <point x="58.33333333333326" y="-13.5" />
+      <point x="1467.2220452069664" y="592.0" />
+      <point x="1548.1687908496735" y="592.0" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.Enums.Cursos" target="java.lang.Enum">
+      <point x="0.0" y="-13.5" />
+      <point x="103.87504084967327" y="154.0" />
+      <point x="389.70004084967354" y="154.0" />
+      <point x="-5.833333333333371" y="13.5" />
+    </edge>
+    <edge source="org.springframework.stereotype.Controller" target="org.springframework.stereotype.Component">
+      <point x="0.0" y="-13.5" />
+      <point x="2051.1896241830073" y="709.0" />
+      <point x="1644.314624183007" y="709.0" />
+      <point x="35.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.HorarioDisciplinas" target="com.Hirukar.Project.Connection.DAO.DisciplinasDAO">
+      <point x="67.19999999999999" y="-13.5" />
+      <point x="436.7000408496733" y="592.0" />
+      <point x="499.62500000000045" y="592.0" />
+      <point x="-52.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.ProjectApplication" target="org.springframework.boot.autoconfigure.SpringBootApplication">
+      <point x="0.0" y="-13.5" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Connection.DAO.ProfessorDAO" target="com.Hirukar.Project.Models.Users_.Professor">
+      <point x="0.0" y="-13.5" />
+      <point x="967.6250000000005" y="669.0" />
+      <point x="852.680446623091" y="669.0" />
+      <point x="30.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Users_.Professor" target="com.Hirukar.Project.Models.Beans.Enums.Area">
+      <point x="-6.5625" y="-13.5" />
+      <point x="816.117946623091" y="562.0" />
+      <point x="759.7928376906266" y="562.0" />
+      <point x="759.7928376906266" y="241.0" />
+      <point x="699.7000408496735" y="241.0" />
+      <point x="17.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.CadastrarController" target="org.springframework.stereotype.Controller">
+      <point x="78.75" y="-13.5" />
+      <point x="874.8750000000005" y="856.0" />
+      <point x="2007.189624183007" y="856.0" />
+      <point x="-44.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.VariavelController" target="com.Hirukar.Project.Models.Beans.Enums.Area">
+      <point x="-8.399999999999977" y="-13.5" />
+      <point x="570.8928376906266" y="953.0" />
+      <point x="672.6250000000005" y="953.0" />
+      <point x="672.6250000000005" y="241.0" />
+      <point x="676.3667075163402" y="241.0" />
+      <point x="-5.833333333333371" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Connection.DAO.DisciplinasDAO" target="com.Hirukar.Project.Connection.ConnectionFactory.DatabaseConnection">
+      <point x="52.5" y="-13.5" />
+      <point x="604.6250000000005" y="485.0" />
+      <point x="823.2928376906266" y="485.0" />
+      <point x="-42.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.CadastrarController" target="com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina">
+      <point x="-78.75" y="-13.5" />
+      <point x="717.3750000000005" y="836.0" />
+      <point x="37.67500000000018" y="836.0" />
+      <point x="37.67500000000018" y="241.0" />
+      <point x="336.5345452069662" y="241.0" />
+      <point x="-17.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.HistoricoAlocacaoController" target="org.springframework.stereotype.Controller">
+      <point x="0.0" y="-13.5" />
+      <point x="2293.5646241830073" y="866.0" />
+      <point x="2039.189624183007" y="866.0" />
+      <point x="-12.0" y="13.5" />
+    </edge>
+    <edge source="org.springframework.security.config.annotation.web.WebSecurityConfigurer" target="org.springframework.security.config.annotation.SecurityConfigurer">
+      <point x="-47.25" y="-13.5" />
+      <point x="0.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.HorarioDisciplinas" target="com.Hirukar.Project.Models.Beans.Enums.DiasDaSemana">
+      <point x="-67.19999999999999" y="-13.5" />
+      <point x="302.30004084967345" y="592.0" />
+      <point x="290.625" y="592.0" />
+      <point x="-31.5" y="13.5" />
+    </edge>
+    <edge source="org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter" target="org.springframework.security.core.userdetails.UserDetailsService">
+      <point x="-79.33333333333303" y="-13.5" />
+      <point x="4412.731290849674" y="776.0" />
+      <point x="3035.7741966230915" y="776.0" />
+      <point x="42.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Beans.Disciplina" target="com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina">
+      <point x="-42.0" y="-13.5" />
+      <point x="375.0345452069662" y="241.0" />
+      <point x="371.5345452069662" y="241.0" />
+      <point x="17.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.ListaPreferenciaController" target="org.springframework.stereotype.Controller">
+      <point x="0.0" y="-13.5" />
+      <point x="3997.0646241830073" y="786.0" />
+      <point x="2103.1896241830073" y="786.0" />
+      <point x="52.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.MenuProfessorController" target="org.springframework.stereotype.Controller">
+      <point x="0.0" y="-13.5" />
+      <point x="3352.5646241830073" y="816.0" />
+      <point x="2079.1896241830073" y="816.0" />
+      <point x="28.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Controller.VariavelController" target="com.Hirukar.Project.Models.Beans.Enums.TipoDisciplina">
+      <point x="-75.60000000000002" y="-13.5" />
+      <point x="503.69283769062656" y="1013.0" />
+      <point x="25.0" y="1013.0" />
+      <point x="25.0" y="231.0" />
+      <point x="301.5345452069662" y="231.0" />
+      <point x="-52.5" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Users_.Detalhes" target="com.Hirukar.Project.Models.Users_.Professor">
+      <point x="-12.25" y="-13.5" />
+      <point x="1664.814624183007" y="816.0" />
+      <point x="1062.3125000000005" y="816.0" />
+      <point x="1062.3125000000005" y="659.0" />
+      <point x="867.680446623091" y="659.0" />
+      <point x="45.0" y="13.5" />
+    </edge>
+    <edge source="com.Hirukar.Project.Models.Users_.Professor" target="com.Hirukar.Project.Connection.DAO.DisciplinasDAO">
+      <point x="-45.9375" y="-13.5" />
+      <point x="776.742946623091" y="592.0" />
+      <point x="604.6250000000005" y="592.0" />
+      <point x="52.5" y="13.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8" x="1021.5" y="506.0" />
+  <SelectedNodes>
+    <node>org.springframework.boot.autoconfigure.SpringBootApplication</node>
+    <node>com.Hirukar.Project.ProjectApplication</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

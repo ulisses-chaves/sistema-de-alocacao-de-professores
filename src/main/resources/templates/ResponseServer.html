@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 ﻿<!DOCTYPE html>
 <html   lang="pt-br">
+=======
+    ﻿<!DOCTYPE html>
+    <html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +19,7 @@
         <link rel="shortcut icon" href="/img/SAP-thumb.png">
     </head>
     <body>
+<<<<<<< HEAD
         <!--tabela editavel (arrasta e sota) refente a discplinas-->
         <div class="view-disciplina" id="div-disciplinas">
             <div id="navegacao-disciplina">
@@ -22,6 +28,31 @@
                 <span id="curso" class="dadosTabela" th:text="'Curso:'+${h.curso}"></span>
                 <span id="periodo" class="dadosTabela" th:text="'Período:'+${h.periodo}" ></span>
                 
+=======
+    <div id="corpo">    
+        <!--tabela editavel (arrasta e sota) refente a discplinas-->
+        <div class="view-disciplina" id="div-disciplinas">
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+
+                idCurso = /*[[${h.curso.value}]]*/ '1';
+                nPeriodo = /*[[${h.nPeriodo}]]*/ '1';
+                idPeriodo = /*[[${h.id}]]*/ '1';
+                /*]]>*/
+            </script>
+            <div id="navegacao-disciplina">
+                <span id="curso" class="dadosTabela" th:text="'Curso:'"></span>
+                <select id="todos-cursos">
+                    <option value="1" onclick="mudaCurso(1)">BCC</option>
+                    <option value="2" onclick="mudaCurso(2)">BSI</option>
+                    <option value="3" onclick="mudaCurso(3)">LC</option>
+                </select>
+                <span id="periodo" class="dadosTabela" th:text="'Período:'" ></span>
+                <select id="todos-periodos">
+                    <option th:each="i : ${p}" th:value="${i}" th:text="${i}" th:selected="${i==h.nPeriodo}" th:onclick="'mudaPeriodo(\''+${i}+'\');'"></option>
+                </select>
+
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
             </div>
             <div class="container-horarios">
                 <div th:each="slots,slotsIndex : ${h.slot.slots}" th:if="${slots.usado}" class="horario">
@@ -31,6 +62,7 @@
             <div class="container-disciplinas">
                 <div th:each="slots,slotsIndex : ${h.slot.slots}" th:if="${slots.usado}" th:id="'y'+${slotsIndex.index}" class="linha-disciplina" >
                     <div  th:each="i,iIndex : ${slots.dias}" th:id="'divx'+${iIndex.index}+'y'+${slotsIndex.index}" class="espaco-disciplina" ondrop="drop(event)" ondragover="allowDrop(event)">
+<<<<<<< HEAD
                         <div class="disciplina" th:style="'background-color:'+${h.get(i).cor}+';'" ondblclick="dblclickDisicplina(event)" th:id="'x'+${iIndex.index}+'y'+${slotsIndex.index}" th:attr="data-slot=${i},data-codigo=${h.get(i).codigo},data-cor=${h.get(i).cor},data-nome=${h.get(i).nome},data-turma=${h.get(i).turma},data-tipo=${h.get(i).tipo},data-area=${h.get(i).area},data-curso=${h.get(i).curso},data-periodo=${h.get(i).periodo}" draggable="true" ondragstart="drag(event)">
                             <label class="text cod" th:id="'lbl'+${iIndex.index}+'y'+${slotsIndex.index}" ondblclick="dblclickDisicplinaText(event)">codigo:</label><span class="text" th:id="'spn'+${iIndex.index}+'y'+${slotsIndex.index}" th:text="${h.get(i).codigo}" ondblclick="dblclickDisicplinaText(event)"></span><br>
                             <label class="text" th:id="'lbl'+${iIndex.index}+'y'+${slotsIndex.index}" ondblclick="dblclickDisicplinaText(event)">turma:</label><span class="text" th:id="'spn'+${iIndex.index}+'y'+${slotsIndex.index}" th:text="${h.get(i).turma}" ondblclick="dblclickDisicplinaText(event)"></span>
@@ -41,6 +73,113 @@
         </div>
 
 
+=======
+                        <div class="disciplina" th:style="'background-color:'+${h.getHorarioDisciplina(i).cor}+';'" ondblclick="dblclickDisicplina(event)" th:id="'x'+${iIndex.index}+'y'+${slotsIndex.index}"  draggable="true" ondragstart="drag(event)" 
+                        th:attr="data-numero=${i},data-cor=${h.getHorarioDisciplina(i).cor},data-codigo=${h.getHorarioDisciplina(i).disciplina.codigo},data-tipo=${h.getHorarioDisciplina(i).disciplina.tipo},
+                        data-area=${h.getHorarioDisciplina(i).disciplina.area},data-curso=${h.curso},data-periodo=${h.nPeriodo},data-nome=${h.getHorarioDisciplina(i).disciplina.nome},data-id=${h.getHorarioDisciplina(i).disciplina.ID}">
+                            <span class="text" th:id="'spn'+${iIndex.index}+'y'+${slotsIndex.index}" th:text="${h.getHorarioDisciplina(i).disciplina.nome}" ondblclick="dblclickDisicplinaText(event)"></span><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mensagens">
+            <!-- modal dsicplina-->
+            <div class="modal fade" id="modal-disciplina" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="modal-professor" class="col-form-label">Alocar Professor</label>
+                                    <select id="modal-professor" class="form-control">
+                                        <option selected></option>
+                                        <option>...</option>
+                                        <option>sexo</option>
+                                    </select>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="modal-nome">Disciplina</label>
+                                        <select id="modal-nome" class="form-control">
+                                            <option selected>Escolher Disciplina</option>
+                                            <option>...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="modal-codigo">Código</label>
+                                        <input type="text" class="form-control" id="modal-codigo" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="modal-turma">Turma</label>
+                                        <input type="text" class="form-control" id="modal-turma" readonly>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="modal-cor">Cor</label>
+                                        <input type="text" class="form-control" id="modal-cor" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="modal-tipo">Tipo</label>
+                                        <input type="text" class="form-control" id="modal-tipo" readonly>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="recipient-area">Área</label>
+                                        <input type="text" class="form-control" id="recipient-area" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="modal-curso">Curso</label>
+                                        <input type="text" class="form-control" id="modal-curso" readonly>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="modal-periodo">Periodo</label>
+                                        <input type="text" class="form-control" id="modal-periodo" readonly>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" onclick="salvar()">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="porta-Professores" style="display: none">
+            <select id="prof-arc" >
+                <option value=""/>
+                <option th:each="pro : ${prof_ARC}" th:text="${pro.nome}" th:value="${pro.CPF}"/>
+            </select> 
+            <select id="prof-fc" >
+                <option value=""/>
+                <option th:each="pro : ${prof_FC}" th:text="${pro.nome}" th:value="${pro.CPF}"/>
+            </select> 
+            <select id="prof-ensiso" >
+                <option value=""/>
+                <option th:each="pro : ${prof_ENSISO}" th:text="${pro.nome}" th:value="${pro.CPF}"/>
+            </select> 
+            <select id="prof-geral" >
+                <option value=""/>
+                <option th:each="pro : ${prof}" th:text="${pro.nome}" th:value="${pro.CPF}"/>
+            </select> 
+            <select id="disc">
+                <option value=""/>
+                <option th:each="dis : ${disciplinas}" th:text="${dis.nome}" th:value="${dis.ID}"/>
+            </select>
+        </div>
+    </div>
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
 
 
 

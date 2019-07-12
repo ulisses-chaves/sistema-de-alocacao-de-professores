@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="/css/cadastro-style.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
         <link rel="shortcut icon" href="/img/SAP-thumb.png" >
+<<<<<<< HEAD
         <script type="text/javascript" src="/js/jquery.min.js"></script>
     </head>
     <body>
@@ -35,17 +36,49 @@
                 </header>
             </div>
         </div>
+=======
+        
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+        <div class= "row">
+            <div class="header1 col bg">
+                <div class= "linha col ">
+                    <header>
+                    <div class="coluna col9 imgs">
+                        <a href="/menuSupervisor">
+                              <img src="/img/SAP-branco.png" id="logoSAP" alt="Logo do Site" title="SAP">
+                        </a>
+                        <a href="http://www.ufrpe.br/" target="_blank">
+                            <img src="/img/ufrpe-logo-semfundo.png" alt="Site da Instituição" id="logoUFRPE" title="UFRPE">
+                        </a>
+                    </div>
+                    <div class="coluna col3">
+                        <p><!--aqui vai ter o nome da pessoa que ta usando e o que ela é-->Nome - Código</p>
+                    </div>
+	                </header>
+	                </div>
+	            </div> 
+	        </div>
+	    </div >
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
         <div class="linha">
             <section>
                 <div class="coluna col12">
                     <h1>Cadastro de Disciplina</h1>
                     <hr>
                     <div class="formularioDisciplina">
+<<<<<<< HEAD
                         <form id="formCadastro"  method="POST">
+=======
+                        <form id="formularioDisciplina"  method="POST">
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
                             <div class="px">
                                 <label for="disciplina">Disciplina</label>
                                 <input type="text" name="disciplina" id="iDisciplina" placeholder="Nome da disciplina" required>
                                 <label for="codigo">Codigo</label>
+<<<<<<< HEAD
                                 <input type="text" name="Codigo" id="iCodigo" placeholder="Código da disciplina" required>
                             </div>
                             <label for="curso">Curso</label>
@@ -59,16 +92,42 @@
                                 <option value="arq">Arq</option>
                                 <option value="enciso">Ensiso</option>
                                 <option value="fc">FC</option>
+=======
+                                <input type="text" name="codigo" id="iCodigo" placeholder="Código da disciplina" required>
+                            </div>
+                            <label for="curso">Curso</label>
+                            <select name="curso" id="iCurso">
+                                    <option value="BCC">Bacharelado em Ciência da Computação</option>
+                                    <option value="LC">Licenciatura em Computação</option>
+                                    <option value="AMBAS">Ambas</option>
+                                </select>
+                            <label for="area" id="iAreaLabel">Area</label>
+                            <select name="area" id="iArea">
+                                <option value="ARC">ARC</option>
+                                <option value="ENSISO">ENSISO</option>
+                                <option value="FC">FC</option>
+                                <option value="EXTERNA">EXTERNA</option>
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
                             </select>
                             <br>
                             <div id="tipo-div">
                                 <label for="tipo" id="iTipo">Tipo</label>
+<<<<<<< HEAD
                                 <input type="radio" name="tipo" id="iObr" checked> <p>Obrigatória</p>
                                 <input type="radio" name="tipo" id="iOpt"> <p>Optativa</p>
                             </div>
                             <div class="botoes"> 
                                 <button onclick="efetuarCadastro()"class="btn btn-outline-light botao">Efetuar Cadastro</button>
                                 <button type="button" onclick="window.history.back()" class="btn btn-outline-light botao">Voltar</button>
+=======
+                                <input type="radio" name="tipo" id="iObr" value="OBRIGATORIA" checked> <p>OBRIGATORIA</p>
+                                <input type="radio" name="tipo" id="iOpt" value="OPTATIVA"> <p>OPTATIVA</p>
+                                <input type="radio" name="tipo" id="iOpt" value="ELETIVA"> <p>ELETIVA</p>
+                            </div>
+                            <div class="botoes"> 
+                                <button type="submit" class="btn btn-outline-light botao">Efetuar Cadastro</button>
+                                <a type="button" href="/menuSupervisor" class="btn btn-outline-light botao">Voltar</a>
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
                             </div>
                         </form>
                     </div>

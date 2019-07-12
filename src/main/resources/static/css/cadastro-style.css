@@ -3,7 +3,37 @@ body{
     color: #ebe9e9;
 }
 
+<<<<<<< HEAD
 /* header */
+=======
+/* header disciplinas */
+.header1{
+    background-color: #343a40;
+}
+.header1 .imgs{
+    text-align: center;
+    display: inline-block;
+    padding-left: 210px;
+}
+.header1 #logoSAP{
+    width:60px;
+}
+.header1 #logoUFRPE{
+    width: 55px;
+    margin-left: 20px;
+}
+.header1 p{
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* header professor*/
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
 .header{
     background: #343a40;
     text-align: right;
@@ -105,6 +135,13 @@ section .formulario .botoes{
     margin-left: 49px;
     border-radius: 3px;
 }
+<<<<<<< HEAD
+=======
+#iTipo{
+	 margin-left: 42px;
+    border-radius: 3px;
+}
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
 
 /* DISCPLINA */
 .formularioDisciplina{

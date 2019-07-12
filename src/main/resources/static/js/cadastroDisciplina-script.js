@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(function(){
     $('#formCadastro').submit(function(){
         var dados = $('#formCadastro').serialize();
@@ -12,6 +13,20 @@ $(function(){
                 alert(xhr.responseText);
             }
         });
+=======
+
+$(function(){
+    $('#formularioDisciplina').submit(function(){
+        var dados = $('#formularioDisciplina').serialize();
+        $.post('/variavel/disciplinas',dados)
+            .done(function (data, textStatus, jqXHR) {
+                alert('foi');
+            })
+            .fail(function (xhr, status, error) {
+                alert(xhr.responseText);
+            })
+        
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
         return false;
     });
 });

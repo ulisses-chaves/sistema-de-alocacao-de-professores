@@ -16,6 +16,7 @@ function histAlocacao(){
     document.getElementById('texto-menu').innerHTML = 'Visualize o histórico de alocações';
 }
 function preencherSlotsDisc(){
+<<<<<<< HEAD
     document.getElementById('texto-menu').innerHTML = 'Preencha os slots das disciplinas';
 }
 function alocarProf(){
@@ -23,6 +24,21 @@ function alocarProf(){
 }
 function preferencias(){
     document.getElementById('texto-menu').innerHTML = 'Visualize e decida as preferências de cada professor para as disciplinas';
+=======
+    document.getElementById('texto-menu').innerHTML = 'Cadastre as disciplinas do curso';
+}
+function alocarProf(){
+    document.getElementById('texto-menu').innerHTML = 'Alocar os professores às disciplinas e as disciplinas aos horários';
+}
+function preferencias(){
+    document.getElementById('texto-menu').innerHTML = 'Visualize as preferências de cada professor para as disciplinas';
+}
+function mostrar() {
+	document.getElementById('aba').style.display = 'block';
+}
+function esconder () {
+	document.getElementById('aba').style.display = 'none';
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
 }
 /* coordenador */
 function horarioObr(){

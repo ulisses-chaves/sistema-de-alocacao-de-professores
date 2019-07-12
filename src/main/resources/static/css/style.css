@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 ﻿body{
     font-family: 'Roboto', sans-serif;
     color: #ebe9e9;
     height: 100%; height: 100%;         /* rodape - é necessário definir o height 100% no html, body ou qualquer elemento que estiver entre o body e o .container */
+=======
+body{
+    font-family: 'Roboto', sans-serif;
+    color: #ebe9e9;
+    height: 100%; height: 100%;         /* rodape - � necess�rio definir o height 100% no html, body ou qualquer elemento que estiver entre o body e o .container */
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
 }
 
 /* header */
@@ -11,13 +18,21 @@
 }
 .logoSAP{
     width: 60px;
+<<<<<<< HEAD
     margin-right: 20px; 
+=======
+    margin-right: 20px;
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
 }
 .logoUFRPE{
     width: 55px;
 }
 header nav{
+<<<<<<< HEAD
     margin-left: 100px; 
+=======
+    margin-left: 100px;
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
     text-align: center;
     display: inline;
 }
@@ -42,7 +57,11 @@ header nav ul li:first-child{
 
 /* section index*/
 section{                    /*codigo pra por o rodape embaixo*/
+<<<<<<< HEAD
     position: relative;     /* estudar sobre como colocar no rodapé :) */
+=======
+    position: relative;     /* estudar sobre como colocar no rodap� :) */
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
     min-height: 100%;       /* define a altura minima*/
 }
 .logoDescricao{
@@ -60,13 +79,21 @@ section{                    /*codigo pra por o rodape embaixo*/
 }
 .login label{
     display: block;
+<<<<<<< HEAD
     padding: 18px 0 0 15px; 
+=======
+    padding: 18px 0 0 15px;
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
 }
 .login input{
     display: block;
     margin-left: 15px;
     width: 92%;
+<<<<<<< HEAD
     height: 25px; 
+=======
+    height: 25px;
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
 }
 .links{
     width: 200px;
@@ -89,6 +116,7 @@ section{                    /*codigo pra por o rodape embaixo*/
     border-radius: 5px;
 }
 .login .error {
+<<<<<<< HEAD
 	margin: 10px 50px 0 15px;
 	padding-left: 10px;
 }
@@ -97,6 +125,16 @@ section{                    /*codigo pra por o rodape embaixo*/
 	margin: 0;
 	color: red;
 	font-size: 12px;
+=======
+    margin: 10px 50px 0 15px;
+    padding-left: 10px;
+}
+.login .error p{
+    padding: 0;
+    margin: 0;
+    color: red;
+    font-size: 12px;
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
 }
 /* footer */
 .footer{
@@ -126,7 +164,11 @@ footer img{
 .sobre hr{
     color: #343a40;
     background-color: #343a40;
+<<<<<<< HEAD
     padding: 2px 0; 
+=======
+    padding: 2px 0;
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
     margin: 0 350px;
     border-radius: 5px;
 }
@@ -182,4 +224,34 @@ footer img{
 }
 .col12{
     width: 940px;
+<<<<<<< HEAD
 }
+=======
+}
+/*table {
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
+    border-collapse: collapse;
+    width: 1200px;
+}
+th {
+    border: 1px solid #5f6366;
+    text-align: center;
+    padding: 8px;
+    background-color: #333333;
+}
+tr:nth-child(even) {
+    background-color: #ffffff;
+    text-align: center;
+}
+td {
+    font-family: Arial, Helvetica, sans-serif, #000000;
+    text-align: center;
+    background-color: #747373;
+}
+#tabela{
+    margin-top: 100px
+}
+#botao{
+    margin-top: 100px;
+}*/
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a

@@ -41,7 +41,11 @@
                     <h1>Cadastro de Professor</h1>
                     <hr>
                     <div class="formulario">
+<<<<<<< HEAD
                         <form id="formCadastro"  method="POST">
+=======
+                        <form id="formCadastro" action="fazerCadastroProfessor" method="POST">
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
                             <label for="nome">Nome</label>
                             <input type="text" name="nome" id="iNome" placeholder="Nome completo" required>
                             <div class="px"> 
@@ -51,6 +55,7 @@
                                 <input type="password" name="senha" id="iSenha" placeholder="Senha contendo letras e números" required>
                             </div>
                             <label for="mail">Email</label>
+<<<<<<< HEAD
                             <input type="email" name="mail" id="iEmail" placeholder="Digite seu email" required>
                             <div class="px">
                                 <label for="codigo">Código</label>
@@ -60,11 +65,34 @@
                                     <option value="arq">Arq</option>
                                     <option value="enciso">Enciso</option>
                                     <option value="fc">FC</option>
+=======
+                            <input type="email" name="email" id="iEmail" placeholder="Digite seu email" required>
+                            <div class="px">
+                                <label for="cpf">CPF</label>
+                                <input  type="text" name="cpf" id="iCodigo" placeholder="Informe seu CPF (Apenas números)" required>
+                                <label for="area">Área</label>
+                                <select name="area" id="iArea" required>
+                                    <option value="ARC">ARQ</option>
+                                    <option value="ENSISO">ENSISO</option>
+                                    <option value="FC">FC</option>
+                                </select>
+                            </div>
+                            <div class="px">
+                                <label for="iTipo">Tipo</label>
+                                <select name="tipo" id="iTipo" required>
+                                    <option value="coordenador">Coordenador</option>
+                                    <option value="professor">Professor</option>
+                                    <option value="supervisor">Supervisor</option>
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
                                 </select>
                             </div>
                             <div class="botoes"> 
                                 <button class="btn btn-outline-light botao">Efetuar Cadastro</button>
+<<<<<<< HEAD
                                 <button type="button" onclick="window.history.back()" class="btn btn-outline-light botao">Voltar</button>
+=======
+                                <a type="button" href="/" class="btn btn-outline-light botao">Voltar</a>
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
                             </div>
                         </form>
                     </div>
@@ -72,6 +100,7 @@
             </section>
         </div>
         <div class="footer">
+<<<<<<< HEAD
             <div class="linha">
                 <footer>
                     <div class="coluna col12">
@@ -83,6 +112,19 @@
                 </footer>
             </div>
         </div>
+=======
+                <div class="linha">
+                    <footer>
+                        <div class="coluna col12">
+                            <a href="https://fabricahirukar.wixsite.com/fabrica" target="_blank">
+                                <img src="/img/hirukar-logo.png" alt="">
+                            </a>
+                            <span>&copy; Desenvolvido pela fábrica Hirukar</span>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+>>>>>>> 0ba513ef651d88c5aa2e356b202402477ccb139a
         <script type="text/javascript" src="/js/cadastroProfessor-script.js"></script>
     </body>
 </html>
