@@ -7,6 +7,7 @@ window.onload = function () {
         type:'GET',
         url:'variavel/disciplinas', //rota que recebe um array de objetos de todas as disciplinas cadastradas
         success: function (responseText, textStatus, jqXHR) {
+            console.log (responseText)
             var corpoTabela = document.querySelector ("#tabelaEsquerda");
             var disciplinas = responseText;
             for (let index = 0; index <= disciplinas.length; index++) {
@@ -121,11 +122,44 @@ function atualizarPreferencias () {
     if (primeiraPreferencia == null || segundaPreferencia == null) {
         alert ('Selecione suas duas preferências');
     }else {
-        fetch('https://reqres.in/api/users/2', {
-            method: 'PUT',
+        console.log (segundaPreferencia)
+        var id1 = primeiraPreferencia.id;
+        var id2 = segundaPreferencia.id;
+        
+        /*$.ajax({
+            type:'GET',
+            url:'variavel/conta',
+            success: function (responseText, textStatus, jqXHR) {
+                console.log (responseText.data.id)
+            },
+            error: function (xhr, status, error) {
+                
+                alert('>>'+xhr.responseText);
+            }
+        })*/
+        $.ajax({
+            type:'POST',
+            url:'variavel/preferencia', //rota que recebe um array de objetos de todas as disciplinas cadastradas
+            data: { cpf: '123456' , idDisciplina1: id1, idDisciplina2: id2 },
+            success: function (responseText, textStatus, jqXHR) {
+                alert ('Você escolheu ' + primeiraPreferencia.nome + " e " + segundaPreferencia.nome + ' como preferências. \nAlterações podem ser feitas a qualquer momento!\nBasta escolher novas opções para substituir.')
+                window.location.href = "/menuProfessor";
+            },
+            error: function (xhr, status, error) {
+                console.log (error)
+                console.log (status)
+                console.log (xhr.responseText)
+                alert('>>'+xhr.responseText);
+            }
+        })
+        //TENTEI POR FETCH MAS N FUNCIONA!
+
+        /*fetch('/variavel/preferencia', {
+            method: 'POST',
             body: JSON.stringify({
-                primeiraPreferencia,
-                segundaPreferencia
+                cpf: '11111',
+                id1,
+                id2
             })
         })
             .then (function (response) {
@@ -135,5 +169,8 @@ function atualizarPreferencias () {
                 alert ('Você escolheu ' + primeiraPreferencia.nome + " e " + segundaPreferencia.nome + ' como preferências. \nAlterações podem ser feitas a qualquer momento!\nBasta escolher novas opções para substituir.')
                 window.location.href = "";
             })
+            .catch (error => {
+                console.log (error.response)
+            })*/
     }
 }

@@ -2,8 +2,7 @@ var origin = "";
 var info = new Array(9);
 var idCurso;
 var nPeriodo;
-var sexo = true;
-
+var idPeriodo;
 $(function () {
 
     $.fn.troca = function (other) {
@@ -136,7 +135,37 @@ function mudaCurso(v) {
 }
 
 function salvar() {
-    
+    let modal = $('#modal-disciplina');
+    let idProf = modal.find('.modal-body #modal-professor').val();
+    let idDisc = modal.find('.modal-body #modal-nome').val();
+    if (idProf!= null && idDisc==null) {
+        var parametros = {
+            idPeriodo:idPeriodo,
+            idProfessor:idProf,
+            iDisciplina:info[8]
+        }
+        $.post("/variavel/ministra",parametros)
+            .done(function () {
+                var parametros = {
+                    idCurso: idCurso,
+                    nPeriodo: nPeriodo
+                };
+                console.log(idCurso);
+                $.get('/atualizarSlots', parametros)
+                        .done(function (fragment) {
+                            $('#div-disciplinas').replaceWith(fragment);
+                        });
+            })
+            .fail(function (params) {s
+                alert(params);
+            })
+    } else if (idProf== null && idDisc!=null) {
+        
+    } else {
+        
+    } {
+        
+    }
 }
 
 function allowDrop(ev) {

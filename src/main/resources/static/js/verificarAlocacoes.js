@@ -1,8 +1,9 @@
 window.onload = function () {
 	$.ajax({
         type:'GET',
-        url:'', // rota que traga um array de objetos, cada objeto com 3 atributos: nome do professor, a primeira preferencia dele e a segunda preferencia
+		url:'/variavel/ministra', // rota que traga um array de objetos, cada objeto com 3 atributos: nome do professor, a primeira preferencia dele e a segunda preferencia
         success: function (responseText, textStatus, jqXHR) {
+			var discplinas = responseText;
 			var corpo_tabela = document.querySelector("#tabela");
 			var disciplinas = responseText.data;
 			for (let index = 0; index <= disciplinas.length; index++) {

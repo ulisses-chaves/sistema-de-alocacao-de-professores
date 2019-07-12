@@ -64,9 +64,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                         "/variavel/professores",
                         "/variavel/disciplinas",
                         "/verificarAlocacoes")
-                    .authenticated()*/
+                    .authenticated()
                 .antMatchers("/listaPreferencias","/historicoAlocacao")
-                    .hasAnyRole(TipoUsuario.PROFESSOR.name())
+                    .hasAnyRole(TipoUsuario.PROFESSOR.name())*/
                 .antMatchers("/cadastroProfessor","/sobre")
                     .permitAll()
             .and()

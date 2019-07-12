@@ -15,6 +15,8 @@ import com.Hirukar.Project.Models.Enums.TipoUsuario;
 import com.Hirukar.Project.Models.Users_.Professor;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,7 +24,8 @@ import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 /**
  *
  * @author RODEMARCK
@@ -104,17 +107,15 @@ public class VariavelController {
     
     
     @RequestMapping(value="/variavel/ministra", method = RequestMethod.GET)
-    public ArrayList<Ministra> getAlocacoes(int anoLetivo,int cpf) throws ClassNotFoundException, SQLException{
-        return DisciplinasDAO.listarAlocacoes(anoLetivo, cpf);
+    public ArrayList<Ministra> getAlocacoes() throws ClassNotFoundException, SQLException{
+        return DisciplinasDAO.listarAlocacoes();
     }
      
      
     @RequestMapping(value="/variavel/ministra", method = RequestMethod.POST)
-    public ResponseEntity<String> postAlocacoes(String disciplina, String codigo,String area,String tipo) throws ClassNotFoundException, SQLException{
-        Disciplina d = new Disciplina(disciplina,codigo,TipoDisciplina.valueOf(tipo),Area.valueOf(area));
+    public ResponseEntity<String> postAlocacoes(int idPeriodo,int idProfessor, int iDisciplina) throws ClassNotFoundException, SQLException{
     	try{
-            System.out.println(d);
-            DisciplinasDAO.cadastrar(d);
+            DisciplinasDAO.aloca(idPeriodo,idProfessor,iDisciplina);
             return new ResponseEntity<>("Registrado com sucesso",HttpStatus.OK);
         }catch(ClassNotFoundException | SQLException e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
@@ -141,6 +142,8 @@ public class VariavelController {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.CONFLICT);
         }
     }
-
-
+    @RequestMapping(value="/variavel/conta", method = RequestMethod.GET)
+    public Professor getConta(@AuthenticationPrincipal UserDetails userDetails) throws Exception{
+        return ProfessorDAO.getPeloNome(userDetails.getUsername());
+    }
 }

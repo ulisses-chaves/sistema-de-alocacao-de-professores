@@ -319,6 +319,36 @@ public abstract class DisciplinasDAO {
         }
     }
 
+    public static ArrayList<Ministra> listarAlocacoes() throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList<Ministra> historico = new ArrayList<>();
+        try {
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "select * from professor \n"+
+                    "inner join ministra\n"+
+                    "on ministra.FK_CPF_professor=professor.CPF\n"+
+                     "   inner join periodo\n"+
+                      "  on ministra.FK_ID_periodo=periodo.ID\n"+
+                       "     inner join disciplina\n"+
+                        "    on ministra.FK_ID_disciplina=disciplina.ID\n"+
+                "where 1"
+            );
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                historico.add(new Ministra(rs));
+            }
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally {
+            DatabaseConnection.getInstance().close(con, rs, stmt);
+        }
+        return historico;
+    }
+
+
     public static ArrayList<Ministra> listarAlocacoes(int anoLetivo, int cpf) throws ClassNotFoundException, SQLException {
         Connection con = null;
         PreparedStatement stmt = null;
@@ -327,14 +357,14 @@ public abstract class DisciplinasDAO {
         try {
             con = DatabaseConnection.getInstance().getConnection();
             stmt = con.prepareStatement(
-                    "select * from disciplina\n" +
-                    "   inner join ministra\n" +
-                    "   on ministra.FK_ID_disciplina=disciplina.ID\n" +
-                    "       inner join professor\n" +
-                    "       on professor.CPF=ministra.FK_CPF_professor\n" +
-                    "           inner join periodo\n" +
-                    "           on ministra.FK_ID_periodo=periodo.ID\n" +
-                    "where  periodo.ano_letivo=? and professor.CPF=?"
+                    "select * from professor \n"+
+                    "inner join ministra\n"+
+                    "on ministra.FK_CPF_professor=professor.CPF\n"+
+                     "   inner join periodo\n"+
+                      "  on ministra.FK_ID_periodo=periodo.ID\n"+
+                       "     inner join disciplina\n"+
+                        "    on ministra.FK_ID_disciplina=disciplina.ID\n"+
+                "where 1"
             );
             stmt.setInt(1, anoLetivo);
             stmt.setInt(2, cpf);
@@ -349,4 +379,24 @@ public abstract class DisciplinasDAO {
         }
         return historico;
     }
+
+	public static void aloca(int idPeriodo, int idProfessor, int idDisciplina)  throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement stmt = null;
+        try {
+            con = DatabaseConnection.getInstance().getConnection();
+            stmt = con.prepareStatement(
+                    "insert into ministra (FK_id_periodo,FK_CPF_professor,FK_ID_disciplina) values (?,?,?)"
+            );
+            stmt.setInt(1, idPeriodo);
+            stmt.setInt(2, idProfessor);
+            stmt.setInt(3, idDisciplina);
+            stmt.execute();
+            
+        }catch(ClassNotFoundException | SQLException e){
+            throw e;
+        }finally {
+            DatabaseConnection.getInstance().close(con,stmt);
+        }
+	}
 }

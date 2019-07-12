@@ -5,6 +5,7 @@ window.onload = function () {
         type:'GET',
         url:'variavel/professores', // rota que traga um array de objetos, cada objeto com 3 atributos: nome do professor, a primeira preferencia dele e a segunda preferencia
         success: function (responseText, textStatus, jqXHR) {
+            console.log (responseText)
             var corpo_tabela = document.querySelector("#tabela");
             preferencias = responseText;
             for (let index = 0; index <= preferencias.length; index++) {
@@ -22,8 +23,8 @@ window.onload = function () {
                 segundaEscolha.className = "bold";
 
                 var texto_nome = document.createTextNode(preferencias[index].nome);
-                var texto_primeira = document.createTextNode(preferencias[index].preferencia1);
-                var text_segunda = document.createTextNode(preferencias[index].preferencia2);
+                var texto_primeira = document.createTextNode(preferencias[index].preferencia1.nome);
+                var text_segunda = document.createTextNode(preferencias[index].preferencia2.nome);
 
                 nomeProfessor.appendChild(texto_nome);
                 primeiraEscolha.appendChild(texto_primeira);

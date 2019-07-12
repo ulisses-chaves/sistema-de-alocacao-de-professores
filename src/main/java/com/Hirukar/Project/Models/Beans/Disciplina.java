@@ -36,6 +36,7 @@ public class Disciplina {
         this.codigo = rs.getString("disciplina.Codigo");
         this.tipo = TipoDisciplina.valueOf(rs.getString("disciplina.Tipo").toUpperCase());
         this.area = Area.valueOf(rs.getString("disciplina.Area").toUpperCase());
+        this.ID = rs.getInt("disciplina.ID");
     }
     
     

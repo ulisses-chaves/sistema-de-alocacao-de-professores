@@ -22,6 +22,7 @@
 
                 idCurso = /*[[${h.curso.value}]]*/ '1';
                 nPeriodo = /*[[${h.nPeriodo}]]*/ '1';
+                idPeriodo = /*[[${h.id}]]*/ '1';
                 /*]]>*/
             </script>
             <div id="navegacao-disciplina">
@@ -47,7 +48,7 @@
                     <div  th:each="i,iIndex : ${slots.dias}" th:id="'divx'+${iIndex.index}+'y'+${slotsIndex.index}" class="espaco-disciplina" ondrop="drop(event)" ondragover="allowDrop(event)">
                         <div class="disciplina" th:style="'background-color:'+${h.getHorarioDisciplina(i).cor}+';'" ondblclick="dblclickDisicplina(event)" th:id="'x'+${iIndex.index}+'y'+${slotsIndex.index}"  draggable="true" ondragstart="drag(event)" 
                         th:attr="data-numero=${i},data-cor=${h.getHorarioDisciplina(i).cor},data-codigo=${h.getHorarioDisciplina(i).disciplina.codigo},data-tipo=${h.getHorarioDisciplina(i).disciplina.tipo},
-                        data-area=${h.getHorarioDisciplina(i).disciplina.area},data-curso=${h.curso},data-periodo=${h.nPeriodo},data-nome=${h.getHorarioDisciplina(i).disciplina.nome}">
+                        data-area=${h.getHorarioDisciplina(i).disciplina.area},data-curso=${h.curso},data-periodo=${h.nPeriodo},data-nome=${h.getHorarioDisciplina(i).disciplina.nome},data-id=${h.getHorarioDisciplina(i).disciplina.ID}">
                             <span class="text" th:id="'spn'+${iIndex.index}+'y'+${slotsIndex.index}" th:text="${h.getHorarioDisciplina(i).disciplina.nome}" ondblclick="dblclickDisicplinaText(event)"></span><br>
                         </div>
                     </div>
@@ -121,7 +122,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-dark">Salvar</button>
+                            <button type="button" class="btn btn-dark" onclick="salvar()">Salvar</button>
                         </div>
                     </div>
                 </div>
@@ -146,7 +147,7 @@
             </select> 
             <select id="disc">
                 <option value=""/>
-                <option th:each="dis : ${disciplinas}" th:text="${dis.nome}" th:value="${dis.codigo}"/>
+                <option th:each="dis : ${disciplinas}" th:text="${dis.nome}" th:value="${dis.ID}"/>
             </select>
         </div>
     </div>

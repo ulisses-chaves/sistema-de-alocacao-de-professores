@@ -117,9 +117,9 @@ public class  DisciplinaController {
         }
     }
 
-    @RequestMapping(value = "/alocarProfessor"  , method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
+    /*@RequestMapping(value = "/alocarProfessor"  , method = RequestMethod.POST, produces = {MimeTypeUtils.TEXT_PLAIN_VALUE})
     public ResponseEntity<String> alocar(String cpf){
         return new ResponseEntity<>("",HttpStatus.NOT_ACCEPTABLE);
-    }
+    }*/
 }
 ;
